@@ -1,0 +1,62 @@
+---
+import { MEDIA_ASSETS } from '../utils/media';
+
+interface Props {
+  authorName?: string;
+  authorRole?: string;
+  authorBio?: string;
+  authorAvatar?: string;
+}
+
+const {
+  authorName = 'Nhung Pham',
+  authorRole = 'Founder & Caregiver Advocate',
+  authorBio = 'Kinh nghiệm thực tiễn đồng hành chăm sóc cha mẹ già tuổi 70+ tại gia; kết nối giải pháp tài chính và tâm lý lão khoa thế hệ Bánh Mì Kẹp.',
+  authorAvatar = MEDIA_ASSETS.avatars.nhungPham,
+} = Astro.props;
+---
+
+<div
+  class="author-geo-box"
+  itemscope
+  itemtype="https://schema.org/Person"
+  aria-label="Thông tin tác giả và Hội đồng thẩm định chuyên môn"
+>
+  <div class="author-geo-box__inner">
+    <img
+      src={authorAvatar}
+      alt={`${authorName} - Tác giả Kinship AI`}
+      class="author-geo-box__avatar"
+      itemprop="image"
+      width="56"
+      height="56"
+      loading="eager"
+    />
+
+    <div class="author-geo-box__content">
+      <div class="author-geo-box__header">
+        <div>
+          <span class="author-geo-box__eyebrow">✍️ Tác giả bài viết</span>
+          <h4 class="author-geo-box__name" itemprop="name">{authorName}</h4>
+        </div>
+        <span class="author-geo-box__role" itemprop="jobTitle">{authorRole}</span>
+      </div>
+
+      <p class="author-geo-box__bio" itemprop="description">
+        {authorBio}
+      </p>
+
+      <div class="author-geo-box__reviewers" aria-label="Hội đồng thẩm định E-E-A-T">
+        <span class="author-geo-box__reviewer-item">
+          <span class="author-geo-box__check" aria-hidden="true">✓</span>
+          <span>Thẩm định Lão khoa: <strong>TS. BS. Tâm</strong> (Chuyên gia Lão học &amp; Tâm lý gia đình)</span>
+        </span>
+        <span class="author-geo-box__reviewer-item">
+          <span class="author-geo-box__check" aria-hidden="true">✓</span>
+          <span>Thẩm định Tài chính: <strong>Ông Minh</strong> (Cố vấn Hoạch định Chi phí Chăm sóc Dài hạn)</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+

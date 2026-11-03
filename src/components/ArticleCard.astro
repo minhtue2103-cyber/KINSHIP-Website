@@ -1,0 +1,95 @@
+---
+import QuadrantBadge from './QuadrantBadge.astro';
+import { getArticleThumbnail } from '../utils/media';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  pubDate: Date;
+  quadrant?: string;
+  tags?: string[];
+  thumbnailUrl?: string;
+  readingTime?: number;
+}
+
+const {
+  title,
+  description,
+  slug,
+  pubDate,
+  quadrant = 'Educate',
+  tags = [],
+  thumbnailUrl,
+  readingTime = 8,
+} = Astro.props;
+
+const resolvedThumb = getArticleThumbnail(thumbnailUrl, quadrant);
+
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(new Date(date));
+}
+
+const cleanTags = tags
+  .map((t) => t.replace(/^kinship\//, ''))
+  .filter((t) => t !== 'content' && t !== 'UmbrexMatrix')
+  .slice(0, 3);
+---
+
+<article
+  class="article-card"
+  data-quadrant={quadrant}
+  data-title={title.toLowerCase()}
+  data-tags={cleanTags.join(' ').toLowerCase()}
+>
+  <a href={`/blog/${slug}`} class="article-card__thumb-link" tabindex="-1" aria-hidden="true">
+    <img
+      src={resolvedThumb}
+      alt={title}
+      class="article-card__thumb"
+      loading="lazy"
+      width="600"
+      height="338"
+    />
+  </a>
+
+  <div class="article-card__body">
+    <div class="article-card__meta">
+      <QuadrantBadge quadrant={quadrant} />
+      <span class="article-card__meta-sep" aria-hidden="true">•</span>
+      <time datetime={new Date(pubDate).toISOString()} class="article-card__date">
+        {formatDate(pubDate)}
+      </time>
+      <span class="article-card__meta-sep" aria-hidden="true">•</span>
+      <span class="article-card__reading-time">⏱️ {readingTime} phút</span>
+    </div>
+
+    <h3 class="article-card__title">
+      <a href={`/blog/${slug}`} class="article-card__title-link">
+        {title}
+      </a>
+    </h3>
+
+    <p class="article-card__desc">{description}</p>
+
+    {cleanTags.length > 0 && (
+      <div class="article-card__tags">
+        {cleanTags.map((tag) => (
+          <span class="tag-pill">#{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <div class="article-card__footer">
+      <a href={`/blog/${slug}`} class="article-card__readmore">
+        <span>Đọc bài viết</span>
+        <span class="article-card__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+

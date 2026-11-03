@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { MEDIA_ASSETS } from '../../utils/media';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+
+const breadcrumbs = [
+  { name: 'Trang chủ', url: '/' },
+  { name: 'Caregiver Blog', url: '/blog' },
+];
+---
+
+<Layout
+  title="Caregiver Blog — Góc Nhìn Chuyên Sâu & Cẩm Nang Chăm Sóc Cha Mẹ Già"
+  description="Dữ liệu thực chứng, phân tích tâm lý lão khoa từ TS. BS. Tâm và giải pháp tài chính gia đình từ chuyên gia Minh dành cho thế hệ Bánh Mì Kẹp."
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Blog Hub Hero & Breadcrumb -->
+  <section class="blog-hub-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Trang chủ</a>
+        <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+        <span class="breadcrumb__current">Caregiver Blog</span>
+      </nav>
+
+      <h1 class="blog-hub-hero__title">
+        Góc Nhìn Chuyên Sâu &amp; Cẩm Nang Chăm Sóc Cha Mẹ Già
+      </h1>
+      <p class="blog-hub-hero__subtitle">
+        Dữ liệu thực chứng, phân tích tâm lý lão khoa và giải pháp tài chính bền vững giúp thế hệ Bánh Mì Kẹp hóa giải áp lực chữ Hiếu.
+      </p>
+
+      <!-- Filter Bar: Umbrex Pills & Search Input -->
+      <div class="blog-filter-bar">
+        <div class="category-pills" role="tablist" aria-label="Lọc theo góc phần tư Umbrex">
+          <button type="button" class="category-pill active" data-filter="all">
+            Tất cả ({sortedPosts.length})
+          </button>
+          <button type="button" class="category-pill" data-filter="Educate">
+            📚 Educate
+          </button>
+          <button type="button" class="category-pill" data-filter="Inspire">
+            ❤️ Inspire
+          </button>
+          <button type="button" class="category-pill" data-filter="Entertain">
+            ☕ Entertain
+          </button>
+          <button type="button" class="category-pill" data-filter="Convince">
+            🎯 Convince
+          </button>
+        </div>
+
+        <div class="blog-search-box">
+          <span class="blog-search-box__icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="blog-search-input"
+            class="blog-search-box__input"
+            placeholder="Tìm kiếm bài viết, chủ đề (chữ hiếu, viện dưỡng lão, chi phí...)"
+            aria-label="Tìm kiếm bài viết"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Feed Grid -->
+  <section class="container blog-feed-section">
+    <div class="posts-grid" id="blog-posts-grid">
+      {sortedPosts.map((post) => (
+        <ArticleCard
+          title={post.data.title}
+          description={post.data.description}
+          slug={post.slug}
+          pubDate={post.data.pubDate}
+          quadrant={post.data.quadrant}
+          tags={post.data.tags}
+          thumbnailUrl={post.data.thumbnail}
+          readingTime={post.data.readingTime || 8}
+        />
+      ))}
+    </div>
+
+    <div id="blog-empty-result" class="empty-state" style="display: none;">
+      <p>Không tìm thấy bài viết nào khớp với bộ lọc hiện tại. Hãy thử từ khóa hoặc danh mục khác.</p>
+    </div>
+  </section>
+
+  <!-- In-feed Conversion Banner -->
+  <section id="cam-nang-vi-mo" class="container">
+    <div class="micro-care-banner">
+      <div class="micro-care-banner__content">
+        <span class="micro-care-banner__badge">🌱 Cẩm nang Thực hành</span>
+        <h2 class="micro-care-banner__title">
+          Thiết lập hệ thống chăm sóc cha mẹ tại gia mà không kiệt sức
+        </h2>
+        <p class="micro-care-banner__desc">
+          Khám phá phương pháp kết hợp dưỡng lão bán trú và điều dưỡng theo giờ (Micro-care) được Hội đồng chuyên gia Kinship AI khuyến nghị.
+        </p>
+        <div class="micro-care-banner__actions">
+          <a href="/#hoi-dong-chuyen-gia" class="btn btn--accent">
+            Tìm hiểu Phương pháp Micro-Care
+          </a>
+        </div>
+      </div>
+      <div class="micro-care-banner__visual">
+        <img
+          src={MEDIA_ASSETS.microCareGraphic}
+          alt="Cẩm nang chăm sóc vi mô Kinship AI"
+          class="micro-care-banner__img"
+          width="600"
+          height="400"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pills = document.querySelectorAll('.category-pill[data-filter]');
+      const searchInput = document.getElementById('blog-search-input');
+      const cards = document.querySelectorAll('#blog-posts-grid .article-card');
+      const emptyState = document.getElementById('blog-empty-result');
+
+      let activeQuadrant = 'all';
+      let searchQuery = '';
+
+      function filterArticles() {
+        let visibleCount = 0;
+        cards.forEach((card) => {
+          const quad = card.getAttribute('data-quadrant') || '';
+          const title = card.getAttribute('data-title') || '';
+          const tags = card.getAttribute('data-tags') || '';
+          const desc = card.textContent ? card.textContent.toLowerCase() : '';
+
+          const matchesQuad = activeQuadrant === 'all' || quad === activeQuadrant;
+          const matchesSearch =
+            !searchQuery ||
+            title.includes(searchQuery) ||
+            tags.includes(searchQuery) ||
+            desc.includes(searchQuery);
+
+          const show = matchesQuad && matchesSearch;
+          card.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const urlQuad = params.get('quadrant');
+      if (urlQuad) {
+        activeQuadrant = urlQuad;
+        pills.forEach((p) => {
+          p.classList.toggle('active', p.getAttribute('data-filter') === activeQuadrant);
+        });
+        filterArticles();
+      }
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          activeQuadrant = pill.getAttribute('data-filter') || 'all';
+          pills.forEach((p) => p.classList.toggle('active', p === pill));
+          filterArticles();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = (e.target.value || '').trim().toLowerCase();
+          filterArticles();
+        });
+      }
+    });
+  </script>
+</Layout>
+

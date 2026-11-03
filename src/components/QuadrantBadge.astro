@@ -1,0 +1,26 @@
+---
+interface Props {
+  quadrant?: 'Educate' | 'Inspire' | 'Entertain' | 'Convince' | string;
+}
+
+const { quadrant = 'Educate' } = Astro.props;
+
+const quadrantMeta: Record<string, { label: string; icon: string; className: string }> = {
+  Educate: { label: 'Educate', icon: '📚', className: 'quadrant-badge--educate' },
+  Inspire: { label: 'Inspire', icon: '❤️', className: 'quadrant-badge--inspire' },
+  Entertain: { label: 'Entertain', icon: '☕', className: 'quadrant-badge--entertain' },
+  Convince: { label: 'Convince', icon: '🎯', className: 'quadrant-badge--convince' },
+};
+
+const current = quadrantMeta[quadrant] || {
+  label: quadrant,
+  icon: '🌱',
+  className: 'quadrant-badge--educate',
+};
+---
+
+<span class={`quadrant-badge ${current.className}`}>
+  <span class="quadrant-badge__icon" aria-hidden="true">{current.icon}</span>
+  <span>{current.label}</span>
+</span>
+

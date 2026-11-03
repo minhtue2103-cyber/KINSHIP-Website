@@ -1,29 +1,69 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import QuadrantBadge from '../../components/QuadrantBadge.astro';
+import AuthorGeoBox from '../../components/AuthorGeoBox.astro';
+import FeaturePhoto from '../../components/FeaturePhoto.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import SourcesList from '../../components/SourcesList.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getArticleFeaturePhoto } from '../../utils/media';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: post,
+    props: {
+      post,
+      relatedPosts: posts.filter((p) => p.slug !== post.slug).slice(0, 3),
+    },
   }));
 }
 
-type Props = CollectionEntry<'blog'>;
+interface Props {
+  post: CollectionEntry<'blog'>;
+  relatedPosts: CollectionEntry<'blog'>[];
+}
 
-const post = Astro.props;
-const { Content } = await post.render();
+const { post, relatedPosts = [] } = Astro.props;
+const { Content, headings } = await post.render();
+
+const tocHeadings = headings.filter(
+  (h) => h.depth === 2 && !h.text.toLowerCase().includes('tài liệu & nguồn tham khảo')
+);
 
 function formatDate(date: Date) {
   return new Intl.DateTimeFormat('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
     year: 'numeric',
-    month: 'long',
-    day: 'numeric'
   }).format(new Date(date));
 }
 
 const faqEntities = post.data.faqSchema?.mainEntity || [];
+const displayDate = post.data.updatedDate || post.data.pubDate;
+const cleanTags = (post.data.tags || [])
+  .map((t) => t.replace(/^kinship\//, ''))
+  .filter((t) => t !== 'content' && t !== 'UmbrexMatrix');
+
+const featurePhotoUrl = getArticleFeaturePhoto(
+  post.data.featurePhoto,
+  post.slug,
+  post.data.quadrant
+);
+
+const featureCaption =
+  post.data.featureCaption ||
+  `Ảnh minh họa: ${post.data.title} — Bản quyền nội dung thực chứng thuộc Kinship AI.`;
+
+const breadcrumbs = [
+  { name: 'Trang chủ', url: '/' },
+  { name: 'Caregiver Blog', url: '/blog' },
+  ...(post.data.quadrant
+    ? [{ name: post.data.quadrant, url: `/blog?quadrant=${post.data.quadrant}` }]
+    : []),
+  { name: post.data.title, url: `/blog/${post.slug}` },
+];
 ---
 
 <Layout
@@ -31,296 +71,198 @@ const faqEntities = post.data.faqSchema?.mainEntity || [];
   description={post.data.description}
   faqSchema={post.data.faqSchema}
   ogType="article"
+  ogImage={featurePhotoUrl}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  breadcrumbs={breadcrumbs}
 >
-  <article class="container post-container">
+  <article class="container article-detail">
     <!-- Breadcrumb -->
-    <nav class="breadcrumb">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Trang chủ</a>
-      <span class="separator">/</span>
-      <a href="/#bai-viet">Blog</a>
-      <span class="separator">/</span>
-      <span class="current">{post.data.title}</span>
+      <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+      <a href="/blog">Caregiver Blog</a>
+      {post.data.quadrant && (
+        <>
+          <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+          <a href={`/blog?quadrant=${post.data.quadrant}`}>{post.data.quadrant}</a>
+        </>
+      )}
+      <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+      <span class="breadcrumb__current">{post.data.title}</span>
     </nav>
 
-    <!-- Post Header -->
-    <header class="post-header">
-      <div class="header-badges">
-        {post.data.quadrant && (
-          <span class="quadrant-badge">{post.data.quadrant}</span>
-        )}
-        <time class="post-date" datetime={new Date(post.data.pubDate).toISOString()}>
-          {formatDate(post.data.pubDate)}
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-header__badges">
+        <QuadrantBadge quadrant={post.data.quadrant} />
+        <span class="article-card__meta-sep" aria-hidden="true">•</span>
+        <time class="article-header__date" datetime={new Date(displayDate).toISOString()}>
+          🗓️ Cập nhật: {formatDate(displayDate)}
         </time>
+        <span class="article-card__meta-sep" aria-hidden="true">•</span>
+        <span class="article-header__reading">⏱️ {post.data.readingTime || 8} phút đọc</span>
       </div>
 
-      <h1 class="post-title">{post.data.title}</h1>
-      <p class="post-lead">{post.data.description}</p>
+      <h1 class="article-header__title">{post.data.title}</h1>
+      <p class="article-header__lead">{post.data.description}</p>
 
-      {post.data.tags && post.data.tags.length > 0 && (
-        <div class="post-tags">
-          {post.data.tags.map((tag) => (
-            <span class="tag-pill">#{tag.replace('kinship/', '')}</span>
+      {cleanTags.length > 0 && (
+        <div class="article-header__tags">
+          {cleanTags.map((tag) => (
+            <span class="tag-pill">#{tag}</span>
           ))}
         </div>
       )}
     </header>
 
-    <!-- Post Body (Markdown Content) -->
-    <div class="prose post-body">
-      <Content />
-    </div>
+    <!-- Khối Author Dành Riêng Cho GEO (Div Author & E-E-A-T Card) -->
+    <AuthorGeoBox />
 
-    <!-- Interactive FAQ Section (Schema.org / Google GEO Preview) -->
-    {faqEntities && faqEntities.length > 0 && (
-      <section class="faq-section">
-        <h2 class="faq-title">Câu hỏi thường gặp (FAQ)</h2>
-        <div class="faq-list">
-          {faqEntities.map((faq: any) => (
-            <details class="faq-item">
-              <summary class="faq-question">{faq.name}</summary>
-              <div class="faq-answer">
-                <p>{faq.acceptedAnswer?.text}</p>
-              </div>
-            </details>
-          ))}
-        </div>
-      </section>
-    )}
+    <!-- Feature Photo Bắt Buộc (1200x630 px) -->
+    <FeaturePhoto
+      src={post.data.featurePhoto}
+      alt={post.data.title}
+      caption={featureCaption}
+      slug={post.slug}
+      quadrant={post.data.quadrant}
+    />
 
-    <!-- Public Sources Section -->
-    {post.data.sources && post.data.sources.length > 0 && (
-      <section class="sources-section">
-        <h3 class="sources-title">Tài liệu & Nguồn nghiên cứu tham khảo</h3>
-        <ul class="sources-list">
-          {post.data.sources.map((src) => (
-            <li>
-              <a href={src.url} target="_blank" rel="noopener noreferrer">
-                {src.title} ↗
+    <!-- Body Layout: Sticky TOC Left + 820px Prose Content Right -->
+    <div class="article-layout-grid">
+      {tocHeadings.length > 0 && (
+        <aside class="article-sidebar" aria-label="Mục lục bài viết">
+          <div class="sticky-toc">
+            <h3 class="sticky-toc__title">📋 Mục lục bài viết</h3>
+            <ul class="sticky-toc__list">
+              {tocHeadings.map((h) => (
+                <li class="sticky-toc__item">
+                  <a href={`#${h.slug}`} class="sticky-toc__link">
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+              {faqEntities.length > 0 && (
+                <li class="sticky-toc__item">
+                  <a href="#faq-section-heading" class="sticky-toc__link">
+                    ❓ Câu hỏi thường gặp (FAQ)
+                  </a>
+                </li>
+              )}
+              {post.data.sources && post.data.sources.length > 0 && (
+                <li class="sticky-toc__item">
+                  <a href="#sources-heading" class="sticky-toc__link">
+                    📚 Tài liệu &amp; Nguồn tham khảo
+                  </a>
+                </li>
+              )}
+            </ul>
+
+            <div class="sticky-mini-cta">
+              <span class="sticky-mini-cta__badge">🌱 Đồng hành Vi mô</span>
+              <p class="sticky-mini-cta__text">
+                Cần lộ trình chăm sóc cha mẹ vừa vặn tài chính gia đình?
+              </p>
+              <a href="#cam-nang-vi-mo" class="btn btn--accent btn--sm btn--full">
+                Tải Cẩm Nang Ngay
               </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
+            </div>
+          </div>
+        </aside>
+      )}
 
-    <!-- Navigation Back -->
-    <footer class="post-nav-footer">
-      <a href="/" class="back-link">← Quay lại danh sách bài viết</a>
-    </footer>
+      <div class="article-main-col">
+        <!-- Markdown Content Body -->
+        <div class="prose post-body" id="article-prose-body">
+          <Content />
+        </div>
+
+        <!-- Contextual Call To Action Box -->
+        <div id="cam-nang-vi-mo" class="contextual-cta-box">
+          <div class="contextual-cta-box__badge">💡 Giải pháp Hành động Vi mô</div>
+          <h3 class="contextual-cta-box__title">
+            Đồng hành cùng cha mẹ già mà không đánh mất chính mình
+          </h3>
+          <p class="contextual-cta-box__desc">
+            Tải miễn phí <strong>"Bản hướng dẫn thiết lập mạng lưới chăm sóc bán trú và điều dưỡng vi mô tại nhà"</strong> được biên soạn bởi TS. BS. Tâm &amp; Chuyên gia Tài chính Minh.
+          </p>
+          <a href="/blog" class="btn btn--accent">
+            Tải Bản Hướng Dẫn Chăm Sóc Bán Trú Tại Gia
+          </a>
+        </div>
+
+        <!-- Interactive FAQ Section (Schema.org / Google GEO) -->
+        <FaqAccordion faqEntities={faqEntities} />
+
+        <!-- Public Sources Section -->
+        <SourcesList sources={post.data.sources} />
+      </div>
+    </div>
   </article>
+
+  <!-- Bài viết cùng chủ đề (Related Articles) -->
+  {relatedPosts.length > 0 && (
+    <section class="container related-articles-section">
+      <div class="section-header-row">
+        <div>
+          <span class="section-eyebrow">Đọc tiếp chủ đề liên quan</span>
+          <h2 class="section-title">Bài viết cùng chủ đề dành cho bạn</h2>
+        </div>
+        <a href="/blog" class="btn btn--outline btn--sm">
+          Xem toàn bộ Blog →
+        </a>
+      </div>
+
+      <div class="posts-grid">
+        {relatedPosts.map((rel) => (
+          <ArticleCard
+            title={rel.data.title}
+            description={rel.data.description}
+            slug={rel.slug}
+            pubDate={rel.data.pubDate}
+            quadrant={rel.data.quadrant}
+            tags={rel.data.tags}
+            thumbnailUrl={rel.data.thumbnail}
+            readingTime={rel.data.readingTime || 8}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const prose = document.getElementById('article-prose-body');
+      if (!prose) return;
+
+      // 1. Nâng cấp định dạng khối > [!SUMMARY] BLUF: thành Callout chuẩn GEO
+      const blockquotes = prose.querySelectorAll('blockquote');
+      blockquotes.forEach((bq) => {
+        const html = bq.innerHTML;
+        if (html.includes('[!SUMMARY]') || html.includes('BLUF:')) {
+          bq.classList.add('bluf-callout');
+          const cleanHtml = html
+            .replace(/\[!SUMMARY\]\s*(BLUF:\s*)?/i, '')
+            .replace(/^<p>\s*BLUF:\s*/i, '<p>');
+          bq.innerHTML =
+            '<div class="bluf-callout__badge"><span aria-hidden="true">💡</span><span>Tóm tắt trực diện (BLUF)</span></div>' +
+            '<div class="bluf-callout__text">' +
+            cleanHtml +
+            '</div>';
+        }
+      });
+
+      // 2. Ẩn mục "## Tài liệu & Nguồn tham khảo" trùng lặp trong Markdown vì đã có component SourcesList chuẩn hóa bên dưới
+      const headings = prose.querySelectorAll('h2');
+      headings.forEach((h2) => {
+        if (h2.textContent && h2.textContent.toLowerCase().includes('tài liệu & nguồn tham khảo')) {
+          const nextEl = h2.nextElementSibling;
+          if (nextEl && nextEl.tagName === 'UL') {
+            nextEl.style.display = 'none';
+          }
+          h2.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </Layout>
-
-<style>
-  .post-container {
-    max-width: 820px;
-    padding-top: 1rem;
-  }
-
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.88rem;
-    color: #64748b;
-    margin-bottom: 2rem;
-    white-space: nowrap;
-    overflow-x: auto;
-  }
-
-  .breadcrumb .separator {
-    color: #cbd5e1;
-  }
-
-  .breadcrumb .current {
-    color: #0f172a;
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .post-header {
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .header-badges {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .quadrant-badge {
-    background: #ccfbf1;
-    color: #0f766e;
-    font-weight: 700;
-    font-size: 0.78rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .post-date {
-    font-size: 0.9rem;
-    color: #64748b;
-  }
-
-  .post-title {
-    font-size: 2.35rem;
-    font-weight: 800;
-    line-height: 1.3;
-    color: #0f172a;
-    margin-bottom: 1.25rem;
-  }
-
-  .post-lead {
-    font-size: 1.15rem;
-    color: #475569;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag-pill {
-    background: #f1f5f9;
-    color: #475569;
-    font-size: 0.82rem;
-    padding: 0.2rem 0.65rem;
-    border-radius: 6px;
-  }
-
-  .post-body {
-    margin-bottom: 3.5rem;
-  }
-
-  /* FAQ Accordion */
-  .faq-section {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 2rem;
-    margin: 3.5rem 0;
-  }
-
-  .faq-title {
-    font-size: 1.45rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 1.5rem;
-  }
-
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .faq-item {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 1rem 1.25rem;
-    transition: background-color 0.2s ease;
-  }
-
-  .faq-item[open] {
-    background: #ffffff;
-    border-color: #0f766e;
-  }
-
-  .faq-question {
-    font-weight: 600;
-    color: #0f172a;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .faq-question::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-question::after {
-    content: '+';
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: #0f766e;
-    transition: transform 0.2s ease;
-  }
-
-  .faq-item[open] .faq-question::after {
-    content: '−';
-    transform: rotate(180deg);
-  }
-
-  .faq-answer {
-    margin-top: 0.85rem;
-    color: #334155;
-    font-size: 0.98rem;
-    line-height: 1.7;
-    border-top: 1px solid #e2e8f0;
-    padding-top: 0.85rem;
-  }
-
-  /* Sources Section */
-  .sources-section {
-    background: #f8fafc;
-    border: 1px dashed #cbd5e1;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .sources-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #334155;
-    margin-bottom: 0.75rem;
-  }
-
-  .sources-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .sources-list li a {
-    font-size: 0.92rem;
-    color: #0f766e;
-    word-break: break-all;
-  }
-
-  .sources-list li a:hover {
-    text-decoration: underline;
-  }
-
-  .post-nav-footer {
-    border-top: 1px solid #e2e8f0;
-    padding-top: 2rem;
-    margin-top: 2rem;
-  }
-
-  .back-link {
-    font-weight: 600;
-    font-size: 0.98rem;
-  }
-
-  @media (max-width: 768px) {
-    .post-title {
-      font-size: 1.75rem;
-    }
-    .faq-section {
-      padding: 1.25rem;
-    }
-  }
-</style>

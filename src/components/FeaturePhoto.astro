@@ -1,0 +1,32 @@
+---
+import { getArticleFeaturePhoto } from '../utils/media';
+
+interface Props {
+  src?: string;
+  alt: string;
+  caption?: string;
+  slug?: string;
+  quadrant?: string;
+}
+
+const { src, alt, caption, slug, quadrant } = Astro.props;
+const resolvedSrc = getArticleFeaturePhoto(src, slug, quadrant);
+---
+
+<figure class="feature-photo-container">
+  <img
+    src={resolvedSrc}
+    alt={alt}
+    class="feature-photo-container__img"
+    loading="eager"
+    fetchpriority="high"
+    width="1200"
+    height="630"
+  />
+  {caption && (
+    <figcaption class="feature-photo-container__caption">
+      {caption}
+    </figcaption>
+  )}
+</figure>
+
