@@ -1,0 +1,294 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+
+function getQuadrantBadgeColor(quadrant?: string) {
+  switch (quadrant) {
+    case 'Educate': return 'badge-educate';
+    case 'Inspire': return 'badge-inspire';
+    case 'Entertain': return 'badge-entertain';
+    case 'Convince': return 'badge-convince';
+    default: return 'badge-default';
+  }
+}
+
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('vi-VN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(new Date(date));
+}
+---
+
+<Layout title="Trang chủ — Đồng hành cùng cha mẹ già">
+  <!-- Hero Section -->
+  <section class="hero-section container">
+    <div class="hero-badge">Cầu nối gia đình & Đồng hành vi mô</div>
+    <h1 class="hero-title">
+      Đồng hành cùng thế hệ <span>Bánh Mì Kẹp</span> chăm sóc cha mẹ già tại gia
+    </h1>
+    <p class="hero-subtitle">
+      Thấu hiểu tâm lý lão khoa, hóa giải dằn vặt chữ Hiếu và thiết kế hệ thống chăm sóc bền vững cho gia đình Việt Nam hiện đại.
+    </p>
+  </section>
+
+  <!-- Post List Section -->
+  <section id="bai-viet" class="container posts-section">
+    <div class="section-header">
+      <h2 class="section-title">Bài viết chuyên sâu</h2>
+      <p class="section-subtitle">Dữ liệu thực chứng, góc nhìn đa chiều từ hội đồng chuyên gia lão khoa và quản trị tài chính.</p>
+    </div>
+
+    {sortedPosts.length === 0 ? (
+      <div class="empty-state">
+        <p>Chưa có bài viết nào được xuất bản. Hãy quay lại sau!</p>
+      </div>
+    ) : (
+      <div class="posts-grid">
+        {sortedPosts.map((post) => (
+          <article class="post-card">
+            <div class="card-meta">
+              {post.data.quadrant && (
+                <span class={`badge ${getQuadrantBadgeColor(post.data.quadrant)}`}>
+                  {post.data.quadrant}
+                </span>
+              )}
+              <time datetime={new Date(post.data.pubDate).toISOString()}>
+                {formatDate(post.data.pubDate)}
+              </time>
+            </div>
+            <h3 class="card-title">
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </h3>
+            <p class="card-desc">{post.data.description}</p>
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="card-tags">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="tag-pill">#{tag.replace('kinship/', '')}</span>
+                ))}
+              </div>
+            )}
+            <div class="card-footer">
+              <a href={`/blog/${post.slug}`} class="read-more">
+                Đọc bài viết <span>→</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .hero-section {
+    text-align: center;
+    padding: 3.5rem 1rem 4rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: #ccfbf1;
+    color: #0f766e;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #0f172a;
+    max-width: 850px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-title span {
+    color: #0f766e;
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: #475569;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .posts-section {
+    padding-top: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    color: #64748b;
+    font-size: 1.05rem;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .post-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    color: #64748b;
+  }
+
+  .badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-educate {
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+
+  .badge-inspire {
+    background: #f0fdf4;
+    color: #15803d;
+  }
+
+  .badge-entertain {
+    background: #faf5ff;
+    color: #7e22ce;
+  }
+
+  .badge-convince {
+    background: #fffbeb;
+    color: #b45309;
+  }
+
+  .badge-default {
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  .card-title {
+    font-size: 1.28rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title a {
+    color: #0f172a;
+  }
+
+  .card-title a:hover {
+    color: #0f766e;
+  }
+
+  .card-desc {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag-pill {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 0.78rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .card-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+  }
+
+  .read-more {
+    font-weight: 600;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .read-more span {
+    transition: transform 0.2s ease;
+  }
+
+  .read-more:hover span {
+    transform: translateX(4px);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #64748b;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+    }
+  }
+</style>
