@@ -7,6 +7,7 @@ import FaqAccordion from '../../components/FaqAccordion.astro';
 import SourcesList from '../../components/SourcesList.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getArticleFeaturePhoto } from '../../utils/media';
+import { getQuadrantConfig } from '../../utils/taxonomy';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -56,13 +57,7 @@ const featureCaption =
   post.data.featureCaption ||
   `Ảnh minh họa: ${post.data.title} — Bản quyền nội dung thực chứng thuộc Kinship AI.`;
 
-const quadrantLabels: Record<string, string> = {
-  Educate: 'Hiểu Bệnh & Chi Phí',
-  Inspire: 'Nỗi Lòng Người Con',
-  Entertain: 'Chuyện Nhà & Lối Sống',
-  Convince: 'Cách Chăm Sóc Tại Nhà',
-};
-const quadrantName = post.data.quadrant ? (quadrantLabels[post.data.quadrant] || post.data.quadrant) : '';
+const quadrantName = post.data.quadrant ? getQuadrantConfig(post.data.quadrant).label : '';
 
 const breadcrumbs = [
   { name: 'Trang chủ', url: '/' },
@@ -179,7 +174,7 @@ const breadcrumbs = [
               <p class="sticky-mini-cta__text">
                 Cần phương án chăm sóc cha mẹ phù hợp hoàn cảnh gia đình?
               </p>
-              <a href="#cam-nang-vi-mo" class="btn btn--accent btn--sm btn--full">
+              <a href="/cam-nang-cham-soc" class="btn btn--accent btn--sm btn--full">
                 Tải Bản Hướng Dẫn
               </a>
             </div>
@@ -204,9 +199,9 @@ const breadcrumbs = [
           <p class="contextual-cta-box__desc">
             Tải miễn phí <strong>"Bản hướng dẫn ngồi lại đối thoại cùng gia đình và thiết lập phương án có người phụ giúp tại nhà"</strong> do TS.BS Tâm &amp; Cố vấn tài chính Ông Minh biên soạn.
           </p>
-          <a href="/#cam-nang-vi-mo" class="btn btn--accent">
-            <i class="bi bi-download" aria-hidden="true"></i>
-            <span>Tải Bản Hướng Dẫn Thực Hành</span>
+          <a href="/cam-nang-cham-soc" class="btn btn--accent">
+            <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
+            <span>Tải Cẩm Nang Chăm Sóc Cho Mẹ</span>
           </a>
         </div>
 

@@ -7,12 +7,13 @@ pubDate: '2026-11-02'
 updatedDate: '2026-11-02'
 quadrant: Educate
 tags:
-- kinship/content
-- millennial_mom
-- midlife_crisis
-- sandwich_generation
-- caregiver_burnout
-- how_to_cope
+- giupchame
+- caregivervietnam
+- khunghoangtuoi40
+- chamsocchame
+- kietsuccamxuc
+featurePhoto: https://picsum.photos/seed/me-gen-y-khung-hoang-qua-tai-tuoi-40/1200/630
+featureCaption: 'Ảnh minh họa: Mẹ Gen Y 40 Tuổi Quá Tải — Nguồn ảnh: Picsum Photos'
 faqSchema:
   '@context': https://schema.org
   '@type': FAQPage

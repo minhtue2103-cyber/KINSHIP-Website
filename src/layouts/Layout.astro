@@ -165,7 +165,10 @@ const breadcrumbSchema =
             width="48"
             height="48"
           />
-          <span class="brand-name">Giúp Cha <strong>Mẹ</strong></span>
+          <div class="brand-text-block">
+            <span class="brand-name">Giúp <strong>Cha Mẹ</strong></span>
+            <span class="brand-tagline">Chăm sóc cha mẹ già nhẹ nhàng hơn</span>
+          </div>
         </a>
 
         <div class="header-actions">
@@ -226,7 +229,10 @@ const breadcrumbSchema =
               width="40"
               height="40"
             />
-            <span class="brand-name">Giúp Cha <strong>Mẹ</strong></span>
+            <div class="brand-text-block">
+              <span class="brand-name">Giúp <strong>Cha Mẹ</strong></span>
+              <span class="brand-tagline">Chăm sóc cha mẹ già nhẹ nhàng hơn</span>
+            </div>
           </a>
           <button
             type="button"
@@ -245,6 +251,15 @@ const breadcrumbSchema =
               <a href="/" class={currentPath === '/' ? 'drawer-nav-link active' : 'drawer-nav-link'}>
                 <i class="bi bi-house-heart-fill" aria-hidden="true"></i>
                 <span>Trang chủ</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/cam-nang-cham-soc"
+                class={currentPath === '/cam-nang-cham-soc' ? 'drawer-nav-link active' : 'drawer-nav-link'}
+              >
+                <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
+                <span>Cẩm Nang Chăm Sóc Cho Mẹ</span>
               </a>
             </li>
             <li>
@@ -346,7 +361,7 @@ const breadcrumbSchema =
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-col footer-col--brand">
-          <a href="/" class="brand-logo">
+          <a href="/" class="brand-logo" aria-label="Giúp Cha Mẹ">
             <img
               src={MEDIA_ASSETS.logo}
               alt="Giúp Cha Mẹ Logo"
@@ -354,13 +369,16 @@ const breadcrumbSchema =
               width="44"
               height="44"
             />
-            <span class="brand-name">Giúp Cha <strong>Mẹ</strong></span>
+            <div class="brand-text-block">
+              <span class="brand-name">Giúp <strong>Cha Mẹ</strong></span>
+              <span class="brand-tagline">Chăm sóc cha mẹ già nhẹ nhàng hơn</span>
+            </div>
           </a>
           <p class="footer-desc">
             Điểm tựa thực tế cho người trưởng thành giữa hai đầu gánh nặng: giữ sức khỏe tinh thần cho mình và chăm sóc cha mẹ già tại nhà. Nhìn thẳng vào áp lực tiền bạc, sự mệt mỏi thể xác và những va chạm trong gia đình Việt.
           </p>
           <p class="footer-disclaimer">
-            <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+            <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
             <strong>Tuyên bố y tế:</strong> Nội dung mang tính chất chia sẻ kinh nghiệm, kiến thức y khoa đại chúng và hoạch định đời sống gia đình, không thay thế chẩn đoán hay chỉ định điều trị y khoa trực tiếp từ bác sĩ.
           </p>
 
@@ -397,8 +415,13 @@ const breadcrumbSchema =
               </a>
             </li>
             <li>
+              <a href="/cam-nang-cham-soc">
+                <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> 2. Cẩm Nang Chăm Sóc Cho Mẹ
+              </a>
+            </li>
+            <li>
               <a href="/blog">
-                <i class="bi bi-journal-text" aria-hidden="true"></i> 2. Cẩm nang Chăm sóc Cha mẹ tại nhà
+                <i class="bi bi-journal-text" aria-hidden="true"></i> 3. Cẩm nang Chăm sóc Cha mẹ tại nhà
               </a>
             </li>
             <li>
@@ -447,7 +470,7 @@ const breadcrumbSchema =
       </div>
 
       <div class="footer-bottom container">
-        <p>© {new Date().getFullYear()} Giúp Cha Mẹ. Điểm tựa thực tế cho gia đình Việt.</p>
+        <p>© {new Date().getFullYear()} Giúp Cha Mẹ. All Rights Reserved. Website chính thức: <a href="https://giupchame.info.vn/" target="_blank" rel="noopener noreferrer">https://giupchame.info.vn/</a></p>
       </div>
     </footer>
 

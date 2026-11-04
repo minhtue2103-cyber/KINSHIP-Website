@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { LEAD_FORM_SETTINGS } from '../utils/taxonomy';
+import { MEDIA_ASSETS } from '../utils/media';
+
+const breadcrumbs = [
+  { name: 'Trang chủ', url: '/' },
+  { name: 'Cẩm Nang Chăm Sóc Cho Mẹ', url: '/cam-nang-cham-soc' },
+];
+---
+
+<Layout
+  title="Cẩm Nang Chăm Sóc Cho Mẹ | Giúp Cha Mẹ"
+  description="Bộ cẩm nang thực hành chăm sóc cha mẹ già tại nhà: Kịch bản đối thoại gia đình, bài toán dự toán chi phí và cẩm nang y khoa từ TS. BS. Tâm & Cố vấn Ông Minh."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="lead-page-container container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">
+        <i class="bi bi-house-door" aria-hidden="true"></i> Trang chủ
+      </a>
+      <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
+      <span class="breadcrumb__current">Cẩm Nang Chăm Sóc Cho Mẹ</span>
+    </nav>
+
+    <!-- Hero Section Lead Page -->
+    <header class="lead-hero">
+      <span class="section-eyebrow">
+        <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Bộ Tài Liệu Thực Hành Miễn Phí
+      </span>
+      <h1 class="lead-hero__title">
+        Cẩm Nang Chăm Sóc Cho Mẹ: Điểm Tựa Đồng Hành Không Kiệt Sức
+      </h1>
+      <p class="lead-hero__subtitle">
+        Bạn không phải một mình gồng gánh tất cả. Bộ tài liệu thực hành do <strong>TS. BS. Tâm</strong> và <strong>Cố vấn tài chính Ông Minh</strong> biên soạn giúp bạn lên kế hoạch chu toàn: từ y khoa lão khoa, kịch bản họp gia đình cho đến bài toán chi phí thuê người phụ giúp tại nhà.
+      </p>
+
+      <div class="lead-hero__cta-group">
+        <a
+          href={LEAD_FORM_SETTINGS.googleFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--accent btn--lg"
+        >
+          <i class="bi bi-envelope-check-fill" aria-hidden="true"></i>
+          <span>Đăng Ký Nhận Bản Đọc Qua Google Form</span>
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+        <a href="#noi-dung-cam-nang" class="btn btn--outline btn--lg">
+          <i class="bi bi-list-check" aria-hidden="true"></i>
+          <span>Xem Mục Lục Cẩm Nang</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Grid: Preview & Core Value Pillars -->
+    <section id="noi-dung-cam-nang" class="lead-pillars-section">
+      <div class="lead-section-header">
+        <h2 class="section-title">Trong Bộ Cẩm Nang Có Những Gì?</h2>
+        <p class="section-subtitle">
+          Chúng tôi chắt lọc từ những va vấp thực tế nhất của các gia đình Việt: không lý thuyết sáo rỗng, không tô hồng, chỉ có giải pháp khả thi.
+        </p>
+      </div>
+
+      <div class="lead-cards-grid">
+        <!-- Tập 1: Y khoa & Tâm lý -->
+        <article class="lead-card">
+          <div class="lead-card__header">
+            <span class="lead-card__badge lead-card__badge--med">
+              <i class="bi bi-journal-medical" aria-hidden="true"></i> Phần 1: Y Khoa &amp; Tâm Lý
+            </span>
+            <span class="lead-card__author">Biên soạn: TS. BS. Tâm</span>
+          </div>
+          <h3 class="lead-card__title">Hiểu Đúng Sức Khỏe Tuổi Già Mà Không Hoảng Loạn</h3>
+          <ul class="lead-card__list">
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Dấu hiệu cảnh báo sớm:</strong> Nhận biết suy giảm trí nhớ, lẫn lộn tuổi già và các bệnh mạn tính tiềm ẩn cha mẹ hay giấu.</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Cách đối thoại khi cha mẹ từ chối:</strong> Tuyệt chiêu trò chuyện khi cha mẹ không chịu uống thuốc hay từ chối đi viện.</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Bảo vệ sức khỏe người chăm sóc:</strong> Tránh hội chứng kiệt sức (burnout) và cảm giác tội lỗi đè nặng.</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Tập 2: Chi phí & Tài chính -->
+        <article class="lead-card">
+          <div class="lead-card__header">
+            <span class="lead-card__badge lead-card__badge--fin">
+              <i class="bi bi-calculator" aria-hidden="true"></i> Phần 2: Tài Chính &amp; Chi Phí
+            </span>
+            <span class="lead-card__author">Biên soạn: Ông Minh</span>
+          </div>
+          <h3 class="lead-card__title">Bài Toán Dự Toán Chi Phí &amp; Người Chăm Sóc Tại Nhà</h3>
+          <ul class="lead-card__list">
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Bảng phân tích chi phí thực tế:</strong> Tiền thuốc men, tã bỉm, máy móc hỗ trợ và dự phòng viện phí đường dài.</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Lựa chọn phương án chăm sóc:</strong> Thuê người theo giờ vs ở lại vs viện dưỡng lão — ưu nhược điểm và ngân sách.</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Mô hình phân bổ chi phí anh chị em:</strong> Cách chia sẻ đóng góp minh bạch, công bằng mà không sứt mẻ tình cảm ruột thịt.</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Tập 3: Kịch bản đối thoại -->
+        <article class="lead-card">
+          <div class="lead-card__header">
+            <span class="lead-card__badge lead-card__badge--com">
+              <i class="bi bi-chat-heart" aria-hidden="true"></i> Phần 3: Kịch Bản Đối Thoại
+            </span>
+            <span class="lead-card__author">Biên soạn: Nhung Phạm</span>
+          </div>
+          <h3 class="lead-card__title">Kịch Bản Ngồi Lại Họp Gia Đình &amp; Phân Chia Trách Nhiệm</h3>
+          <ul class="lead-card__list">
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Kịch bản mở lời với cha mẹ:</strong> Giúp người già đón nhận người phụ giúp tại nhà như một sự giải phóng, không phải bị bỏ rơi.</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Quy trình họp mặt gia đình:</strong> Các bước phân công trách nhiệm rõ ràng: ai theo dõi thuốc, ai đưa đón khám, ai lo tài chính.</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span><strong>Mẫu nhật ký theo dõi sức khỏe:</strong> File theo dõi chỉ số huyết áp, tiểu đường và lịch hẹn khám tiện lợi dùng chung.</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- High-Impact Lead Capture Box -->
+    <section class="lead-form-box">
+      <div class="lead-form-box__content">
+        <div class="lead-form-box__badge">
+          <i class="bi bi-gift-fill" aria-hidden="true"></i> Nhận Tài Liệu Miễn Phí
+        </div>
+        <h2 class="lead-form-box__title">Đăng Ký Nhận Bản Đầy Đủ Qua Google Form</h2>
+        <p class="lead-form-box__desc">
+          Nhấp vào nút bên dưới để mở biểu mẫu đăng ký an toàn trên Google Form. Chúng tôi sẽ gửi file tài liệu hướng dẫn định dạng PDF kèm bảng tính Excel dự toán chi phí trực tiếp về email của bạn.
+        </p>
+
+        <div class="lead-form-box__action">
+          <a
+            href={LEAD_FORM_SETTINGS.googleFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--accent btn--lg btn--shadow"
+          >
+            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            <span>Mở Biểu Mẫu Đăng Ký (Google Form)</span>
+          </a>
+        </div>
+
+        <p class="lead-form-box__guarantee">
+          <i class="bi bi-shield-check" aria-hidden="true"></i>
+          Cam kết bảo mật 100%: Chúng tôi không bao giờ chia sẻ thông tin hoặc gửi thư rác.
+        </p>
+      </div>
+
+      <div class="lead-form-box__side">
+        <div class="lead-expert-trust">
+          <h4 class="lead-expert-trust__title">
+            <i class="bi bi-award-fill" aria-hidden="true"></i> Điểm Tựa Chuyên Môn
+          </h4>
+          <p class="lead-expert-trust__quote">
+            "Chúng tôi biên soạn cẩm nang này không phải để dạy bạn cách sống, mà để trao cho bạn công cụ thực tế giúp việc chăm cha mẹ trở nên nhẹ nhõm hơn, không để tình thương bị bào mòn bởi mệt mỏi và túng thiếu."
+          </p>
+          <div class="lead-expert-trust__sign">
+            — <strong>Hội đồng Giúp Cha Mẹ</strong> (TS. BS. Tâm, Ông Minh, Nhung Phạm)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="lead-faq-section">
+      <h3 class="lead-faq-section__title">
+        <i class="bi bi-patch-question" aria-hidden="true"></i> Câu Hỏi Thường Gặp Về Cẩm Nang
+      </h3>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span>Tài liệu này có thu phí không?</span>
+            <i class="bi bi-chevron-down faq-question__icon" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-answer">
+            <p>Hoàn toàn miễn phí. Đây là dự án cộng đồng phi lợi nhuận do Giúp Cha Mẹ phát triển nhằm hỗ trợ những người con trưởng thành đang loay hoay chăm sóc cha mẹ già tại nhà.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Sau khi điền Google Form, bao lâu tôi sẽ nhận được cẩm nang?</span>
+            <i class="bi bi-chevron-down faq-question__icon" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-answer">
+            <p>Hệ thống sẽ gửi email tự động kèm liên kết tải trọn bộ PDF và bảng tính Excel trong vòng 3-5 phút sau khi bạn gửi thông tin.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Nếu cần được tư vấn riêng về hoàn cảnh gia đình thì liên hệ thế nào?</span>
+            <i class="bi bi-chevron-down faq-question__icon" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-answer">
+            <p>Bạn có thể để lại ghi chú trong mục câu hỏi mở của Google Form hoặc gửi câu hỏi về địa chỉ email <strong>{LEAD_FORM_SETTINGS.supportEmail}</strong>. Ban cố vấn sẽ phản hồi trong vòng 24-48 giờ làm việc.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </div>
+</Layout>
+

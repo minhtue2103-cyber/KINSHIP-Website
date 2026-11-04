@@ -146,11 +146,6 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
               <div class="hero-grid">
                 <!-- Cột Trái (50% Text & Actions) -->
                 <div class="hero-content">
-                  <div class="hero-badge">
-                    <i class={slide.badgeIcon} aria-hidden="true"></i>
-                    <span>{slide.badgeText}</span>
-                  </div>
-
                   <h1 class="hero-title">
                     {slide.titlePrefix}
                     <span>{slide.titleHighlight}</span>
@@ -158,16 +153,6 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
                   </h1>
 
                   <p class="hero-subtitle">{slide.subtitle}</p>
-
-                  <div class="hero-actions">
-                    <a href={slide.primaryCtaHref} class="btn btn--primary">
-                      <span>{slide.primaryCtaText}</span>
-                      <i class="bi bi-arrow-down-circle" aria-hidden="true"></i>
-                    </a>
-                    <a href={slide.secondaryCtaHref} class="btn btn--outline">
-                      <span>{slide.secondaryCtaText}</span>
-                    </a>
-                  </div>
 
                   <div class="hero-trust-proof">
                     <span class="trust-proof-item">
@@ -178,10 +163,16 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
                       <i class="bi bi-check-circle-fill trust-check" aria-hidden="true"></i>
                       <span>Căn cứ &amp; số liệu rõ ràng</span>
                     </span>
-                    <span class="trust-proof-item">
-                      <i class="bi bi-check-circle-fill trust-check" aria-hidden="true"></i>
-                      <span>Không phán xét, không vẽ màu hồng</span>
-                    </span>
+                  </div>
+
+                  <div class="hero-actions">
+                    <a href={slide.primaryCtaHref} class="btn btn--primary">
+                      <span>{slide.primaryCtaText}</span>
+                      <i class="bi bi-arrow-down-circle" aria-hidden="true"></i>
+                    </a>
+                    <a href={slide.secondaryCtaHref} class="btn btn--outline">
+                      <span>{slide.secondaryCtaText}</span>
+                    </a>
                   </div>
                 </div>
 
@@ -273,7 +264,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
           </div>
           <h3 class="expert-card__name">TS. BS. Tâm (Ông chú ADHD)</h3>
           <p class="expert-card__desc">
-            Bác sĩ chuyên về tâm lý và sức khỏe tuổi già, nhưng cũng là một người đàn ông trung niên đôi khi vật lộn với chứng mất tập trung và nỗi lo cha mẹ ngày một yếu. Giải thích y khoa bằng tiếng đời thường, thương cha mẹ đúng cách mà không tự làm khổ bản thân.
+            "Làm bác sĩ tâm lý lão khoa, nhưng tôi cũng là một người đàn ông trung niên từng trải qua cảm giác bất lực khi cha mẹ già yếu đi mỗi ngày. Y học không phải để đao to búa lớn hay dọa nạt. Tôi ở đây để cùng bạn thương cha mẹ đúng cách, khoa học và không để bản thân kiệt sức."
           </p>
         </div>
       </div>
@@ -293,7 +284,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
           </div>
           <h3 class="expert-card__name">Ông Minh</h3>
           <p class="expert-card__desc">
-            Chăm sóc cha mẹ già cần một bài toán tài chính tỉnh táo. Với kinh nghiệm tư vấn chi phí gia đình và vận hành dịch vụ chăm sóc tại nhà, giúp bạn tính đúng chi phí thực tế, chọn người phụ giúp phù hợp và bảo vệ kinh tế cho cả hai thế hệ.
+            "Tình thương sâu nặng đến đâu thì cuối tháng hóa đơn thuốc men và chi phí người chăm sóc vẫn gõ cửa. Đừng để áp lực kinh tế bào mòn tình cảm gia đình. Hãy cùng tôi ngồi lại cầm bút tính đúng chi phí thực tế, lập quỹ dự phòng và bảo vệ an toàn tài chính cho cả hai thế hệ."
           </p>
         </div>
       </div>
@@ -313,16 +304,17 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
           </div>
           <h3 class="expert-card__name">Nhung Phạm</h3>
           <p class="expert-card__desc">
-            Đồng sáng lập dự án Giúp Cha Mẹ. Xuất phát từ chính những đêm mất ngủ khi vừa điều hành công việc vừa chăm cha mẹ già, tôi cùng đội ngũ tạo ra công cụ hỗ trợ nhỏ gọn và dịch vụ tin cậy để không người con nào phải gục ngã vì kiệt sức trên hành trình báo hiếu.
+            "Tôi thấu hiểu cảm giác vừa loay hoay trong công việc, vừa thắt lòng vì những cuộc điện thoại báo cha mẹ ốm đau ở quê. Giúp Cha Mẹ ra đời từ chính những trăn trở thật ấy — để bạn luôn có một điểm tựa thiết thực, đỡ đần từng việc nhỏ và không bao giờ phải cô độc trên hành trình báo hiếu."
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2.5. SECTION VỀ CHÚNG TÔI (ABOUT US) -->
-  <section id="ve-chung-toi" class="about-section container">
-    <div class="about-card">
+  <!-- 2.5. SECTION VỀ CHÚNG TÔI (ABOUT US - FULL WIDTH BACKGROUND) -->
+  <section id="ve-chung-toi" class="about-section">
+    <div class="container about-section__inner">
+      <div class="about-card">
       <div class="about-card__header">
         <span class="section-eyebrow">
           <i class="bi bi-compass-fill" aria-hidden="true"></i> Về Giúp Cha Mẹ
@@ -374,7 +366,8 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
         <p>— <strong>Nhung Phạm</strong> (Đồng sáng lập) cùng đội ngũ Giúp Cha Mẹ.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- 3. SECTION BAI-VIET: TOP 4 FEATURED POSTS (1 MAIN LEFT + 3 SMALL RIGHT) & UMBREX GRID -->
   <section id="bai-viet" class="posts-section container">
@@ -538,7 +531,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
           Tải ngay <strong>"Bản hướng dẫn ngồi lại đối thoại gia đình &amp; tính toán chi phí chăm sóc tại nhà"</strong> — bộ tài liệu thực hành do TS.BS Tâm và Cố vấn tài chính Ông Minh biên soạn, giúp bạn chủ động chuẩn bị kinh tế và thiết lập phương án chăm sóc người thân mà không kiệt sức.
         </p>
         <div class="micro-care-banner__actions">
-          <a href="/blog?quadrant=Convince" class="btn btn--accent">
+          <a href="/cam-nang-cham-soc" class="btn btn--accent">
             <i class="bi bi-download" aria-hidden="true"></i>
             <span>Tải Bản Hướng Dẫn Thực Tế</span>
           </a>

@@ -1,22 +1,12 @@
 ---
+import { getQuadrantConfig } from '../utils/taxonomy';
+
 interface Props {
   quadrant?: 'Educate' | 'Inspire' | 'Entertain' | 'Convince' | string;
 }
 
 const { quadrant = 'Educate' } = Astro.props;
-
-const quadrantMeta: Record<string, { label: string; iconClass: string; className: string }> = {
-  Educate: { label: 'Educate', iconClass: 'bi bi-journal-medical', className: 'quadrant-badge--educate' },
-  Inspire: { label: 'Inspire', iconClass: 'bi bi-heart-fill', className: 'quadrant-badge--inspire' },
-  Entertain: { label: 'Entertain', iconClass: 'bi bi-cup-hot-fill', className: 'quadrant-badge--entertain' },
-  Convince: { label: 'Convince', iconClass: 'bi bi-compass-fill', className: 'quadrant-badge--convince' },
-};
-
-const current = quadrantMeta[quadrant] || {
-  label: quadrant,
-  iconClass: 'bi bi-tree-fill',
-  className: 'quadrant-badge--educate',
-};
+const current = getQuadrantConfig(quadrant);
 ---
 
 <span class={`quadrant-badge ${current.className}`}>

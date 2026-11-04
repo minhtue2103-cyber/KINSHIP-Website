@@ -8,14 +8,13 @@ pubDate: '2026-11-02'
 updatedDate: '2026-11-03'
 quadrant: Educate
 tags:
-- kinship/content
-- GenZ
-- VienDuongLao
-- ChuHieu
-- CaregiverGuilt
-- Educate
-- UmbrexMatrix
-- AgingInPlace
+- giupchame
+- caregivervietnam
+- vienduonglao
+- chuhieu
+- tamlytuoigia
+featurePhoto: https://picsum.photos/seed/gen-z-vien-duong-lao-va-rao-can-chu-hieu/1200/630
+featureCaption: 'Ảnh minh họa: Gen Z Đưa Cha Mẹ Vào Viện Dưỡng Lão — Nguồn ảnh: Picsum Photos'
 faqSchema:
   '@context': https://schema.org
   '@type': FAQPage
