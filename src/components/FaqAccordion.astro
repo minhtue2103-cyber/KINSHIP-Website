@@ -16,7 +16,9 @@ const { faqEntities = [] } = Astro.props;
 {faqEntities && faqEntities.length > 0 && (
   <section class="faq-section" aria-labelledby="faq-section-heading">
     <div class="faq-section__header">
-      <span class="faq-section__eyebrow">❓ Hỏi &amp; Đáp Chuyên Sâu</span>
+      <span class="faq-section__eyebrow">
+        <i class="bi bi-patch-question-fill" aria-hidden="true"></i> Hỏi &amp; Đáp Chuyên Sâu
+      </span>
       <h2 id="faq-section-heading" class="faq-section__title">Câu hỏi thường gặp (FAQ)</h2>
       <p class="faq-section__subtitle">
         Giải đáp trực diện các băn khoăn phổ biến nhất của thế hệ Bánh Mì Kẹp.
@@ -28,7 +30,7 @@ const { faqEntities = [] } = Astro.props;
         <details class="faq-item" open={index === 0}>
           <summary class="faq-question">
             <span class="faq-question__text">{faq.name}</span>
-            <span class="faq-question__icon" aria-hidden="true">▾</span>
+            <i class="bi bi-chevron-down faq-question__icon" aria-hidden="true"></i>
           </summary>
           <div class="faq-answer">
             <p>{faq.acceptedAnswer?.text}</p>
@@ -38,4 +40,3 @@ const { faqEntities = [] } = Astro.props;
     </div>
   </section>
 )}
-

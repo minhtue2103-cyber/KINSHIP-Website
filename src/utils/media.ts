@@ -1,33 +1,43 @@
 /**
  * Trung tâm quản lý đường dẫn Media & Mockup Placeholders (placehold.co)
- * Đồng bộ 100% với Mục 2.3 trong Website Design Specification v2.1
  * Tất cả tài nguyên tĩnh nội bộ được đặt tại thư mục tập trung: /public/media/
  */
 
 export const MEDIA_BASE_FOLDER = '/media';
 
 export const MEDIA_ASSETS = {
-  favicon: `${MEDIA_BASE_FOLDER}/favicon.svg`,
-  logo: `${MEDIA_BASE_FOLDER}/logo-kinship.svg`,
+  favicon: `${MEDIA_BASE_FOLDER}/logoMDAgri500x500.webp`,
+  logo: `${MEDIA_BASE_FOLDER}/logoMDAgri500x500.webp`,
 
-  // 1. Homepage Hero Image (Right 50% - 800x600, 4:3)
-  heroFamilyImage: 'https://placehold.co/800x600/0f766e/ffffff?text=Kinship+AI+Family+Hero',
+  // Homepage Hero Carousel (3 Slides - 800x600, 4:3)
+  heroSlides: [
+    'https://placehold.co/800x600/428442/ffffff?text=Kinship+AI+%E2%80%A2+Aging+In+Place',
+    'https://placehold.co/800x600/8dc435/ffffff?text=Tam+Ly+Lao+Khoa+%E2%80%A2+Dr.+Tam',
+    'https://placehold.co/800x600/ff9046/ffffff?text=Tai+Chinh+Duong+Lao+%E2%80%A2+Mr.+Minh',
+  ],
 
-  // 2. Article Feature Photo (1200x630, 1.91:1 chuẩn OG & Web)
-  defaultFeaturePhoto: 'https://placehold.co/1200x630/0f766e/ffffff?text=Feature+Photo+1200x630',
+  heroFamilyImage: 'https://placehold.co/800x600/428442/ffffff?text=Kinship+AI+Family+Hero',
 
-  // 3. Article Card Thumbnail (600x338, 16:9)
-  defaultCardThumbnail: 'https://placehold.co/600x338/f0fdfa/0f766e?text=Thumbnail+16%3A9',
+  // Article Feature Photo (1200x630, 1.91:1 chuẩn OG & Web)
+  defaultFeaturePhoto: 'https://placehold.co/1200x630/428442/ffffff?text=Feature+Photo+1200x630',
 
-  // 4. Author & E-E-A-T Reviewers Avatars (160x160, 1:1)
+  // Article Card Thumbnail (600x338, 16:9)
+  defaultCardThumbnail: 'https://placehold.co/600x338/f4fbe8/428442?text=Thumbnail+16%3A9',
+
+  // Author & E-E-A-T Reviewers Avatars (160x160, 1:1)
   avatars: {
-    nhungPham: 'https://placehold.co/160x160/0f766e/ffffff?text=Nhung+Pham',
-    drTam: 'https://placehold.co/160x160/115e59/ffffff?text=Dr.+Tam',
-    mrMinh: 'https://placehold.co/160x160/d97706/ffffff?text=Mr.+Minh',
+    nhungPham: 'https://placehold.co/160x160/428442/ffffff?text=Nhung+Pham',
+    drTam: 'https://placehold.co/160x160/8dc435/ffffff?text=Dr.+Tam',
+    mrMinh: 'https://placehold.co/160x160/ff9046/ffffff?text=Mr.+Minh',
   },
 
-  // 5. Micro-care Banner Graphic (600x400, 3:2)
-  microCareGraphic: 'https://placehold.co/600x400/0f766e/ffffff?text=Micro+Care+Guide',
+  // Micro-care Banner Graphic (600x400, 3:2)
+  microCareGraphic: 'https://placehold.co/600x400/8dc435/ffffff?text=Micro+Care+Guide',
+} as const;
+
+export const SOCIAL_LINKS = {
+  facebook: 'https://www.facebook.com/ongchuadhd',
+  youtube: 'https://www.youtube.com/@suckhoe_tuoitrungnien',
 } as const;
 
 /**
@@ -40,7 +50,7 @@ export function getArticleFeaturePhoto(customSrc?: string, slug?: string, quadra
       : `${MEDIA_BASE_FOLDER}/${customSrc}`;
   }
   const label = quadrant ? `Kinship+AI+%E2%80%A2+${encodeURIComponent(quadrant)}` : 'Feature+Photo+1200x630';
-  return `https://placehold.co/1200x630/0f766e/ffffff?text=${label}`;
+  return `https://placehold.co/1200x630/428442/ffffff?text=${label}`;
 }
 
 /**
@@ -53,13 +63,12 @@ export function getArticleThumbnail(customSrc?: string, quadrant?: string): stri
       : `${MEDIA_BASE_FOLDER}/${customSrc}`;
   }
   const bgMap: Record<string, string> = {
-    Educate: 'f0fdfa/0f766e',
-    Inspire: 'fff1f2/9f1239',
-    Entertain: 'fffbeb/92400e',
-    Convince: 'ecfdf5/065f46',
+    Educate: 'f4fbe8/428442',
+    Inspire: 'fff3eb/ff9046',
+    Entertain: 'eefbe8/34c435',
+    Convince: '428442/ffffff',
   };
-  const colors = (quadrant && bgMap[quadrant]) || 'f0fdfa/0f766e';
+  const colors = (quadrant && bgMap[quadrant]) || 'f4fbe8/428442';
   const label = quadrant ? `${encodeURIComponent(quadrant)}+16%3A9` : 'Thumbnail+16%3A9';
   return `https://placehold.co/600x338/${colors}?text=${label}`;
 }
-

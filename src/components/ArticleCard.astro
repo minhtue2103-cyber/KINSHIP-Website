@@ -62,10 +62,12 @@ const cleanTags = tags
       <QuadrantBadge quadrant={quadrant} />
       <span class="article-card__meta-sep" aria-hidden="true">•</span>
       <time datetime={new Date(pubDate).toISOString()} class="article-card__date">
-        {formatDate(pubDate)}
+        <i class="bi bi-calendar3" aria-hidden="true"></i> {formatDate(pubDate)}
       </time>
       <span class="article-card__meta-sep" aria-hidden="true">•</span>
-      <span class="article-card__reading-time">⏱️ {readingTime} phút</span>
+      <span class="article-card__reading-time">
+        <i class="bi bi-clock" aria-hidden="true"></i> {readingTime} phút
+      </span>
     </div>
 
     <h3 class="article-card__title">
@@ -87,9 +89,8 @@ const cleanTags = tags
     <div class="article-card__footer">
       <a href={`/blog/${slug}`} class="article-card__readmore">
         <span>Đọc bài viết</span>
-        <span class="article-card__arrow" aria-hidden="true">→</span>
+        <i class="bi bi-arrow-right article-card__arrow" aria-hidden="true"></i>
       </a>
     </div>
   </div>
 </article>
-

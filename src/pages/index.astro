@@ -2,15 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import QuadrantBadge from '../components/QuadrantBadge.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import { MEDIA_ASSETS, getArticleFeaturePhoto } from '../utils/media';
+import { MEDIA_ASSETS, getArticleFeaturePhoto, getArticleThumbnail } from '../utils/media';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort(
   (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
-
-const featuredPost = sortedPosts[0] || null;
 
 function formatDate(date: Date) {
   return new Intl.DateTimeFormat('vi-VN', {
@@ -19,69 +17,226 @@ function formatDate(date: Date) {
     year: 'numeric',
   }).format(new Date(date));
 }
+
+// Chuẩn bị 3 slides cho Hero Carousel (uslider)
+const heroSlides = [
+  {
+    badgeIcon: 'bi bi-heart-pulse-fill',
+    badgeText: 'Cầu nối gia đình & Đồng hành vi mô',
+    titlePrefix: 'Đồng hành cùng thế hệ ',
+    titleHighlight: 'Bánh Mì Kẹp',
+    titleSuffix: ' chăm sóc cha mẹ già tại gia',
+    subtitle:
+      'Thấu hiểu tâm lý lão khoa, hóa giải dằn vặt chữ Hiếu và thiết kế hệ thống chăm sóc bền vững cho gia đình Việt Nam hiện đại.',
+    primaryCtaText: 'Khám phá Bài viết Chuyên sâu',
+    primaryCtaHref: '#bai-viet',
+    secondaryCtaText: 'Về Hội đồng Chuyên gia',
+    secondaryCtaHref: '#hoi-dong-chuyen-gia',
+    image: MEDIA_ASSETS.heroSlides[0],
+    floatingIcon: 'bi bi-lightbulb-fill',
+    floatingTitle: 'Micro-Care 24/7',
+    floatingSub: 'Giải pháp bán trú & chăm sóc tại gia',
+  },
+  {
+    badgeIcon: 'bi bi-journal-medical',
+    badgeText: 'Tâm lý Lão khoa & Thấu cảm',
+    titlePrefix: 'Hóa giải mặc cảm tội lỗi & ',
+    titleHighlight: 'Tê liệt Đạo hiếu',
+    titleSuffix: ' khi cha mẹ già yếu',
+    subtitle:
+      'Góc nhìn khoa học từ TS. BS. Tâm giúp người con tuổi 35–55 vượt qua áp lực định kiến họ hàng, giữ trọn sự gắn kết ấm áp bên cha mẹ.',
+    primaryCtaText: 'Đọc Phân tích Lão khoa',
+    primaryCtaHref: '/blog?quadrant=Educate',
+    secondaryCtaText: 'Tư vấn Cùng Chuyên gia',
+    secondaryCtaHref: '#hoi-dong-chuyen-gia',
+    image: MEDIA_ASSETS.heroSlides[1],
+    floatingIcon: 'bi bi-patch-check-fill',
+    floatingTitle: 'TS. BS. Tâm Thẩm định',
+    floatingSub: 'Bảo chứng chuyên môn Lão học & Tâm lý',
+  },
+  {
+    badgeIcon: 'bi bi-graph-up-arrow',
+    badgeText: 'Quản trị Tài chính Gia đình',
+    titlePrefix: 'Bài toán dòng tiền dưỡng lão & ',
+    titleHighlight: 'Lối đi thứ ba',
+    titleSuffix: ' bền vững',
+    subtitle:
+      'Hoạch định ngân sách chăm sóc dài hạn cùng chuyên gia tài chính Minh, kết hợp nhà dưỡng lão bán trú và điều dưỡng theo giờ vừa túi tiền.',
+    primaryCtaText: 'Giải pháp Tài chính & Micro-Care',
+    primaryCtaHref: '/blog?quadrant=Convince',
+    secondaryCtaText: 'Nhận Cẩm nang Miễn phí',
+    secondaryCtaHref: '#cam-nang-vi-mo',
+    image: MEDIA_ASSETS.heroSlides[2],
+    floatingIcon: 'bi bi-shield-check',
+    floatingTitle: 'An tâm Tài chính',
+    floatingSub: 'Bảo vệ quỹ dự phòng của gia đình trẻ',
+  },
+];
+
+// Chuẩn bị Top 4 Featured Posts (1 bài chính bên trái + 3 bài nhỏ bên phải)
+interface FeaturedItem {
+  title: string;
+  description: string;
+  url: string;
+  pubDate: Date;
+  quadrant: string;
+  tags: string[];
+  readingTime: number;
+  image: string;
+}
+
+const realFeaturedItems: FeaturedItem[] = sortedPosts.map((p) => ({
+  title: p.data.title,
+  description: p.data.description,
+  url: `/blog/${p.slug}`,
+  pubDate: p.data.pubDate,
+  quadrant: p.data.quadrant || 'Educate',
+  tags: (p.data.tags || [])
+    .map((t) => t.replace(/^kinship\//, ''))
+    .filter((t) => t !== 'content' && t !== 'UmbrexMatrix'),
+  readingTime: p.data.readingTime || 8,
+  image: getArticleFeaturePhoto(p.data.featurePhoto, p.slug, p.data.quadrant),
+}));
+
+const fallbackFeaturedItems: FeaturedItem[] = [
+  {
+    title: 'Mô Hình Dưỡng Lão Bán Trú & Micro-Care: Lối Đi Thứ Ba Cho Gia Đình Hiện Đại',
+    description:
+      'Giải pháp dung hòa giúp cha mẹ có bạn bè và y tế chăm sóc ban ngày, buổi tối vẫn sum vầy bên mâm cơm gia đình mà không vượt quá ngân sách.',
+    url: realFeaturedItems[0]?.url || '/blog',
+    pubDate: new Date('2026-11-03'),
+    quadrant: 'Convince',
+    tags: ['MicroCare', 'DuongLaoBanTru', 'AgingInPlace'],
+    readingTime: 7,
+    image: getArticleThumbnail(undefined, 'Convince'),
+  },
+  {
+    title: 'Đối Thoại Tuổi Già: Bắt Đầu Cuộc Trò Chuyện Về Kế Hoạch Chăm Sóc Khi Cha Mẹ Còn Khỏe',
+    description:
+      'Kịch bản tâm lý giúp anh chị em trong gia đình thống nhất trách nhiệm tài chính và lắng nghe mong muốn thực sự của đấng sinh thành.',
+    url: realFeaturedItems[1]?.url || '/blog',
+    pubDate: new Date('2026-11-02'),
+    quadrant: 'Inspire',
+    tags: ['DoiThoaiGiaDinh', 'TamLyLaoKhoa', 'ChuHieu'],
+    readingTime: 6,
+    image: getArticleThumbnail(undefined, 'Inspire'),
+  },
+];
+
+const topFourPosts: FeaturedItem[] = [...realFeaturedItems, ...fallbackFeaturedItems].slice(0, 4);
+const mainFeaturedPost = topFourPosts[0];
+const sideFeaturedPosts = topFourPosts.slice(1, 4);
 ---
 
 <Layout
   title="Trang chủ — Đồng hành cùng thế hệ Bánh Mì Kẹp chăm sóc cha mẹ già"
   description="Thấu hiểu tâm lý lão khoa, hóa giải dằn vặt chữ Hiếu và thiết kế hệ thống chăm sóc bền vững cho gia đình Việt Nam hiện đại."
 >
-  <!-- 1. HERO SECTION (50% Left Text & Actions / 50% Right Feature Hero Image) -->
-  <section class="hero-section">
-    <div class="container hero-grid">
-      <!-- Cột Trái (50% Text & Actions) -->
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span aria-hidden="true">🌱</span>
-          <span>Cầu nối gia đình &amp; Đồng hành vi mô</span>
-        </div>
+  <!-- 1. HERO SECTION — USLIDER 3-SLIDE CAROUSEL WITH SOFT ANIMATION -->
+  <section class="hero-section" aria-label="Tiêu điểm Kinship AI">
+    <div class="container">
+      <div class="uslider" id="hero-uslider">
+        <div class="uslider__track">
+          {heroSlides.map((slide, idx) => (
+            <div
+              class={idx === 0 ? 'uslider__slide is-active' : 'uslider__slide'}
+              data-slide-index={idx}
+              aria-hidden={idx === 0 ? 'false' : 'true'}
+            >
+              <div class="hero-grid">
+                <!-- Cột Trái (50% Text & Actions) -->
+                <div class="hero-content">
+                  <div class="hero-badge">
+                    <i class={slide.badgeIcon} aria-hidden="true"></i>
+                    <span>{slide.badgeText}</span>
+                  </div>
 
-        <h1 class="hero-title">
-          Đồng hành cùng thế hệ <span>Bánh Mì Kẹp</span> chăm sóc cha mẹ già tại gia
-        </h1>
+                  <h1 class="hero-title">
+                    {slide.titlePrefix}
+                    <span>{slide.titleHighlight}</span>
+                    {slide.titleSuffix}
+                  </h1>
 
-        <p class="hero-subtitle">
-          Thấu hiểu tâm lý lão khoa, hóa giải dằn vặt chữ Hiếu và thiết kế hệ thống chăm sóc bền vững cho gia đình Việt Nam hiện đại.
-        </p>
+                  <p class="hero-subtitle">{slide.subtitle}</p>
 
-        <div class="hero-actions">
-          <a href="/blog" class="btn btn--primary">
-            <span>Khám phá Bài viết Chuyên sâu</span>
-            <span aria-hidden="true">↓</span>
-          </a>
-          <a href="#hoi-dong-chuyen-gia" class="btn btn--outline">
-            Về Hội đồng Chuyên gia
-          </a>
-        </div>
+                  <div class="hero-actions">
+                    <a href={slide.primaryCtaHref} class="btn btn--primary">
+                      <span>{slide.primaryCtaText}</span>
+                      <i class="bi bi-arrow-down-circle" aria-hidden="true"></i>
+                    </a>
+                    <a href={slide.secondaryCtaHref} class="btn btn--outline">
+                      <span>{slide.secondaryCtaText}</span>
+                    </a>
+                  </div>
 
-        <div class="hero-trust-proof">
-          <span class="trust-proof-item">
-            <strong class="trust-check">✓</strong> 72% người trẻ sẵn sàng chăm sóc
-          </span>
-          <span class="trust-proof-item">
-            <strong class="trust-check">✓</strong> 100% dữ liệu thực chứng E-E-A-T
-          </span>
-        </div>
-      </div>
+                  <div class="hero-trust-proof">
+                    <span class="trust-proof-item">
+                      <i class="bi bi-check-circle-fill trust-check" aria-hidden="true"></i>
+                      <span>72% người trẻ sẵn sàng chăm sóc</span>
+                    </span>
+                    <span class="trust-proof-item">
+                      <i class="bi bi-check-circle-fill trust-check" aria-hidden="true"></i>
+                      <span>100% dữ liệu thực chứng E-E-A-T</span>
+                    </span>
+                  </div>
+                </div>
 
-      <!-- Cột Phải (50% Feature Hero Image) -->
-      <div class="hero-visual">
-        <div class="hero-image-wrapper">
-          <img
-            src={MEDIA_ASSETS.heroFamilyImage}
-            alt="Kinship AI — Đồng hành cùng gia đình chăm sóc cha mẹ già tại gia"
-            class="hero-image"
-            width="800"
-            height="600"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <div class="hero-floating-badge">
-            <span class="hero-floating-badge__icon" aria-hidden="true">💡</span>
-            <div>
-              <strong>Micro-Care 24/7</strong>
-              <span>Giải pháp bán trú &amp; chăm sóc tại gia</span>
+                <!-- Cột Phải (50% Feature Hero Image) -->
+                <div class="hero-visual">
+                  <div class="hero-image-wrapper">
+                    <img
+                      src={slide.image}
+                      alt={slide.titleHighlight}
+                      class="hero-image"
+                      width="800"
+                      height="600"
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      fetchpriority={idx === 0 ? 'high' : 'auto'}
+                    />
+                    <div class="hero-floating-badge">
+                      <i class={`${slide.floatingIcon} hero-floating-badge__icon`} aria-hidden="true"></i>
+                      <div>
+                        <strong>{slide.floatingTitle}</strong>
+                        <span>{slide.floatingSub}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
+
+        <!-- Điều hướng Slider (Prev / Dots / Next) -->
+        <div class="uslider__controls" aria-label="Điều khiển trình chiếu Hero">
+          <button
+            type="button"
+            class="uslider__arrow uslider__arrow--prev"
+            id="uslider-prev"
+            aria-label="Slide trước"
+          >
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+          </button>
+
+          <div class="uslider__dots" role="tablist">
+            {heroSlides.map((_, idx) => (
+              <button
+                type="button"
+                class={idx === 0 ? 'uslider__dot is-active' : 'uslider__dot'}
+                data-goto-slide={idx}
+                aria-label={`Chuyển tới slide ${idx + 1}`}
+              />
+            ))}
           </div>
+
+          <button
+            type="button"
+            class="uslider__arrow uslider__arrow--next"
+            id="uslider-next"
+            aria-label="Slide tiếp theo"
+          >
+            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -90,7 +245,9 @@ function formatDate(date: Date) {
   <!-- 2. HỘI ĐỒNG CỐ VẤN CHUYÊN MÔN (E-E-A-T TRUST BAR) -->
   <section id="hoi-dong-chuyen-gia" class="trust-bar-section container">
     <div class="trust-bar-header">
-      <span class="section-eyebrow">Bảo chứng Chuyên môn (E-E-A-T)</span>
+      <span class="section-eyebrow">
+        <i class="bi bi-shield-check" aria-hidden="true"></i> Bảo chứng Chuyên môn (E-E-A-T)
+      </span>
       <h2 class="trust-bar-title">
         Góc nhìn đa chiều bảo chứng chất lượng bởi Hội đồng chuyên gia Kinship AI
       </h2>
@@ -107,7 +264,9 @@ function formatDate(date: Date) {
           loading="lazy"
         />
         <div class="expert-card__info">
-          <div class="expert-card__role-tag">👨‍⚕️ Cố vấn Tâm lý Lão khoa</div>
+          <div class="expert-card__role-tag">
+            <i class="bi bi-hospital-fill" aria-hidden="true"></i> Cố vấn Tâm lý Lão khoa
+          </div>
           <h3 class="expert-card__name">TS. BS. Tâm</h3>
           <p class="expert-card__desc">
             Chuyên gia Lão học &amp; Tâm lý gia đình. Thẩm định các giải pháp hóa giải mặc cảm tội lỗi (Caregiver Guilt) và Hội chứng Tê liệt Đạo hiếu.
@@ -125,7 +284,9 @@ function formatDate(date: Date) {
           loading="lazy"
         />
         <div class="expert-card__info">
-          <div class="expert-card__role-tag">💼 Cố vấn Quản trị Tài chính</div>
+          <div class="expert-card__role-tag">
+            <i class="bi bi-graph-up-arrow" aria-hidden="true"></i> Cố vấn Quản trị Tài chính
+          </div>
           <h3 class="expert-card__name">Ông Minh</h3>
           <p class="expert-card__desc">
             Chuyên gia Hoạch định Dòng tiền Dưỡng lão. Phân tích bài toán viện dưỡng lão, quỹ dự phòng rủi ro y tế dài hạn và giải pháp micro-care vừa túi tiền.
@@ -143,7 +304,9 @@ function formatDate(date: Date) {
           loading="lazy"
         />
         <div class="expert-card__info">
-          <div class="expert-card__role-tag">✍️ Góc nhìn Thực tiễn (Founder POV)</div>
+          <div class="expert-card__role-tag">
+            <i class="bi bi-pen-fill" aria-hidden="true"></i> Góc nhìn Thực tiễn (Founder POV)
+          </div>
           <h3 class="expert-card__name">Nhung Pham</h3>
           <p class="expert-card__desc">
             Founder &amp; Caregiver Advocate. Đồng hành thực tế cùng cha mẹ già tuổi 70+, kết nối khoa học lão khoa với hơi ấm văn hóa gia đình Việt.
@@ -153,103 +316,129 @@ function formatDate(date: Date) {
     </div>
   </section>
 
-  <!-- 3. FEATURED POST HERO CARD (BÀI VIẾT TÂM ĐIỂM MỚI NHẤT) -->
-  {featuredPost && (
-    <section class="featured-section container">
-      <div class="section-header-row">
-        <div>
-          <span class="section-eyebrow">🔥 Tiêu điểm Nghiên cứu</span>
-          <h2 class="section-title">Bài viết tâm điểm mới nhất</h2>
-        </div>
-      </div>
-
-      <article class="featured-hero-card">
-        <a href={`/blog/${featuredPost.slug}`} class="featured-hero-card__media">
-          <img
-            src={getArticleFeaturePhoto(
-              featuredPost.data.featurePhoto,
-              featuredPost.slug,
-              featuredPost.data.quadrant
-            )}
-            alt={featuredPost.data.title}
-            class="featured-hero-card__img"
-            width="1200"
-            height="630"
-            loading="eager"
-          />
-        </a>
-
-        <div class="featured-hero-card__content">
-          <div class="featured-hero-card__meta">
-            <QuadrantBadge quadrant={featuredPost.data.quadrant} />
-            <span class="article-card__meta-sep">•</span>
-            <time datetime={new Date(featuredPost.data.pubDate).toISOString()}>
-              Ngày {formatDate(featuredPost.data.pubDate)}
-            </time>
-            <span class="article-card__meta-sep">•</span>
-            <span>⏱️ {featuredPost.data.readingTime || 8} phút đọc</span>
-          </div>
-
-          <h2 class="featured-hero-card__title">
-            <a href={`/blog/${featuredPost.slug}`}>{featuredPost.data.title}</a>
-          </h2>
-
-          <p class="featured-hero-card__lead">{featuredPost.data.description}</p>
-
-          {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
-            <div class="article-card__tags">
-              {featuredPost.data.tags
-                .map((t) => t.replace(/^kinship\//, ''))
-                .filter((t) => t !== 'content' && t !== 'UmbrexMatrix')
-                .slice(0, 4)
-                .map((tag) => (
-                  <span class="tag-pill">#{tag}</span>
-                ))}
-            </div>
-          )}
-
-          <div class="featured-hero-card__action">
-            <a href={`/blog/${featuredPost.slug}`} class="btn btn--primary">
-              <span>Đọc bài phân tích đầy đủ</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </article>
-    </section>
-  )}
-
-  <!-- 4. LƯỚI BÀI VIẾT THEO MA TRẬN UMBREX (3 CỘT RESPONSIVE GRID) -->
+  <!-- 3. SECTION BAI-VIET: TOP 4 FEATURED POSTS (1 MAIN LEFT + 3 SMALL RIGHT) & UMBREX GRID -->
   <section id="bai-viet" class="posts-section container">
     <div class="section-header-row">
       <div>
-        <span class="section-eyebrow">Trung tâm Tri thức Caregiver</span>
-        <h2 class="section-title">Bài viết chuyên sâu theo Ma trận Umbrex</h2>
+        <span class="section-eyebrow">
+          <i class="bi bi-stars" aria-hidden="true"></i> Tiêu điểm &amp; Ma trận Tri thức
+        </span>
+        <h2 class="section-title">Bài viết chuyên sâu nổi bật</h2>
         <p class="section-subtitle">
-          Lọc nội dung theo 4 góc phần tư tâm lý &amp; hành động dành riêng cho người chăm sóc.
+          Tổng hợp các phân tích thực chứng mới nhất và hệ thống bài viết theo 4 góc phần tư Umbrex.
         </p>
       </div>
       <a href="/blog" class="btn btn--outline btn--sm">
-        Xem tất cả trên Caregiver Blog →
+        <span>Xem tất cả trên Caregiver Blog</span>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
+
+    <!-- Top 4 Feature Post Block: 1 Main Article on Left + 3 Small Articles on Right -->
+    {mainFeaturedPost && (
+      <div class="top4-feature-grid">
+        <!-- Cột Trái: 1 Bài Viết Chính (Main Featured Article) -->
+        <article class="top4-main-card">
+          <a href={mainFeaturedPost.url} class="top4-main-card__media">
+            <img
+              src={mainFeaturedPost.image}
+              alt={mainFeaturedPost.title}
+              class="top4-main-card__img"
+              width="1200"
+              height="630"
+              loading="eager"
+            />
+          </a>
+
+          <div class="top4-main-card__body">
+            <div class="article-card__meta">
+              <QuadrantBadge quadrant={mainFeaturedPost.quadrant} />
+              <span class="article-card__meta-sep">•</span>
+              <time datetime={new Date(mainFeaturedPost.pubDate).toISOString()}>
+                <i class="bi bi-calendar3" aria-hidden="true"></i> {formatDate(mainFeaturedPost.pubDate)}
+              </time>
+              <span class="article-card__meta-sep">•</span>
+              <span>
+                <i class="bi bi-clock" aria-hidden="true"></i> {mainFeaturedPost.readingTime} phút đọc
+              </span>
+            </div>
+
+            <h3 class="top4-main-card__title">
+              <a href={mainFeaturedPost.url}>{mainFeaturedPost.title}</a>
+            </h3>
+
+            <p class="top4-main-card__desc">{mainFeaturedPost.description}</p>
+
+            {mainFeaturedPost.tags.length > 0 && (
+              <div class="article-card__tags">
+                {mainFeaturedPost.tags.slice(0, 4).map((tag) => (
+                  <span class="tag-pill">#{tag}</span>
+                ))}
+              </div>
+            )}
+
+            <div class="top4-main-card__footer">
+              <a href={mainFeaturedPost.url} class="btn btn--primary btn--sm">
+                <span>Đọc bài phân tích đầy đủ</span>
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cột Phải: 3 Bài Viết Nhỏ (3 Small Articles Stacked) -->
+        <div class="top4-side-list">
+          {sideFeaturedPosts.map((item) => (
+            <article class="top4-side-card">
+              <a href={item.url} class="top4-side-card__thumb-wrap" tabindex="-1" aria-hidden="true">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  class="top4-side-card__thumb"
+                  width="320"
+                  height="180"
+                  loading="lazy"
+                />
+              </a>
+              <div class="top4-side-card__content">
+                <div class="top4-side-card__meta">
+                  <QuadrantBadge quadrant={item.quadrant} />
+                  <span>
+                    <i class="bi bi-calendar3" aria-hidden="true"></i> {formatDate(item.pubDate)}
+                  </span>
+                </div>
+                <h4 class="top4-side-card__title">
+                  <a href={item.url}>{item.title}</a>
+                </h4>
+                <p class="top4-side-card__desc">{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    )}
 
     <!-- Taxonomy Filter Pills -->
     <div class="category-pills" role="tablist" aria-label="Lọc bài viết theo góc phần tư Umbrex">
       <button type="button" class="category-pill active" data-filter="all">
-        Tất cả ({sortedPosts.length})
+        <i class="bi bi-grid-fill" aria-hidden="true"></i>
+        <span>Tất cả ({sortedPosts.length})</span>
       </button>
       <button type="button" class="category-pill" data-filter="Educate">
-        📚 Educate (Kiến thức &amp; Tài chính)
+        <i class="bi bi-journal-medical" aria-hidden="true"></i>
+        <span>Educate (Kiến thức &amp; Tài chính)</span>
       </button>
       <button type="button" class="category-pill" data-filter="Inspire">
-        ❤️ Inspire (Tình cảm Gia đình)
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        <span>Inspire (Tình cảm Gia đình)</span>
       </button>
       <button type="button" class="category-pill" data-filter="Entertain">
-        ☕ Entertain (Khoảng cách Thế hệ)
+        <i class="bi bi-cup-hot-fill" aria-hidden="true"></i>
+        <span>Entertain (Khoảng cách Thế hệ)</span>
       </button>
       <button type="button" class="category-pill" data-filter="Convince">
-        🎯 Convince (Giải pháp Vi mô)
+        <i class="bi bi-compass-fill" aria-hidden="true"></i>
+        <span>Convince (Giải pháp Vi mô)</span>
       </button>
     </div>
 
@@ -275,11 +464,13 @@ function formatDate(date: Date) {
     )}
   </section>
 
-  <!-- 5. GIẢI PHÁP ĐỒNG HÀNH VI MÔ (MICRO-CARE INITIATIVE BANNER) -->
-  <section id="cam-nang-vi-mo" class="container">
-    <div class="micro-care-banner">
+  <!-- 4. GIẢI PHÁP ĐỒNG HÀNH VI MÔ (MICRO-CARE BANNER: 100% WIDTH BG, CONTAINER INNER) -->
+  <section id="cam-nang-vi-mo" class="micro-care-banner">
+    <div class="container micro-care-banner__inner">
       <div class="micro-care-banner__content">
-        <span class="micro-care-banner__badge">🌱 Sáng kiến Đồng hành Vi mô</span>
+        <span class="micro-care-banner__badge">
+          <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Sáng kiến Đồng hành Vi mô
+        </span>
         <h2 class="micro-care-banner__title">
           Bạn không đơn độc trên hành trình phụng dưỡng cha mẹ.
         </h2>
@@ -288,7 +479,8 @@ function formatDate(date: Date) {
         </p>
         <div class="micro-care-banner__actions">
           <a href="/blog" class="btn btn--accent">
-            Tải Cẩm Nang Miễn Phí
+            <i class="bi bi-download" aria-hidden="true"></i>
+            <span>Tải Cẩm Nang Miễn Phí</span>
           </a>
         </div>
       </div>
@@ -308,6 +500,71 @@ function formatDate(date: Date) {
 
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Khởi tạo Hero Carousel (uslider 3 slides + soft animation)
+      const slider = document.getElementById('hero-uslider');
+      if (slider) {
+        const slides = slider.querySelectorAll('.uslider__slide');
+        const dots = slider.querySelectorAll('.uslider__dot');
+        const prevBtn = document.getElementById('uslider-prev');
+        const nextBtn = document.getElementById('uslider-next');
+        let currentSlide = 0;
+        let autoTimer = null;
+
+        function goToSlide(index) {
+          const total = slides.length;
+          currentSlide = (index + total) % total;
+          slides.forEach((s, i) => {
+            const active = i === currentSlide;
+            s.classList.toggle('is-active', active);
+            s.setAttribute('aria-hidden', active ? 'false' : 'true');
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle('is-active', i === currentSlide);
+          });
+        }
+
+        function startAutoPlay() {
+          stopAutoPlay();
+          autoTimer = setInterval(() => {
+            goToSlide(currentSlide + 1);
+          }, 6000);
+        }
+
+        function stopAutoPlay() {
+          if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+          }
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            goToSlide(currentSlide - 1);
+            startAutoPlay();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            goToSlide(currentSlide + 1);
+            startAutoPlay();
+          });
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            const target = parseInt(dot.getAttribute('data-goto-slide') || '0', 10);
+            goToSlide(target);
+            startAutoPlay();
+          });
+        });
+
+        slider.addEventListener('mouseenter', stopAutoPlay);
+        slider.addEventListener('mouseleave', startAutoPlay);
+        startAutoPlay();
+      }
+
+      // 2. Bộ lọc Ma trận Umbrex
       const pills = document.querySelectorAll('.category-pill[data-filter]');
       const cards = document.querySelectorAll('#home-posts-grid .article-card');
 

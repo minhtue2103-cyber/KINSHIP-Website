@@ -79,16 +79,18 @@ const breadcrumbs = [
   <article class="container article-detail">
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Trang chủ</a>
-      <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+      <a href="/">
+        <i class="bi bi-house-door" aria-hidden="true"></i> Trang chủ
+      </a>
+      <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
       <a href="/blog">Caregiver Blog</a>
       {post.data.quadrant && (
         <>
-          <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+          <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
           <a href={`/blog?quadrant=${post.data.quadrant}`}>{post.data.quadrant}</a>
         </>
       )}
-      <span class="breadcrumb__sep" aria-hidden="true">&gt;</span>
+      <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
       <span class="breadcrumb__current">{post.data.title}</span>
     </nav>
 
@@ -98,10 +100,12 @@ const breadcrumbs = [
         <QuadrantBadge quadrant={post.data.quadrant} />
         <span class="article-card__meta-sep" aria-hidden="true">•</span>
         <time class="article-header__date" datetime={new Date(displayDate).toISOString()}>
-          🗓️ Cập nhật: {formatDate(displayDate)}
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Cập nhật: {formatDate(displayDate)}
         </time>
         <span class="article-card__meta-sep" aria-hidden="true">•</span>
-        <span class="article-header__reading">⏱️ {post.data.readingTime || 8} phút đọc</span>
+        <span class="article-header__reading">
+          <i class="bi bi-clock" aria-hidden="true"></i> {post.data.readingTime || 8} phút đọc
+        </span>
       </div>
 
       <h1 class="article-header__title">{post.data.title}</h1>
@@ -133,7 +137,9 @@ const breadcrumbs = [
       {tocHeadings.length > 0 && (
         <aside class="article-sidebar" aria-label="Mục lục bài viết">
           <div class="sticky-toc">
-            <h3 class="sticky-toc__title">📋 Mục lục bài viết</h3>
+            <h3 class="sticky-toc__title">
+              <i class="bi bi-list-columns-reverse" aria-hidden="true"></i> Mục lục bài viết
+            </h3>
             <ul class="sticky-toc__list">
               {tocHeadings.map((h) => (
                 <li class="sticky-toc__item">
@@ -145,21 +151,23 @@ const breadcrumbs = [
               {faqEntities.length > 0 && (
                 <li class="sticky-toc__item">
                   <a href="#faq-section-heading" class="sticky-toc__link">
-                    ❓ Câu hỏi thường gặp (FAQ)
+                    <i class="bi bi-patch-question" aria-hidden="true"></i> Câu hỏi thường gặp (FAQ)
                   </a>
                 </li>
               )}
               {post.data.sources && post.data.sources.length > 0 && (
                 <li class="sticky-toc__item">
                   <a href="#sources-heading" class="sticky-toc__link">
-                    📚 Tài liệu &amp; Nguồn tham khảo
+                    <i class="bi bi-journal-bookmark" aria-hidden="true"></i> Tài liệu &amp; Nguồn tham khảo
                   </a>
                 </li>
               )}
             </ul>
 
             <div class="sticky-mini-cta">
-              <span class="sticky-mini-cta__badge">🌱 Đồng hành Vi mô</span>
+              <span class="sticky-mini-cta__badge">
+                <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Đồng hành Vi mô
+              </span>
               <p class="sticky-mini-cta__text">
                 Cần lộ trình chăm sóc cha mẹ vừa vặn tài chính gia đình?
               </p>
@@ -179,7 +187,9 @@ const breadcrumbs = [
 
         <!-- Contextual Call To Action Box -->
         <div id="cam-nang-vi-mo" class="contextual-cta-box">
-          <div class="contextual-cta-box__badge">💡 Giải pháp Hành động Vi mô</div>
+          <div class="contextual-cta-box__badge">
+            <i class="bi bi-lightbulb-fill" aria-hidden="true"></i> Giải pháp Hành động Vi mô
+          </div>
           <h3 class="contextual-cta-box__title">
             Đồng hành cùng cha mẹ già mà không đánh mất chính mình
           </h3>
@@ -187,7 +197,8 @@ const breadcrumbs = [
             Tải miễn phí <strong>"Bản hướng dẫn thiết lập mạng lưới chăm sóc bán trú và điều dưỡng vi mô tại nhà"</strong> được biên soạn bởi TS. BS. Tâm &amp; Chuyên gia Tài chính Minh.
           </p>
           <a href="/blog" class="btn btn--accent">
-            Tải Bản Hướng Dẫn Chăm Sóc Bán Trú Tại Gia
+            <i class="bi bi-download" aria-hidden="true"></i>
+            <span>Tải Bản Hướng Dẫn Chăm Sóc Bán Trú Tại Gia</span>
           </a>
         </div>
 
@@ -205,11 +216,14 @@ const breadcrumbs = [
     <section class="container related-articles-section">
       <div class="section-header-row">
         <div>
-          <span class="section-eyebrow">Đọc tiếp chủ đề liên quan</span>
+          <span class="section-eyebrow">
+            <i class="bi bi-bookmarks-fill" aria-hidden="true"></i> Đọc tiếp chủ đề liên quan
+          </span>
           <h2 class="section-title">Bài viết cùng chủ đề dành cho bạn</h2>
         </div>
         <a href="/blog" class="btn btn--outline btn--sm">
-          Xem toàn bộ Blog →
+          <span>Xem toàn bộ Blog</span>
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
         </a>
       </div>
 
@@ -235,7 +249,7 @@ const breadcrumbs = [
       const prose = document.getElementById('article-prose-body');
       if (!prose) return;
 
-      // 1. Nâng cấp định dạng khối > [!SUMMARY] BLUF: thành Callout chuẩn GEO
+      // 1. Nâng cấp định dạng khối > [!SUMMARY] BLUF: thành Callout chuẩn GEO kèm Bootstrap Icon
       const blockquotes = prose.querySelectorAll('blockquote');
       blockquotes.forEach((bq) => {
         const html = bq.innerHTML;
@@ -245,7 +259,7 @@ const breadcrumbs = [
             .replace(/\[!SUMMARY\]\s*(BLUF:\s*)?/i, '')
             .replace(/^<p>\s*BLUF:\s*/i, '<p>');
           bq.innerHTML =
-            '<div class="bluf-callout__badge"><span aria-hidden="true">💡</span><span>Tóm tắt trực diện (BLUF)</span></div>' +
+            '<div class="bluf-callout__badge"><i class="bi bi-lightbulb-fill" aria-hidden="true"></i><span>Tóm tắt trực diện (BLUF)</span></div>' +
             '<div class="bluf-callout__text">' +
             cleanHtml +
             '</div>';

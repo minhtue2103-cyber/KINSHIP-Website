@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { MEDIA_ASSETS } from '../utils/media';
+import { MEDIA_ASSETS, SOCIAL_LINKS } from '../utils/media';
 
 interface BreadcrumbItem {
   name: string;
@@ -39,6 +39,7 @@ const orgSchema = {
   name: 'Kinship AI',
   url: siteOrigin,
   logo: `${siteOrigin}${MEDIA_ASSETS.logo}`,
+  sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.youtube],
   description: 'Nền tảng tri thức và đồng hành vi mô dành cho thế hệ Bánh Mì Kẹp chăm sóc cha mẹ già tại Việt Nam.',
 };
 
@@ -108,17 +109,23 @@ const breadcrumbSchema =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={MEDIA_ASSETS.favicon} />
+    <link rel="icon" type="image/webp" href={MEDIA_ASSETS.favicon} />
     <link rel="canonical" href={canonicalURL} />
     <title>{title} | Kinship AI</title>
     <meta name="description" content={description} />
 
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <!-- Google Fonts: Raleway (Body) & Noto Sans (Heading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
     <!-- Open Graph / Facebook -->
@@ -155,33 +162,173 @@ const breadcrumbSchema =
             src={MEDIA_ASSETS.logo}
             alt="Kinship AI Logo"
             class="brand-logo__img"
-            width="36"
-            height="36"
+            width="48"
+            height="48"
           />
           <span class="brand-name">Kinship <strong>AI</strong></span>
         </a>
 
-        <nav class="nav-links" aria-label="Điều hướng chính">
-          <a href="/" class={currentPath === '/' ? 'nav-link active' : 'nav-link'}>
-            Trang chủ
-          </a>
-          <a
-            href="/blog"
-            class={currentPath.startsWith('/blog') ? 'nav-link active' : 'nav-link'}
-          >
-            Caregiver Blog
-          </a>
-          <a href="/#hoi-dong-chuyen-gia" class="nav-link">
-            Hội đồng Chuyên gia
-          </a>
-        </nav>
+        <div class="header-actions">
+          <!-- Social Media Icons on Header -->
+          <div class="header-socials" aria-label="Mạng xã hội">
+            <a
+              href={SOCIAL_LINKS.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-link"
+              aria-label="Facebook Kinship AI"
+              title="Facebook"
+            >
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+            <a
+              href={SOCIAL_LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-link social-icon-link--yt"
+              aria-label="YouTube Sức khỏe Tuổi Trung Niên"
+              title="YouTube"
+            >
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
 
-        <div class="header-cta">
-          <a href="#cam-nang-vi-mo" class="btn btn--accent btn--sm">
-            Cẩm nang chăm sóc
-          </a>
+          <!-- Click to Open/Close Menu Button (MekongDeltaAgri Style) -->
+          <button
+            type="button"
+            id="menu-toggle-btn"
+            class="menu-toggle-btn"
+            aria-expanded="false"
+            aria-controls="site-drawer-menu"
+            aria-label="Mở hoặc đóng menu điều hướng"
+          >
+            <i class="bi bi-list menu-toggle-btn__icon-open" aria-hidden="true"></i>
+            <i class="bi bi-x-lg menu-toggle-btn__icon-close" aria-hidden="true"></i>
+            <span class="menu-toggle-btn__label">MENU</span>
+          </button>
         </div>
       </div>
+
+      <!-- Click-to-open/close Slide Drawer Menu & Overlay -->
+      <div id="menu-backdrop" class="menu-backdrop" aria-hidden="true"></div>
+      <nav
+        id="site-drawer-menu"
+        class="site-drawer-menu"
+        aria-label="Điều hướng chính"
+        aria-hidden="true"
+      >
+        <div class="site-drawer-menu__header">
+          <a href="/" class="brand-logo">
+            <img
+              src={MEDIA_ASSETS.logo}
+              alt="Kinship AI Logo"
+              class="brand-logo__img"
+              width="40"
+              height="40"
+            />
+            <span class="brand-name">Kinship <strong>AI</strong></span>
+          </a>
+          <button
+            type="button"
+            id="menu-close-btn"
+            class="menu-close-btn"
+            aria-label="Đóng menu"
+          >
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="site-drawer-menu__body">
+          <span class="site-drawer-menu__section-label">Điều hướng chính</span>
+          <ul class="drawer-nav-list">
+            <li>
+              <a href="/" class={currentPath === '/' ? 'drawer-nav-link active' : 'drawer-nav-link'}>
+                <i class="bi bi-house-heart-fill" aria-hidden="true"></i>
+                <span>Trang chủ (Homepage)</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog"
+                class={currentPath.startsWith('/blog') ? 'drawer-nav-link active' : 'drawer-nav-link'}
+              >
+                <i class="bi bi-journal-richtext" aria-hidden="true"></i>
+                <span>Caregiver Blog</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#bai-viet" class="drawer-nav-link">
+                <i class="bi bi-stars" aria-hidden="true"></i>
+                <span>Bài viết Tiêu điểm</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#hoi-dong-chuyen-gia" class="drawer-nav-link">
+                <i class="bi bi-award-fill" aria-hidden="true"></i>
+                <span>Hội đồng Chuyên gia E-E-A-T</span>
+              </a>
+            </li>
+            <li>
+              <a href="#cam-nang-vi-mo" class="drawer-nav-link">
+                <i class="bi bi-book-half" aria-hidden="true"></i>
+                <span>Cẩm nang Đồng hành Vi mô</span>
+              </a>
+            </li>
+          </ul>
+
+          <span class="site-drawer-menu__section-label">Ma trận Nội dung Umbrex</span>
+          <ul class="drawer-nav-list drawer-nav-list--sub">
+            <li>
+              <a href="/blog?quadrant=Educate" class="drawer-nav-link">
+                <i class="bi bi-journal-medical" aria-hidden="true"></i>
+                <span>Educate — Kiến thức Lão khoa &amp; Tài chính</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog?quadrant=Inspire" class="drawer-nav-link">
+                <i class="bi bi-heart-fill" aria-hidden="true"></i>
+                <span>Inspire — Cảm xúc &amp; Tình thân</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog?quadrant=Entertain" class="drawer-nav-link">
+                <i class="bi bi-cup-hot-fill" aria-hidden="true"></i>
+                <span>Entertain — Khoảng cách Thế hệ</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog?quadrant=Convince" class="drawer-nav-link">
+                <i class="bi bi-compass-fill" aria-hidden="true"></i>
+                <span>Convince — Giải pháp Hành động Vi mô</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="site-drawer-menu__footer">
+            <span class="site-drawer-menu__section-label">Kết nối Cộng đồng</span>
+            <div class="drawer-socials">
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="drawer-social-btn"
+              >
+                <i class="bi bi-facebook" aria-hidden="true"></i>
+                <span>Facebook</span>
+              </a>
+              <a
+                href={SOCIAL_LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="drawer-social-btn drawer-social-btn--yt"
+              >
+                <i class="bi bi-youtube" aria-hidden="true"></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="site-main">
@@ -196,8 +343,8 @@ const breadcrumbSchema =
               src={MEDIA_ASSETS.logo}
               alt="Kinship AI Logo"
               class="brand-logo__img"
-              width="34"
-              height="34"
+              width="44"
+              height="44"
             />
             <span class="brand-name">Kinship <strong>AI</strong></span>
           </a>
@@ -205,27 +352,83 @@ const breadcrumbSchema =
             Đồng hành cùng thế hệ Bánh Mì Kẹp (35–55 tuổi) thấu hiểu tâm lý lão khoa, quản trị tài chính gia đình và thiết kế hệ thống chăm sóc cha mẹ già tại gia bền vững (Aging in Place).
           </p>
           <p class="footer-disclaimer">
+            <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
             <strong>Tuyên bố miễn trừ y tế:</strong> Nội dung trên Kinship AI mang tính chất giáo dục, tham khảo tâm lý &amp; hoạch định đời sống gia đình, không thay thế chẩn đoán hay chỉ định điều trị y khoa.
           </p>
+
+          <div class="footer-socials" aria-label="Liên kết Mạng xã hội">
+            <a
+              href={SOCIAL_LINKS.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="Facebook"
+            >
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+              <span>Facebook</span>
+            </a>
+            <a
+              href={SOCIAL_LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link footer-social-link--yt"
+              aria-label="YouTube"
+            >
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+              <span>YouTube</span>
+            </a>
+          </div>
         </div>
 
         <div class="footer-col footer-links-col">
           <h4>Bản đồ Website (Sitemap)</h4>
           <ul>
-            <li><a href="/">1. Trang chủ (Homepage)</a></li>
-            <li><a href="/blog">2. Caregiver Blog (Tất cả bài viết)</a></li>
-            <li><a href="/#hoi-dong-chuyen-gia">Hội đồng Cố vấn E-E-A-T</a></li>
-            <li><a href="#cam-nang-vi-mo">Cẩm nang Đồng hành Vi mô</a></li>
+            <li>
+              <a href="/">
+                <i class="bi bi-house-door" aria-hidden="true"></i> 1. Trang chủ (Homepage)
+              </a>
+            </li>
+            <li>
+              <a href="/blog">
+                <i class="bi bi-journal-text" aria-hidden="true"></i> 2. Caregiver Blog (Tất cả bài viết)
+              </a>
+            </li>
+            <li>
+              <a href="/#hoi-dong-chuyen-gia">
+                <i class="bi bi-people" aria-hidden="true"></i> Hội đồng Cố vấn E-E-A-T
+              </a>
+            </li>
+            <li>
+              <a href="#cam-nang-vi-mo">
+                <i class="bi bi-bookmark-heart" aria-hidden="true"></i> Cẩm nang Đồng hành Vi mô
+              </a>
+            </li>
           </ul>
         </div>
 
         <div class="footer-col footer-links-col">
           <h4>Ma trận Nội dung Umbrex</h4>
           <ul>
-            <li><a href="/blog?quadrant=Educate">📚 Kiến thức Lão khoa &amp; Tài chính (Educate)</a></li>
-            <li><a href="/blog?quadrant=Inspire">❤️ Cảm xúc &amp; Tình thân (Inspire)</a></li>
-            <li><a href="/blog?quadrant=Entertain">☕ Khoảng cách Thế hệ (Entertain)</a></li>
-            <li><a href="/blog?quadrant=Convince">🎯 Giải pháp Vi mô (Convince)</a></li>
+            <li>
+              <a href="/blog?quadrant=Educate">
+                <i class="bi bi-journal-medical" aria-hidden="true"></i> Kiến thức Lão khoa &amp; Tài chính (Educate)
+              </a>
+            </li>
+            <li>
+              <a href="/blog?quadrant=Inspire">
+                <i class="bi bi-heart-fill" aria-hidden="true"></i> Cảm xúc &amp; Tình thân (Inspire)
+              </a>
+            </li>
+            <li>
+              <a href="/blog?quadrant=Entertain">
+                <i class="bi bi-cup-hot-fill" aria-hidden="true"></i> Khoảng cách Thế hệ (Entertain)
+              </a>
+            </li>
+            <li>
+              <a href="/blog?quadrant=Convince">
+                <i class="bi bi-compass-fill" aria-hidden="true"></i> Giải pháp Vi mô (Convince)
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -234,5 +437,52 @@ const breadcrumbSchema =
         <p>© {new Date().getFullYear()} Kinship AI. Mọi quyền được bảo lưu. Cầu nối gia đình &amp; Đồng hành vi mô.</p>
       </div>
     </footer>
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('menu-toggle-btn');
+        const closeBtn = document.getElementById('menu-close-btn');
+        const drawer = document.getElementById('site-drawer-menu');
+        const backdrop = document.getElementById('menu-backdrop');
+
+        function setMenuOpen(open) {
+          if (!toggleBtn || !drawer || !backdrop) return;
+          toggleBtn.classList.toggle('is-open', open);
+          drawer.classList.toggle('is-open', open);
+          backdrop.classList.toggle('is-open', open);
+          toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          document.body.style.overflow = open ? 'hidden' : '';
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', () => {
+            const isOpen = drawer && drawer.classList.contains('is-open');
+            setMenuOpen(!isOpen);
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => setMenuOpen(false));
+        }
+
+        if (backdrop) {
+          backdrop.addEventListener('click', () => setMenuOpen(false));
+        }
+
+        if (drawer) {
+          const links = drawer.querySelectorAll('a');
+          links.forEach((link) => {
+            link.addEventListener('click', () => setMenuOpen(false));
+          });
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            setMenuOpen(false);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
