@@ -696,7 +696,8 @@ div.footer-socials {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 50% Left Text / 50% Right Image */
+  grid-template-columns: 1fr 1fr;
+  /* 50% Left Text / 50% Right Image */
   gap: 3.5rem;
   align-items: center;
 }
@@ -2103,6 +2104,7 @@ div.empty-state {
    13. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
+
   .hero-grid,
   div.top4-feature-grid,
   div.micro-care-banner__inner,

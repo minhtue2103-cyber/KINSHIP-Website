@@ -11,28 +11,28 @@ export const MEDIA_ASSETS = {
 
   // Homepage Hero Carousel (3 Slides - 800x600, 4:3)
   heroSlides: [
-    'https://placehold.co/800x600/428442/ffffff?text=Giup+Cha+Me+%E2%80%A2+Diem+Tua+Thuc+Te',
-    'https://placehold.co/800x600/8dc435/ffffff?text=TS.+BS.+Tam+%E2%80%A2+Ong+Chu+ADHD',
-    'https://placehold.co/800x600/ff9046/ffffff?text=Ong+Minh+%E2%80%A2+Tai+Chinh+Gia+Dinh',
+    `${MEDIA_BASE_FOLDER}/giup-cha-me-2.jpg`,
+    `${MEDIA_BASE_FOLDER}/giup-cha-me-3.jpg`,
+    `${MEDIA_BASE_FOLDER}/giup-cha-me-4.jpg`,
   ],
 
-  heroFamilyImage: 'https://placehold.co/800x600/428442/ffffff?text=Giup+Cha+Me+%E2%80%A2+Gia+Dinh',
+  heroFamilyImage: `${MEDIA_BASE_FOLDER}/giup-cha-me-2.jpg`,
 
-  // Article Feature Photo (1200x630, 1.91:1 chuẩn OG & Web)
-  defaultFeaturePhoto: 'https://placehold.co/1200x630/428442/ffffff?text=Giup+Cha+Me+%E2%80%A2+Bai+Viet',
+  // Article Feature Photo mặc định (1200x630, 1.91:1 chuẩn OG & Web)
+  defaultFeaturePhoto: `${MEDIA_BASE_FOLDER}/giup-cha-me-4.jpg`,
 
-  // Article Card Thumbnail (600x338, 16:9)
-  defaultCardThumbnail: 'https://placehold.co/600x338/f4fbe8/428442?text=Giup+Cha+Me',
+  // Article Card Thumbnail mặc định (600x338, 16:9)
+  defaultCardThumbnail: `${MEDIA_BASE_FOLDER}/giup-cha-me-4.jpg`,
 
   // Author & E-E-A-T Reviewers Avatars (160x160, 1:1)
   avatars: {
-    nhungPham: 'https://placehold.co/160x160/428442/ffffff?text=Nhung+Pham',
-    drTam: 'https://placehold.co/160x160/8dc435/ffffff?text=BS.+Tam',
-    mrMinh: 'https://placehold.co/160x160/ff9046/ffffff?text=Ong+Minh',
+    nhungPham: `${MEDIA_BASE_FOLDER}/profile-2.jpg`,
+    drTam: `${MEDIA_BASE_FOLDER}/profile-1.jpg`,
+    mrMinh: `${MEDIA_BASE_FOLDER}/profile-3.jpg`,
   },
 
   // Micro-care Banner Graphic (600x400, 3:2)
-  microCareGraphic: 'https://placehold.co/600x400/8dc435/ffffff?text=Cam+Nang+Giup+Cha+Me',
+  microCareGraphic: `${MEDIA_BASE_FOLDER}/giup-cha-me-1.jpg`,
 } as const;
 
 export const SOCIAL_LINKS = {
@@ -49,8 +49,8 @@ export function getArticleFeaturePhoto(customSrc?: string, slug?: string, quadra
       ? customSrc
       : `${MEDIA_BASE_FOLDER}/${customSrc}`;
   }
-  const label = quadrant ? `Giup+Cha+Me+%E2%80%A2+${encodeURIComponent(quadrant)}` : 'Giup+Cha+Me+1200x630';
-  return `https://placehold.co/1200x630/428442/ffffff?text=${label}`;
+  // Mặc định sử dụng ảnh ngang chất lượng cao trong thư mục media
+  return MEDIA_ASSETS.defaultFeaturePhoto;
 }
 
 /**
