@@ -56,11 +56,19 @@ const featureCaption =
   post.data.featureCaption ||
   `Ảnh minh họa: ${post.data.title} — Bản quyền nội dung thực chứng thuộc Kinship AI.`;
 
+const quadrantLabels: Record<string, string> = {
+  Educate: 'Hiểu Bệnh & Chi Phí',
+  Inspire: 'Nỗi Lòng Người Con',
+  Entertain: 'Chuyện Nhà & Lối Sống',
+  Convince: 'Cách Chăm Sóc Tại Nhà',
+};
+const quadrantName = post.data.quadrant ? (quadrantLabels[post.data.quadrant] || post.data.quadrant) : '';
+
 const breadcrumbs = [
   { name: 'Trang chủ', url: '/' },
-  { name: 'Caregiver Blog', url: '/blog' },
+  { name: 'Cẩm nang Chăm sóc', url: '/blog' },
   ...(post.data.quadrant
-    ? [{ name: post.data.quadrant, url: `/blog?quadrant=${post.data.quadrant}` }]
+    ? [{ name: quadrantName, url: `/blog?quadrant=${post.data.quadrant}` }]
     : []),
   { name: post.data.title, url: `/blog/${post.slug}` },
 ];
@@ -83,11 +91,11 @@ const breadcrumbs = [
         <i class="bi bi-house-door" aria-hidden="true"></i> Trang chủ
       </a>
       <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
-      <a href="/blog">Caregiver Blog</a>
+      <a href="/blog">Cẩm nang Chăm sóc</a>
       {post.data.quadrant && (
         <>
           <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
-          <a href={`/blog?quadrant=${post.data.quadrant}`}>{post.data.quadrant}</a>
+          <a href={`/blog?quadrant=${post.data.quadrant}`}>{quadrantName}</a>
         </>
       )}
       <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
@@ -166,13 +174,13 @@ const breadcrumbs = [
 
             <div class="sticky-mini-cta">
               <span class="sticky-mini-cta__badge">
-                <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Đồng hành Vi mô
+                <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Điểm tựa đồng hành
               </span>
               <p class="sticky-mini-cta__text">
-                Cần lộ trình chăm sóc cha mẹ vừa vặn tài chính gia đình?
+                Cần phương án chăm sóc cha mẹ phù hợp hoàn cảnh gia đình?
               </p>
               <a href="#cam-nang-vi-mo" class="btn btn--accent btn--sm btn--full">
-                Tải Cẩm Nang Ngay
+                Tải Bản Hướng Dẫn
               </a>
             </div>
           </div>
@@ -188,17 +196,17 @@ const breadcrumbs = [
         <!-- Contextual Call To Action Box -->
         <div id="cam-nang-vi-mo" class="contextual-cta-box">
           <div class="contextual-cta-box__badge">
-            <i class="bi bi-lightbulb-fill" aria-hidden="true"></i> Giải pháp Hành động Vi mô
+            <i class="bi bi-lightbulb-fill" aria-hidden="true"></i> Điểm tựa từ Giúp Cha Mẹ
           </div>
           <h3 class="contextual-cta-box__title">
-            Đồng hành cùng cha mẹ già mà không đánh mất chính mình
+            Chăm sóc cha mẹ già mà không làm khổ chính mình
           </h3>
           <p class="contextual-cta-box__desc">
-            Tải miễn phí <strong>"Bản hướng dẫn thiết lập mạng lưới chăm sóc bán trú và điều dưỡng vi mô tại nhà"</strong> được biên soạn bởi TS. BS. Tâm &amp; Chuyên gia Tài chính Minh.
+            Tải miễn phí <strong>"Bản hướng dẫn ngồi lại đối thoại cùng gia đình và thiết lập phương án có người phụ giúp tại nhà"</strong> do TS.BS Tâm &amp; Cố vấn tài chính Ông Minh biên soạn.
           </p>
-          <a href="/blog" class="btn btn--accent">
+          <a href="/#cam-nang-vi-mo" class="btn btn--accent">
             <i class="bi bi-download" aria-hidden="true"></i>
-            <span>Tải Bản Hướng Dẫn Chăm Sóc Bán Trú Tại Gia</span>
+            <span>Tải Bản Hướng Dẫn Thực Hành</span>
           </a>
         </div>
 

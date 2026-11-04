@@ -11,13 +11,13 @@ const sortedPosts = posts.sort(
 
 const breadcrumbs = [
   { name: 'Trang chủ', url: '/' },
-  { name: 'Caregiver Blog', url: '/blog' },
+  { name: 'Cẩm nang Chăm sóc', url: '/blog' },
 ];
 ---
 
 <Layout
-  title="Caregiver Blog — Góc Nhìn Chuyên Sâu & Cẩm Nang Chăm Sóc Cha Mẹ Già"
-  description="Dữ liệu thực chứng, phân tích tâm lý lão khoa từ TS. BS. Tâm và giải pháp tài chính gia đình từ chuyên gia Minh dành cho thế hệ Bánh Mì Kẹp."
+  title="Cẩm Nang Chăm Sóc Cha Mẹ Tại Nhà | Giúp Cha Mẹ"
+  description="Kiến thức y khoa dễ hiểu từ BS. Tâm, bài toán tiền nong thực tế từ Ông Minh và những câu chuyện gia đình gần gũi giúp bạn chăm sóc cha mẹ già mà không kiệt sức."
   breadcrumbs={breadcrumbs}
 >
   <!-- Blog Hub Hero & Breadcrumb -->
@@ -28,38 +28,38 @@ const breadcrumbs = [
           <i class="bi bi-house-door" aria-hidden="true"></i> Trang chủ
         </a>
         <i class="bi bi-chevron-right breadcrumb__sep" aria-hidden="true"></i>
-        <span class="breadcrumb__current">Caregiver Blog</span>
+        <span class="breadcrumb__current">Cẩm nang Chăm sóc</span>
       </nav>
 
       <h1 class="blog-hub-hero__title">
-        Góc Nhìn Chuyên Sâu &amp; Cẩm Nang Chăm Sóc Cha Mẹ Già
+        Cẩm Nang Thực Tế &amp; Kinh Nghiệm Chăm Sóc Cha Mẹ Già
       </h1>
       <p class="blog-hub-hero__subtitle">
-        Dữ liệu thực chứng, phân tích tâm lý lão khoa và giải pháp tài chính bền vững giúp thế hệ Bánh Mì Kẹp hóa giải áp lực chữ Hiếu.
+        Kiến thức y khoa dễ hiểu từ TS. BS. Tâm, bài toán chi phí từ Ông Minh và những sẻ chia chân thành của người con giữa hai đầu gánh nặng.
       </p>
 
       <!-- Filter Bar: Umbrex Pills & Search Input -->
       <div class="blog-filter-bar">
-        <div class="category-pills" role="tablist" aria-label="Lọc theo góc phần tư Umbrex">
+        <div class="category-pills" role="tablist" aria-label="Lọc theo danh mục bài viết">
           <button type="button" class="category-pill active" data-filter="all">
             <i class="bi bi-grid-fill" aria-hidden="true"></i>
             <span>Tất cả ({sortedPosts.length})</span>
           </button>
           <button type="button" class="category-pill" data-filter="Educate">
             <i class="bi bi-journal-medical" aria-hidden="true"></i>
-            <span>Educate</span>
+            <span>Hiểu Bệnh &amp; Chi Phí</span>
           </button>
           <button type="button" class="category-pill" data-filter="Inspire">
             <i class="bi bi-heart-fill" aria-hidden="true"></i>
-            <span>Inspire</span>
+            <span>Nỗi Lòng Người Con</span>
           </button>
           <button type="button" class="category-pill" data-filter="Entertain">
             <i class="bi bi-cup-hot-fill" aria-hidden="true"></i>
-            <span>Entertain</span>
+            <span>Chuyện Nhà &amp; Lối Sống</span>
           </button>
           <button type="button" class="category-pill" data-filter="Convince">
             <i class="bi bi-compass-fill" aria-hidden="true"></i>
-            <span>Convince</span>
+            <span>Cách Chăm Sóc Tại Nhà</span>
           </button>
         </div>
 
@@ -69,7 +69,7 @@ const breadcrumbs = [
             type="search"
             id="blog-search-input"
             class="blog-search-box__input"
-            placeholder="Tìm kiếm bài viết, chủ đề (chữ hiếu, viện dưỡng lão, chi phí...)"
+            placeholder="Tìm theo vấn đề (thuê người chăm, đãng trí, tiền nong, đối thoại...)"
             aria-label="Tìm kiếm bài viết"
           />
         </div>
@@ -95,7 +95,7 @@ const breadcrumbs = [
     </div>
 
     <div id="blog-empty-result" class="empty-state" style="display: none;">
-      <p>Không tìm thấy bài viết nào khớp với bộ lọc hiện tại. Hãy thử từ khóa hoặc danh mục khác.</p>
+      <p>Không tìm thấy bài viết nào khớp với từ khóa tìm kiếm. Hãy thử từ khóa khác hoặc bấm Tất cả.</p>
     </div>
   </section>
 
@@ -104,18 +104,18 @@ const breadcrumbs = [
     <div class="container micro-care-banner__inner">
       <div class="micro-care-banner__content">
         <span class="micro-care-banner__badge">
-          <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Cẩm nang Thực hành
+          <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Điểm tựa từ Giúp Cha Mẹ
         </span>
         <h2 class="micro-care-banner__title">
-          Thiết lập hệ thống chăm sóc cha mẹ tại gia mà không kiệt sức
+          Chăm sóc cha mẹ già mà không làm khổ chính mình
         </h2>
         <p class="micro-care-banner__desc">
-          Khám phá phương pháp kết hợp dưỡng lão bán trú và điều dưỡng theo giờ (Micro-care) được Hội đồng chuyên gia Kinship AI khuyến nghị.
+          Tải miễn phí <strong>"Bản hướng dẫn ngồi lại đối thoại cùng gia đình và thiết lập phương án có người phụ giúp tại nhà"</strong> do TS.BS Tâm &amp; Cố vấn tài chính Ông Minh biên soạn.
         </p>
         <div class="micro-care-banner__actions">
-          <a href="/#hoi-dong-chuyen-gia" class="btn btn--accent">
-            <i class="bi bi-compass-fill" aria-hidden="true"></i>
-            <span>Tìm hiểu Phương pháp Micro-Care</span>
+          <a href="/#cam-nang-vi-mo" class="btn btn--accent">
+            <i class="bi bi-download" aria-hidden="true"></i>
+            <span>Tải Bản Hướng Dẫn Thực Hành</span>
           </a>
         </div>
       </div>

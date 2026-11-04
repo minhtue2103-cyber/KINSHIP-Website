@@ -9,9 +9,9 @@ interface Props {
 }
 
 const {
-  authorName = 'Nhung Pham',
-  authorRole = 'Founder & Caregiver Advocate',
-  authorBio = 'Kinh nghiệm thực tiễn đồng hành chăm sóc cha mẹ già tuổi 70+ tại gia; kết nối giải pháp tài chính và tâm lý lão khoa thế hệ Bánh Mì Kẹp.',
+  authorName = 'Nhung Phạm',
+  authorRole = 'Đồng sáng lập dự án Giúp Cha Mẹ',
+  authorBio = 'Xuất phát từ những đêm mất ngủ vừa điều hành công việc vừa lo cho cha mẹ già, tôi cùng đội ngũ tạo ra điểm tựa thực tế để con cái không phải kiệt sức trên hành trình báo hiếu.',
   authorAvatar = MEDIA_ASSETS.avatars.nhungPham,
 } = Astro.props;
 ---
@@ -20,12 +20,12 @@ const {
   class="author-geo-box"
   itemscope
   itemtype="https://schema.org/Person"
-  aria-label="Thông tin tác giả và Hội đồng thẩm định chuyên môn"
+  aria-label="Thông tin tác giả và Hội đồng chuyên gia thẩm định"
 >
   <div class="author-geo-box__inner">
     <img
       src={authorAvatar}
-      alt={`${authorName} - Tác giả Kinship AI`}
+      alt={`${authorName} — Giúp Cha Mẹ`}
       class="author-geo-box__avatar"
       itemprop="image"
       width="56"
@@ -37,7 +37,7 @@ const {
       <div class="author-geo-box__header">
         <div>
           <span class="author-geo-box__eyebrow">
-            <i class="bi bi-pen-fill" aria-hidden="true"></i> Tác giả bài viết
+            <i class="bi bi-pen-fill" aria-hidden="true"></i> Người viết
           </span>
           <h4 class="author-geo-box__name" itemprop="name">{authorName}</h4>
         </div>
@@ -48,14 +48,14 @@ const {
         {authorBio}
       </p>
 
-      <div class="author-geo-box__reviewers" aria-label="Hội đồng thẩm định E-E-A-T">
+      <div class="author-geo-box__reviewers" aria-label="Hội đồng chuyên môn kiểm chứng">
         <span class="author-geo-box__reviewer-item">
           <i class="bi bi-patch-check-fill author-geo-box__check" aria-hidden="true"></i>
-          <span>Thẩm định Lão khoa: <strong>TS. BS. Tâm</strong> (Chuyên gia Lão học &amp; Tâm lý gia đình)</span>
+          <span>Kiểm chứng y khoa: <strong>TS. BS. Tâm</strong> (Bác sĩ Lão khoa — Ông chú ADHD)</span>
         </span>
         <span class="author-geo-box__reviewer-item">
           <i class="bi bi-patch-check-fill author-geo-box__check" aria-hidden="true"></i>
-          <span>Thẩm định Tài chính: <strong>Ông Minh</strong> (Cố vấn Hoạch định Chi phí Chăm sóc Dài hạn)</span>
+          <span>Kiểm chứng tài chính: <strong>Ông Minh</strong> (Cố vấn Tài chính Gia đình &amp; Chăm sóc Tại gia)</span>
         </span>
       </div>
     </div>

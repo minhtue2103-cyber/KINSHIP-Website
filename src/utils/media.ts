@@ -11,28 +11,28 @@ export const MEDIA_ASSETS = {
 
   // Homepage Hero Carousel (3 Slides - 800x600, 4:3)
   heroSlides: [
-    'https://placehold.co/800x600/428442/ffffff?text=Kinship+AI+%E2%80%A2+Aging+In+Place',
-    'https://placehold.co/800x600/8dc435/ffffff?text=Tam+Ly+Lao+Khoa+%E2%80%A2+Dr.+Tam',
-    'https://placehold.co/800x600/ff9046/ffffff?text=Tai+Chinh+Duong+Lao+%E2%80%A2+Mr.+Minh',
+    'https://placehold.co/800x600/428442/ffffff?text=Giup+Cha+Me+%E2%80%A2+Diem+Tua+Thuc+Te',
+    'https://placehold.co/800x600/8dc435/ffffff?text=TS.+BS.+Tam+%E2%80%A2+Ong+Chu+ADHD',
+    'https://placehold.co/800x600/ff9046/ffffff?text=Ong+Minh+%E2%80%A2+Tai+Chinh+Gia+Dinh',
   ],
 
-  heroFamilyImage: 'https://placehold.co/800x600/428442/ffffff?text=Kinship+AI+Family+Hero',
+  heroFamilyImage: 'https://placehold.co/800x600/428442/ffffff?text=Giup+Cha+Me+%E2%80%A2+Gia+Dinh',
 
   // Article Feature Photo (1200x630, 1.91:1 chuẩn OG & Web)
-  defaultFeaturePhoto: 'https://placehold.co/1200x630/428442/ffffff?text=Feature+Photo+1200x630',
+  defaultFeaturePhoto: 'https://placehold.co/1200x630/428442/ffffff?text=Giup+Cha+Me+%E2%80%A2+Bai+Viet',
 
   // Article Card Thumbnail (600x338, 16:9)
-  defaultCardThumbnail: 'https://placehold.co/600x338/f4fbe8/428442?text=Thumbnail+16%3A9',
+  defaultCardThumbnail: 'https://placehold.co/600x338/f4fbe8/428442?text=Giup+Cha+Me',
 
   // Author & E-E-A-T Reviewers Avatars (160x160, 1:1)
   avatars: {
     nhungPham: 'https://placehold.co/160x160/428442/ffffff?text=Nhung+Pham',
-    drTam: 'https://placehold.co/160x160/8dc435/ffffff?text=Dr.+Tam',
-    mrMinh: 'https://placehold.co/160x160/ff9046/ffffff?text=Mr.+Minh',
+    drTam: 'https://placehold.co/160x160/8dc435/ffffff?text=BS.+Tam',
+    mrMinh: 'https://placehold.co/160x160/ff9046/ffffff?text=Ong+Minh',
   },
 
   // Micro-care Banner Graphic (600x400, 3:2)
-  microCareGraphic: 'https://placehold.co/600x400/8dc435/ffffff?text=Micro+Care+Guide',
+  microCareGraphic: 'https://placehold.co/600x400/8dc435/ffffff?text=Cam+Nang+Giup+Cha+Me',
 } as const;
 
 export const SOCIAL_LINKS = {
@@ -49,7 +49,7 @@ export function getArticleFeaturePhoto(customSrc?: string, slug?: string, quadra
       ? customSrc
       : `${MEDIA_BASE_FOLDER}/${customSrc}`;
   }
-  const label = quadrant ? `Kinship+AI+%E2%80%A2+${encodeURIComponent(quadrant)}` : 'Feature+Photo+1200x630';
+  const label = quadrant ? `Giup+Cha+Me+%E2%80%A2+${encodeURIComponent(quadrant)}` : 'Giup+Cha+Me+1200x630';
   return `https://placehold.co/1200x630/428442/ffffff?text=${label}`;
 }
 
@@ -69,6 +69,6 @@ export function getArticleThumbnail(customSrc?: string, quadrant?: string): stri
     Convince: '428442/ffffff',
   };
   const colors = (quadrant && bgMap[quadrant]) || 'f4fbe8/428442';
-  const label = quadrant ? `${encodeURIComponent(quadrant)}+16%3A9` : 'Thumbnail+16%3A9';
+  const label = quadrant ? `${encodeURIComponent(quadrant)}+16%3A9` : 'Giup+Cha+Me';
   return `https://placehold.co/600x338/${colors}?text=${label}`;
 }
