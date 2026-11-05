@@ -11,7 +11,7 @@ tags:
   - GenY
   - GenZ
   - AgingAnxiety
-featurePhoto: giup-cha-me-3jpg
+featurePhoto: giup-cha-me-3.jpg
 featureCaption: "Ảnh minh họa: Nỗi Sợ Lão Hóa Của Gen Y: Khủng Hoảng Vị Thế Trước Làn Sóng Gen Z — Nguồn ảnh: Picsum Photos"
 faqSchema:
   "@context": https://schema.org
