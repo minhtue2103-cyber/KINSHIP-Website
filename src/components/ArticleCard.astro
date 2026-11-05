@@ -10,6 +10,7 @@ interface Props {
   quadrant?: string;
   tags?: string[];
   thumbnailUrl?: string;
+  featurePhoto?: string;
   readingTime?: number;
 }
 
@@ -21,10 +22,12 @@ const {
   quadrant = 'Educate',
   tags = [],
   thumbnailUrl,
+  featurePhoto,
   readingTime = 8,
 } = Astro.props;
 
-const resolvedThumb = getArticleThumbnail(thumbnailUrl, quadrant);
+const imageSrc = thumbnailUrl || featurePhoto;
+const resolvedThumb = getArticleThumbnail(imageSrc, quadrant);
 
 function formatDate(date: Date) {
   return new Intl.DateTimeFormat('vi-VN', {

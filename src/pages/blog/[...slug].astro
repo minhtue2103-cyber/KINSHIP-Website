@@ -239,7 +239,7 @@ const breadcrumbs = [
             pubDate={rel.data.pubDate}
             quadrant={rel.data.quadrant}
             tags={rel.data.tags}
-            thumbnailUrl={rel.data.thumbnail}
+            thumbnailUrl={rel.data.thumbnail || rel.data.featurePhoto}
             readingTime={rel.data.readingTime || 8}
           />
         ))}

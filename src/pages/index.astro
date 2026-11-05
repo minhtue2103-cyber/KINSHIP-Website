@@ -509,7 +509,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
             pubDate={post.data.pubDate}
             quadrant={post.data.quadrant}
             tags={post.data.tags}
-            thumbnailUrl={post.data.image}
+            thumbnailUrl={post.data.thumbnail || post.data.featurePhoto}
             readingTime={post.data.readingTime || 8}
           />
         ))}

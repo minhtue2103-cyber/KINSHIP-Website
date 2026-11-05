@@ -62,13 +62,6 @@ export function getArticleThumbnail(customSrc?: string, quadrant?: string): stri
       ? customSrc
       : `${MEDIA_BASE_FOLDER}/${customSrc}`;
   }
-  const bgMap: Record<string, string> = {
-    Educate: 'f4fbe8/428442',
-    Inspire: 'fff3eb/ff9046',
-    Entertain: 'eefbe8/34c435',
-    Convince: '428442/ffffff',
-  };
-  const colors = (quadrant && bgMap[quadrant]) || 'f4fbe8/428442';
-  const label = quadrant ? `${encodeURIComponent(quadrant)}+16%3A9` : 'Giup+Cha+Me';
-  return `https://placehold.co/600x338/${colors}?text=${label}`;
+  // Mặc định sử dụng ảnh thumbnail nội bộ chất lượng cao
+  return MEDIA_ASSETS.defaultCardThumbnail;
 }
