@@ -27,7 +27,8 @@
   --secondary-light: #fff3eb;
 
   --bg-main: #ffffff;
-  --bg-secondary: #f7e451;
+  --bg-secondary: #f4fbe8;
+  --bg-button: #ffeb3e;
   --text-primary: #374047;
   --text-secondary: #525e66;
   --text-muted: #6c7983;
@@ -1237,7 +1238,7 @@ div.category-pills {
   padding: 0.55rem 1.15rem;
   border-radius: var(--radius-full);
   border: none;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-button);
   color: var(--text-secondary);
   font-family: var(--font-heading);
   font-size: 0.85rem;
@@ -1396,7 +1397,7 @@ div.article-card__tags {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--primary-dark);
-  background-color: var(--primary-50);
+  background-color: var(--bg-button);
   padding: 0.18rem 0.6rem;
   border-radius: 6px;
 }
