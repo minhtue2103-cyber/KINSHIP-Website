@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { MEDIA_ASSETS, SOCIAL_LINKS } from '../utils/media';
+import { QUADRANT_SETTINGS } from '../utils/taxonomy';
 
 interface BreadcrumbItem {
   name: string;
@@ -299,30 +300,16 @@ const breadcrumbSchema =
 
           <span class="site-drawer-menu__section-label">Chủ đề bài viết</span>
           <ul class="drawer-nav-list drawer-nav-list--sub">
-            <li>
-              <a href="/blog?quadrant=Educate" class="drawer-nav-link">
-                <i class="bi bi-journal-medical" aria-hidden="true"></i>
-                <span>Hiểu bệnh &amp; Chi phí (Educate)</span>
-              </a>
-            </li>
-            <li>
-              <a href="/blog?quadrant=Inspire" class="drawer-nav-link">
-                <i class="bi bi-heart-fill" aria-hidden="true"></i>
-                <span>Nỗi lòng người con (Inspire)</span>
-              </a>
-            </li>
-            <li>
-              <a href="/blog?quadrant=Entertain" class="drawer-nav-link">
-                <i class="bi bi-cup-hot-fill" aria-hidden="true"></i>
-                <span>Chuyện nhà &amp; Lối sống (Entertain)</span>
-              </a>
-            </li>
-            <li>
-              <a href="/blog?quadrant=Convince" class="drawer-nav-link">
-                <i class="bi bi-compass-fill" aria-hidden="true"></i>
-                <span>Cách chăm sóc tại nhà (Convince)</span>
-              </a>
-            </li>
+            {
+              Object.values(QUADRANT_SETTINGS).map((q) => (
+                <li>
+                  <a href={`/blog?quadrant=${q.key}`} class="drawer-nav-link">
+                    <i class={q.iconClass} aria-hidden="true"></i>
+                    <span>{q.label}</span>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
 
           <div class="site-drawer-menu__footer">
@@ -445,26 +432,15 @@ const breadcrumbSchema =
         <div class="footer-col footer-links-col">
           <h4>Chủ đề theo góc nhìn</h4>
           <ul>
-            <li>
-              <a href="/blog?quadrant=Educate">
-                <i class="bi bi-journal-medical" aria-hidden="true"></i> Hiểu Bệnh &amp; Chi Phí (Educate)
-              </a>
-            </li>
-            <li>
-              <a href="/blog?quadrant=Inspire">
-                <i class="bi bi-heart-fill" aria-hidden="true"></i> Nỗi Lòng Người Con (Inspire)
-              </a>
-            </li>
-            <li>
-              <a href="/blog?quadrant=Entertain">
-                <i class="bi bi-cup-hot-fill" aria-hidden="true"></i> Chuyện Nhà &amp; Lối Sống (Entertain)
-              </a>
-            </li>
-            <li>
-              <a href="/blog?quadrant=Convince">
-                <i class="bi bi-compass-fill" aria-hidden="true"></i> Cách Chăm Sóc Tại Nhà (Convince)
-              </a>
-            </li>
+            {
+              Object.values(QUADRANT_SETTINGS).map((q) => (
+                <li>
+                  <a href={`/blog?quadrant=${q.key}`}>
+                    <i class={q.iconClass} aria-hidden="true"></i> {q.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>

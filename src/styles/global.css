@@ -27,7 +27,7 @@
   --secondary-light: #fff3eb;
 
   --bg-main: #ffffff;
-  --bg-secondary: #f7faf5;
+  --bg-secondary: #f7e451;
   --text-primary: #374047;
   --text-secondary: #525e66;
   --text-muted: #6c7983;
@@ -592,7 +592,6 @@ div.drawer-socials {
   color: var(--text-secondary);
   background-color: #fffdf5;
   border: 1px solid #fedb9b;
-  border-left: 4px solid var(--secondary);
   border-radius: var(--radius-xl);
   max-width: 520px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
@@ -989,8 +988,6 @@ div.expert-card {
   line-height: 1.65;
   font-style: italic;
   color: var(--text-secondary);
-  border-left: 3px solid var(--primary-light);
-  padding-left: 0.85rem;
   margin-top: 0.45rem;
 }
 
@@ -1006,14 +1003,7 @@ div.expert-card {
   border-bottom: 1px solid var(--divider-color);
 }
 
-.about-card {
-  background-color: #ffffff;
-  border: 1px solid rgba(66, 132, 66, 0.12);
-  border-left: 5px solid var(--primary-dark);
-  border-radius: var(--radius-xl);
-  padding: 2.75rem;
-  box-shadow: var(--shadow-sm);
-}
+.about-card {}
 
 .about-card__header {
   margin-bottom: 1.25rem;
@@ -1950,8 +1940,6 @@ div.bluf-callout__badge i {
 .prose blockquote p:last-child {
   margin-bottom: 0;
 }
-  margin-bottom: 0;
-}
 
 /* Tables in Markdown Prose */
 .prose table {
@@ -2550,6 +2538,7 @@ i[class*=" bi-"] {
   .lead-cards-grid {
     grid-template-columns: 1fr;
   }
+
   .lead-form-box {
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;

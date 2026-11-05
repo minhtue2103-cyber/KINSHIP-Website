@@ -16,15 +16,15 @@ export interface QuadrantConfig {
 export const QUADRANT_SETTINGS: Record<string, QuadrantConfig> = {
   Educate: {
     key: 'Educate',
-    label: 'Hiểu Bệnh & Chi Phí',
-    shortLabel: 'Hiểu Bệnh & Chi Phí',
+    label: 'Hiểu Về Sức Khỏe',
+    shortLabel: 'Hiểu Về Sức Khỏe',
     iconClass: 'bi bi-journal-medical',
     className: 'quadrant-badge--educate',
     description: 'Kiến thức y khoa lão khoa & bài toán chi phí chăm sóc thực tế',
   },
   Inspire: {
     key: 'Inspire',
-    label: 'Nỗi Lòng Người Con',
+    label: 'Nỗi Lòng Gen Y',
     shortLabel: 'Nỗi Lòng Người Con',
     iconClass: 'bi bi-heart-fill',
     className: 'quadrant-badge--inspire',

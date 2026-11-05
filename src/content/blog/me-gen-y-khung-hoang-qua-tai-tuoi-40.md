@@ -1,56 +1,47 @@
 ---
-title: 'Mẹ Gen Y 40 Tuổi Quá Tải: 3 Bước Thoát Bẫy Kiệt Sức Sandwich'
-description: 'Hướng dẫn người mẹ Gen Y đối phó khủng hoảng quá tải tuổi 40: thiết
-  lập ranh giới cảm xúc, từ bỏ ảo tưởng hoàn hảo và ủy quyền chăm sóc cha mẹ già.'
+title: "Mẹ Gen Y 40 Tuổi Quá Tải: 3 Bước Thoát Bẫy Kiệt Sức Sandwich"
+description: "Hướng dẫn người mẹ Gen Y đối phó khủng hoảng quá tải tuổi 40: thiết lập ranh giới cảm xúc, từ bỏ ảo tưởng hoàn hảo và ủy quyền chăm sóc cha mẹ già."
 slug: me-gen-y-khung-hoang-qua-tai-tuoi-40
-pubDate: '2026-11-02'
-updatedDate: '2026-11-02'
+pubDate: 2026-11-02
+updatedDate: 2026-11-02
 quadrant: Educate
 tags:
-- giupchame
-- caregivervietnam
-- khunghoangtuoi40
-- chamsocchame
-- kietsuccamxuc
-featurePhoto: https://picsum.photos/seed/me-gen-y-khung-hoang-qua-tai-tuoi-40/1200/630
-featureCaption: 'Ảnh minh họa: Mẹ Gen Y 40 Tuổi Quá Tải — Nguồn ảnh: Picsum Photos'
+  - giupchame
+  - caregivervietnam
+  - khunghoangtuoi40
+  - chamsocchame
+  - kietsuccamxuc
+featurePhoto: giup-cha-me-2.jpg
+featureCaption: "Ảnh minh họa: Mẹ Gen Y 40 Tuổi Quá Tải"
 faqSchema:
-  '@context': https://schema.org
-  '@type': FAQPage
+  "@context": https://schema.org
+  "@type": FAQPage
   mainEntity:
-  - '@type': Question
-    name: Làm thế nào để người mẹ Gen Y đối phó với khủng hoảng quá tải tuổi 40?
-    acceptedAnswer:
-      '@type': Answer
-      text: Cần chủ động thiết lập ranh giới cảm xúc, từ bỏ ảo tưởng hoàn hảo, tìm
-        kiếm sự hỗ trợ tâm lý chuyên môn và xây dựng mạng lưới chia sẻ việc nhà cũng
-        như chăm sóc trẻ để giải phóng ít nhất 1-2 giờ mỗi ngày cho bản thân.
-  - '@type': Question
-    name: Nguyên nhân cốt lõi khiến sức khỏe tinh thần của Gen Y suy giảm nghiêm trọng
-      ở tuổi trung niên là gì?
-    acceptedAnswer:
-      '@type': Answer
-      text: Nguyên nhân nằm ở sự bất an hiện sinh do kinh tế bấp bênh kéo dài từ sau
-        khủng hoảng tài chính, tình trạng thiếu hụt an sinh việc làm ổn định và sự
-        đứt gãy trong các mối quan hệ xã hội sâu sắc khi gánh nặng gia đình đè nặng.
+    - "@type": Question
+      name: Làm thế nào để người mẹ Gen Y đối phó với khủng hoảng quá tải tuổi 40?
+      acceptedAnswer:
+        "@type": Answer
+        text: Cần chủ động thiết lập ranh giới cảm xúc, từ bỏ ảo tưởng hoàn hảo, tìm kiếm sự hỗ trợ tâm lý chuyên môn và xây dựng mạng lưới chia sẻ việc nhà cũng như chăm sóc trẻ để giải phóng ít nhất 1-2 giờ mỗi ngày cho bản thân.
+    - "@type": Question
+      name: Nguyên nhân cốt lõi khiến sức khỏe tinh thần của Gen Y suy giảm nghiêm trọng ở tuổi trung niên là gì?
+      acceptedAnswer:
+        "@type": Answer
+        text: Nguyên nhân nằm ở sự bất an hiện sinh do kinh tế bấp bênh kéo dài từ sau khủng hoảng tài chính, tình trạng thiếu hụt an sinh việc làm ổn định và sự đứt gãy trong các mối quan hệ xã hội sâu sắc khi gánh nặng gia đình đè nặng.
 sources:
-- title: Gen Z Is Having ‘Midlife Crisis’ - Newsweek
-  url: https://www.newsweek.com/gen-z-are-having-midlife-crisis-survey-2002980
-- title: 'Frontiers | Quiet quitting among Gen Z and millennial employees: contributing
-    factors and organisational mitigation strategies'
-  url: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1839119/full
-- title: 'Millennials in the Sandwich Generation: Balancing Caregiving ...'
-  url: https://alexia.substack.com/p/millennials-in-the-sandwich-generation
-- title: 'The New Midlife Crisis: Why Millennials Face It Sooner'
-  url: https://fulfilledatworkacademy.com/the-new-midlife-crisis-why-millennials-face-it-sooner
-- title: Companies Are Cashing in on Millennials' Fear of Getting Old - Business Insider
-  url: https://www.businessinsider.com/millennials-gen-z-socks-jeans-brands-aging-cash-advertising-2024-6
-- title: Generational differences in mental health and drivers of youth mental health
-    decline in Australia and the United Kingdom
-  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13407260
-- title: Are you a millennial mom in a midlife crisis? Here’s 10 tips to cope — Calm
-    Blog
-  url: https://www.calm.com/blog/millennial-mom-midlife-crisis
+  - title: Gen Z Is Having ‘Midlife Crisis’ - Newsweek
+    url: https://www.newsweek.com/gen-z-are-having-midlife-crisis-survey-2002980
+  - title: "Frontiers | Quiet quitting among Gen Z and millennial employees: contributing factors and organisational mitigation strategies"
+    url: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1839119/full
+  - title: "Millennials in the Sandwich Generation: Balancing Caregiving ..."
+    url: https://alexia.substack.com/p/millennials-in-the-sandwich-generation
+  - title: "The New Midlife Crisis: Why Millennials Face It Sooner"
+    url: https://fulfilledatworkacademy.com/the-new-midlife-crisis-why-millennials-face-it-sooner
+  - title: Companies Are Cashing in on Millennials' Fear of Getting Old - Business Insider
+    url: https://www.businessinsider.com/millennials-gen-z-socks-jeans-brands-aging-cash-advertising-2024-6
+  - title: Generational differences in mental health and drivers of youth mental health decline in Australia and the United Kingdom
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13407260
+  - title: Are you a millennial mom in a midlife crisis? Here’s 10 tips to cope — Calm Blog
+    url: https://www.calm.com/blog/millennial-mom-midlife-crisis
 ---
 
 ## Cái bẫy tâm lý 'Vừa quá tải vừa chưa đủ' của người mẹ tuổi 40

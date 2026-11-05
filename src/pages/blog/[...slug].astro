@@ -256,13 +256,13 @@ const breadcrumbs = [
       const blockquotes = prose.querySelectorAll('blockquote');
       blockquotes.forEach((bq) => {
         const html = bq.innerHTML;
-        if (html.includes('[!SUMMARY]') || html.includes('BLUF:')) {
+        if (html.includes('[!SUMMARY]') || html.includes('BLUF:') || html.includes('Bạn có biết..')) {
           bq.classList.add('bluf-callout');
           const cleanHtml = html
-            .replace(/\[!SUMMARY\]\s*(BLUF:\s*)?/i, '')
-            .replace(/^<p>\s*BLUF:\s*/i, '<p>');
+            .replace(/\[!SUMMARY\]\s*/gi, '')
+            .replace(/<p>\s*(?:BLUF:|Tóm tắt trực diện \(BLUF\)|Bạn có biết\.{2,}:?)\s*/gi, '<p>');
           bq.innerHTML =
-            '<div class="bluf-callout__badge"><i class="bi bi-lightbulb-fill" aria-hidden="true"></i><span>Tóm tắt trực diện (BLUF)</span></div>' +
+            '<div class="bluf-callout__badge"><i class="bi bi-lightbulb-fill" aria-hidden="true"></i><span>Bạn có biết..</span></div>' +
             '<div class="bluf-callout__text">' +
             cleanHtml +
             '</div>';
