@@ -12,7 +12,7 @@ tags:
   - chamsocchame
   - kietsuccamxuc
 featurePhoto: giup-cha-me-2.jpg
-featureCaption: "Ảnh minh họa: Mẹ Gen Y 40 Tuổi Quá Tải"
+featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org
   "@type": FAQPage

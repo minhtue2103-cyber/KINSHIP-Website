@@ -12,7 +12,7 @@ tags:
   - chuhieu
   - tamlytuoigia
 featurePhoto: giup-cha-me-4.jpg
-featureCaption: "Ảnh minh họa: Gen Z Đưa Cha Mẹ Vào Viện Dưỡng Lão"
+featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org
   "@type": FAQPage
