@@ -11,7 +11,7 @@ tags:
   - Empowerment
   - Dignity_of_Aging
   - GenY_vs_GenZ
-featurePhoto: giup-cha-me-11.jpg
+featurePhoto: giup-cha-me-9.jpg
 featureCaption: "Ảnh minh họa: cha mẹ già cảm thấy mình vẫn là chỗ dựa của con"
 faqSchema:
   "@context": https://schema.org

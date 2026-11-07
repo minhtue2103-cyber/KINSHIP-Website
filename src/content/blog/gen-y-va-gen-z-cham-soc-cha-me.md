@@ -11,7 +11,7 @@ tags:
   - GenY_vs_GenZ
   - Dao_Hieu_Hien_Dai
   - Pham_Gia_Nguoi_Gia
-featurePhoto: giup-cha-me-8.jpg
+featurePhoto: giup-cha-me-7.jpg
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org
