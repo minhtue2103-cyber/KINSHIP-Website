@@ -58,7 +58,7 @@ sources:
 
 Người trẻ Gen Z lớn lên cùng dòng chảy thông tin mở, sớm tiếp cận góc nhìn hiện đại: viện dưỡng lão hay các trung tâm điều dưỡng là môi trường y tế có chuyên môn, giúp người già được theo dõi huyết áp, tập phục hồi chức năng bài bản hơn việc tự chăm vụng về ở nhà . Nhưng giữa suy nghĩ mạch lạc lúc ngồi bàn luận và khoảnh khắc ký vào tờ đơn gửi cha mẹ đi là hai thế giới hoàn toàn khác nhau.
 
-Ở xã hội mình, nếp nghĩ phụng dưỡng cha mẹ tại gia ăn sâu qua nhiều thế hệ. Đưa người già ra khỏi nhà chưa bao giờ là một thủ tục y tế đơn thuần; đó là một cú va chạm tâm lý dữ dội . Chuyên gia tâm lý lão khoa (Dr. Tâm) gọi đây là **Hội chứng Tê liệt Đạo hiếu (Filial Paralysis)** với hai tầng áp lực bóp nghẹt người trẻ:
+Ở xã hội mình, nếp nghĩ phụng dưỡng cha mẹ tại gia ăn sâu qua nhiều thế hệ. Đưa người già ra khỏi nhà chưa bao giờ là một thủ tục y tế đơn thuần; đó là một cú va chạm tâm lý dữ dội . Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) gọi đây là **Hội chứng Tê liệt Đạo hiếu (Filial Paralysis)** với hai tầng áp lực bóp nghẹt người trẻ:
 - **Mặc cảm tự dằn vặt (Caregiver Guilt):** Luôn thấy mình làm chưa đủ tốt. Cảm giác mình bất tài, kiếm tiền chưa đủ nhiều, hoặc tệ hơn là đứa con vô ơn khi nghĩ đến chuyện nhờ người ngoài chăm cha mẹ . Dòng tâm sự buốt lòng trên diễn đàn chăm sóc người già: *"My guilt of not being the daughter I could've been is eating me away. My mom and I weren't strong enough to lift him up anymore"* không phải câu chuyện của riêng ai.
 - **Nỗi sợ miệng lưỡi dòng họ:** Nỗi sợ lớn không chỉ nằm ở phản ứng của cha mẹ, mà là tiếng xì xào từ người thân: *"Nó làm ra tiền mà tống bố mẹ vào trại"* .
 

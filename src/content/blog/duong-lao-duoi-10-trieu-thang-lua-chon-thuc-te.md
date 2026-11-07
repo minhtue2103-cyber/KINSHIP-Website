@@ -103,7 +103,7 @@ sources:
 
 Mở mạng tìm hiểu về viện dưỡng lão, nhiều người con ở tuổi 30, 40 rất dễ rơi vào cảm giác chạnh lòng. Trên truyền thông phần lớn là hình ảnh các khu dưỡng lão sinh thái lung linh, phòng ốc tiện nghi như resort với mức phí 15 đến 25 triệu đồng mỗi tháng.
 
-Nhìn lại ví tiền gia đình, mức giá đó thực sự là một rào cản bất khả thi . Lương hưu của cha mẹ bình quân chỉ khoảng 6,2 triệu đồng, con cái cố gắng gom góp thêm 3–4 triệu mỗi tháng là đã phải thắt lưng buộc bụng. Nghiên cứu thực tế của Kinship AI và chia sẻ của TS. BS. Tâm cho thấy một điểm nghẽn tâm lý rất đau lòng: nhiều người con tự dằn vặt, nghĩ mình bất tài nên không lo nổi cho cha mẹ một chỗ an dưỡng tươm tất.
+Nhìn lại ví tiền gia đình, mức giá đó thực sự là một rào cản bất khả thi . Lương hưu của cha mẹ bình quân chỉ khoảng 6,2 triệu đồng, con cái cố gắng gom góp thêm 3–4 triệu mỗi tháng là đã phải thắt lưng buộc bụng. Nghiên cứu thực tế của Kinship AI và chia sẻ của Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) cho thấy một điểm nghẽn tâm lý rất đau lòng: nhiều người con tự dằn vặt, nghĩ mình bất tài nên không lo nổi cho cha mẹ một chỗ an dưỡng tươm tất.
 
 Bảng khảo sát thực tế tại các đô thị lớn chỉ ra sự phân hóa chi phí rất rõ ràng , :
 
@@ -126,7 +126,7 @@ Nỗi lo cơm áo gạo tiền va chạm với chữ Hiếu luôn là một gán
 Nếu bắt buộc phải chọn phương án gửi cha mẹ vào cơ sở nội trú với số tiền dưới 10 triệu mỗi tháng, bạn chỉ có 2 cánh cửa thực tế:
 
 ### Phương án 1: Phòng tập thể tại viện dưỡng lão tư nhân (7–9 triệu đồng/tháng)
-- **Điểm được:** Chi phí vừa vặn với túi tiền. Cha mẹ được đội ngũ điều dưỡng theo dõi huyết áp, đường huyết mỗi ngày, hỗ trợ ăn uống và uống thuốc đúng cữ . Dưới góc nhìn lão khoa của TS. BS. Tâm , ở phòng chung 5–8 người giúp các cụ luôn có bạn đồng niên chuyện trò, đánh cờ, bớt hẳn cảm giác cô độc so với việc thui thủi một mình trong phòng đơn.
+- **Điểm được:** Chi phí vừa vặn với túi tiền. Cha mẹ được đội ngũ điều dưỡng theo dõi huyết áp, đường huyết mỗi ngày, hỗ trợ ăn uống và uống thuốc đúng cữ . Dưới góc nhìn tâm lý của Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) , ở phòng chung 5–8 người giúp các cụ luôn có bạn đồng niên chuyện trò, đánh cờ, bớt hẳn cảm giác cô độc so với việc thui thủi một mình trong phòng đơn.
 - **Điểm đánh đổi:** Sự riêng tư gần như bằng không. Người già vốn khó ngủ, chỉ cần bạn cùng phòng trở mình, rên đau hay ho đêm là cả phòng cùng thức. Tỷ lệ nhân viên trên số người cao tuổi đông hơn, nên việc chăm sóc khó lòng tỉ mỉ từng chút một.
 - **Cách tối ưu chi phí:** Các viện dưỡng lão tư nhân tại các tỉnh lân cận như Bắc Ninh, Nam Định, Thái Bình hay Đồng Nai có mức giá phòng tập thể 7–8 triệu/tháng, rẻ hơn 20–30% so với khu vực nội thành Hà Nội hay TP.HCM mà khuôn viên lại rộng rãi, nhiều bóng cây .
 

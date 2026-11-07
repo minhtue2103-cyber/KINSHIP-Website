@@ -70,7 +70,7 @@ export function getQuadrantConfig(quadrant?: string): QuadrantConfig {
  * Người quản trị có thể thay đổi đường link biểu mẫu Google Form tại đây bất cứ lúc nào.
  */
 export const LEAD_FORM_SETTINGS = {
-  googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc-PLACEHOLDER/viewform?usp=sf_link',
+  googleFormUrl: 'https://docs.google.com/forms/d/1yPN1MAyIpcuHC_Uau909Ca-KzYf9_qC7Vusd2j0wbC4/viewform',
   officialWebsiteUrl: 'https://giupchame.info.vn/',
   supportEmail: 'hotro@giupchame.info.vn',
   brandTagline: 'Chăm sóc cha mẹ già nhẹ nhàng hơn',

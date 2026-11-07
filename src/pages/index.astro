@@ -38,20 +38,20 @@ const heroSlides = [
     floatingSub: 'Giữ trọn tình thân, không kiệt sức',
   },
   {
-    badgeIcon: 'bi bi-journal-medical',
-    badgeText: 'TS. BS. Tâm (Ông chú ADHD)',
+    badgeIcon: 'bi bi-heart-pulse-fill',
+    badgeText: 'Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD)',
     titlePrefix: 'Thương cha mẹ ',
     titleHighlight: 'đúng cách',
     titleSuffix: ' mà không tự làm khổ bản thân',
     subtitle:
       'Giải thích cặn kẽ bệnh tuổi già và tâm lý tuổi trung niên bằng ngôn ngữ đời thường, giúp bạn hiểu rõ cơ thể mình và chăm sóc cha mẹ nhẹ lòng hơn.',
-    primaryCtaText: 'Xem Lời Khuyên Của BS. Tâm',
+    primaryCtaText: 'Xem Lời Khuyên Của Henry Tâm',
     primaryCtaHref: '/blog?quadrant=Educate',
-    secondaryCtaText: 'Gặp Gỡ BS. Tâm',
+    secondaryCtaText: 'Gặp Gỡ Henry Tâm',
     secondaryCtaHref: '#hoi-dong-chuyen-gia',
     image: MEDIA_ASSETS.heroSlides[1],
     floatingIcon: 'bi bi-patch-check-fill',
-    floatingTitle: 'Y khoa dễ hiểu',
+    floatingTitle: 'Tâm lý & Y khoa dễ hiểu',
     floatingSub: 'Nói chuyện đời thường, không hù dọa',
   },
   {
@@ -113,7 +113,7 @@ const fallbackFeaturedItems: FeaturedItem[] = [
   {
     title: 'Nói Chuyện Với Cha Mẹ Về Tuổi Già: Cách Mở Lời Khi Cha Mẹ Còn Khỏe',
     description:
-      'Gợi ý từ TS.BS Tâm giúp anh chị em trong nhà cùng ngồi lại trò chuyện thẳng thắn về kế hoạch dưỡng già, lắng nghe tâm tư đấng sinh thành mà không tạo cảm giác đùn đẩy trách nhiệm.',
+      'Gợi ý từ Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) giúp anh chị em trong nhà cùng ngồi lại trò chuyện thẳng thắn về kế hoạch dưỡng già, lắng nghe tâm tư đấng sinh thành mà không tạo cảm giác đùn đẩy trách nhiệm.',
     url: realFeaturedItems[1]?.url || '/blog',
     pubDate: new Date('2026-11-02'),
     quadrant: 'Inspire',
@@ -130,7 +130,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
 
 <Layout
   title="Giúp Cha Mẹ | Chăm sóc cha mẹ già & Điểm tựa sức khỏe tuổi trung niên"
-  description="Kiến thức y khoa dễ hiểu từ TS.BS Tâm, bài toán tài chính chăm sóc tại nhà từ Ông Minh và công cụ đồng hành giúp bạn chăm sóc cha mẹ mà không kiệt sức."
+  description="Kiến thức tâm lý & y khoa dễ hiểu từ Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD), bài toán tài chính chăm sóc tại nhà từ Ông Minh và công cụ đồng hành giúp bạn chăm sóc cha mẹ mà không kiệt sức."
 >
   <!-- 1. HERO SECTION — USLIDER 3-SLIDE CAROUSEL WITH SOFT ANIMATION -->
   <section class="hero-section" aria-label="Tiêu điểm Kinship AI">
@@ -252,7 +252,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
       <div class="expert-card">
         <img
           src={MEDIA_ASSETS.avatars.drTam}
-          alt="TS. BS. Tâm — Ông chú ADHD"
+          alt="Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD)"
           class="expert-card__avatar"
           width="64"
           height="64"
@@ -260,11 +260,11 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
         />
         <div class="expert-card__info">
           <div class="expert-card__role-tag">
-            <i class="bi bi-hospital-fill" aria-hidden="true"></i> Tâm lý &amp; Sức khỏe Lão khoa
+            <i class="bi bi-heart-pulse-fill" aria-hidden="true"></i> Tâm lý trị liệu &amp; Sức khỏe Lão khoa
           </div>
-          <h3 class="expert-card__name">TS. BS. Tâm (Ông chú ADHD)</h3>
+          <h3 class="expert-card__name">Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD)</h3>
           <p class="expert-card__desc">
-            "Làm bác sĩ tâm lý lão khoa, nhưng tôi cũng là một người đàn ông trung niên từng trải qua cảm giác bất lực khi cha mẹ già yếu đi mỗi ngày. Y học không phải để đao to búa lớn hay dọa nạt. Tôi ở đây để cùng bạn thương cha mẹ đúng cách, khoa học và không để bản thân kiệt sức."
+            "Là một nhà tâm lý trị liệu, nhưng tôi cũng là một người đàn ông trung niên từng trải qua cảm giác bất lực khi cha mẹ già yếu đi mỗi ngày. Y học và tâm lý không phải để đao to búa lớn hay dọa nạt. Tôi ở đây để cùng bạn thương cha mẹ đúng cách, khoa học và không để bản thân kiệt sức."
           </p>
         </div>
       </div>
@@ -346,7 +346,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
           <div class="principle-body">
             <h3 class="principle-title">Thông tin chuẩn xác</h3>
             <p class="principle-desc">
-              Mọi kiến thức y khoa lão khoa và bài toán chi phí đều có nguồn gốc rõ ràng, được kiểm chứng bởi TS. BS. Tâm và Cố vấn tài chính Ông Minh.
+              Mọi kiến thức tâm lý lão khoa và bài toán chi phí đều có nguồn gốc rõ ràng, được kiểm chứng bởi Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) và Cố vấn tài chính Ông Minh.
             </p>
           </div>
         </div>
@@ -378,7 +378,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
         </span>
         <h2 class="section-title">Chuyện chăm sóc cha mẹ già: Nói thật, tính thật</h2>
         <p class="section-subtitle">
-          Kiến thức y khoa dễ hiểu từ BS. Minh Tâm, bài toán chi phí từ Ông Phạm Minh và kinh nghiệm chăm sóc cha mẹ tại nhà.
+          Kiến thức tâm lý &amp; sức khỏe dễ hiểu từ Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD), bài toán chi phí từ Ông Phạm Minh và kinh nghiệm chăm sóc cha mẹ tại nhà.
         </p>
       </div>
       <a href="/blog" class="btn btn--outline btn--sm">
@@ -528,7 +528,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
           Bạn không phải một mình gồng gánh tất cả.
         </h2>
         <p class="micro-care-banner__desc">
-          Tải ngay <strong>"Bản hướng dẫn ngồi lại đối thoại gia đình &amp; tính toán chi phí chăm sóc tại nhà"</strong> — bộ tài liệu thực hành do TS.BS Tâm và Cố vấn tài chính Ông Minh biên soạn, giúp bạn chủ động chuẩn bị kinh tế và thiết lập phương án chăm sóc người thân mà không kiệt sức.
+          Tải ngay <strong>"Bản hướng dẫn ngồi lại đối thoại gia đình &amp; tính toán chi phí chăm sóc tại nhà"</strong> — bộ tài liệu thực hành do Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) và Cố vấn tài chính Ông Minh biên soạn, giúp bạn chủ động chuẩn bị kinh tế và thiết lập phương án chăm sóc người thân mà không kiệt sức.
         </p>
         <div class="micro-care-banner__actions">
           <a href="/cam-nang-cham-soc" class="btn btn--accent">

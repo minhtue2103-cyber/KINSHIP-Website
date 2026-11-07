@@ -21,7 +21,7 @@ interface Props {
 
 const {
   title,
-  description = 'Kiến thức y khoa dễ hiểu từ TS.BS Tâm, bài toán tài chính chăm sóc tại nhà từ Ông Minh và công cụ đồng hành giúp bạn chăm sóc cha mẹ mà không kiệt sức.',
+  description = 'Kiến thức tâm lý & y khoa dễ hiểu từ Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD), bài toán tài chính chăm sóc tại nhà từ Ông Minh và công cụ đồng hành giúp bạn chăm sóc cha mẹ mà không kiệt sức.',
   faqSchema = null,
   ogType = 'website',
   ogImage = MEDIA_ASSETS.defaultFeaturePhoto,
@@ -66,8 +66,8 @@ const articleSchema =
         reviewedBy: [
           {
             '@type': 'Person',
-            name: 'TS. BS. Minh Tâm',
-            jobTitle: 'Chuyên gia Tâm lý (Ông chú ADHD)',
+            name: 'Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD)',
+            jobTitle: 'Nhà tâm lý trị liệu (Ông chú ADHD)',
           },
           {
             '@type': 'Person',
@@ -209,15 +209,16 @@ const breadcrumbSchema =
           </button>
         </div>
       </div>
+    </header>
 
-      <!-- Click-to-open/close Slide Drawer Menu & Overlay -->
-      <div id="menu-backdrop" class="menu-backdrop" aria-hidden="true"></div>
-      <nav
-        id="site-drawer-menu"
-        class="site-drawer-menu"
-        aria-label="Điều hướng chính"
-        aria-hidden="true"
-      >
+    <!-- Click-to-open/close Slide Drawer Menu & Overlay -->
+    <div id="menu-backdrop" class="menu-backdrop" aria-hidden="true"></div>
+    <nav
+      id="site-drawer-menu"
+      class="site-drawer-menu"
+      aria-label="Điều hướng chính"
+      aria-hidden="true"
+    >
         <div class="site-drawer-menu__header">
           <a href="/" class="brand-logo">
             <img
@@ -320,7 +321,7 @@ const breadcrumbSchema =
                 title="Facebook: Ông chú ADHD"
               >
                 <i class="bi bi-facebook" aria-hidden="true"></i>
-                <span>Facebook BS. Tâm</span>
+                <span>Facebook Henry Tâm (ông chú ADHD)</span>
               </a>
               <a
                 href={SOCIAL_LINKS.youtube}
@@ -336,7 +337,6 @@ const breadcrumbSchema =
           </div>
         </div>
       </nav>
-    </header>
 
     <main class="site-main">
       <slot />
@@ -376,7 +376,7 @@ const breadcrumbSchema =
               aria-label="Facebook Ông chú ADHD"
             >
               <i class="bi bi-facebook" aria-hidden="true"></i>
-              <span>Facebook BS. Tâm</span>
+              <span>Facebook Henry Tâm (ông chú ADHD)</span>
             </a>
             <a
               href={SOCIAL_LINKS.youtube}
@@ -411,7 +411,7 @@ const breadcrumbSchema =
             </li>
             <li>
               <a href="/#hoi-dong-chuyen-gia">
-                Hội đồng Cố vấn: TS. BS. Tâm &amp; Ông Minh
+                Hội đồng Cố vấn: Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) &amp; Ông Minh
               </a>
             </li>
             <li>

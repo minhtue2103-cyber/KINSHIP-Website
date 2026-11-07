@@ -62,7 +62,7 @@ Cảm giác hụt hẫng này càng nặng nề hơn khi bạn phải gồng gá
 
 Tại sao những câu chuyện về serum retinol, kem mắt peptide tiền triệu hay liệu trình nâng cơ trẻ hóa da lại trở thành đề tài rôm rả nhất trong các buổi gặp mặt của hội bạn ngoài 30?
 
-Dưới góc nhìn tâm lý học lão khoa của chuyên gia (Dr. Tâm), Gen Y đang đối mặt với **Hội chứng Lo âu Hiện sinh về sự Lão hóa (Existential Aging Anxiety)**. Sự lo âu này có hai lớp lang tâm lý rất sâu:
+Dưới góc nhìn tâm lý học của Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD), Gen Y đang đối mặt với **Hội chứng Lo âu Hiện sinh về sự Lão hóa (Existential Aging Anxiety)**. Sự lo âu này có hai lớp lang tâm lý rất sâu:
 - Nếp nhăn đuôi mắt hay vài sợi tóc bạc lấm tấm không chỉ là khuyết điểm thẩm mỹ. Đó là chiếc đồng hồ sinh học gõ nhịp nhắc nhở rằng cơ thể này đã bước sang bên kia sườn dốc .
 - Nhưng điều làm người ta thảng thốt nhất không phải gương mặt mình, mà là khi nhìn sang cha mẹ. Thấy đôi tay cha run rẩy khi cầm chén nước, thấy mẹ phải nheo mắt đọc đơn thuốc huyết áp mỗi sớm, Gen Y bàng hoàng nhìn thấy viễn cảnh sinh học của chính mình sau vài thập kỷ nữa .
 
