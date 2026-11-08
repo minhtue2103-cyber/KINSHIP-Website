@@ -3,7 +3,7 @@
 **Mô hình:** Cổng Thông Tin & Điểm Tựa Sức Khỏe Tuổi Trung Niên, Chăm Sóc Cha Mẹ Già Tại Nhà  
 **Tên miền chính thức:** `https://giupchame.info.vn` (Hosting: Cloudflare Pages)  
 **Nền tảng công nghệ:** Astro 4.x / 5.x (SSG) + TypeScript + Cloudflare Pages  
-**Phiên bản:** 2.4 (Chuẩn hóa Chuyên gia Henry Tâm, Tích hợp Preloader Hybrid, Dynamic Sitemap XML, robots.txt & Trang Cẩm Nang Chăm Sóc)  
+**Phiên bản:** 2.5 (Chuẩn hóa Agentic Web: llms.txt, ARD ai-catalog.json, ard.json, Cloudflare _headers & Quy tắc Biên tập An toàn)  
 
 ---
 
@@ -18,7 +18,7 @@
   1. *Thẳng và Gần:* Giọng tâm sự tuổi trung niên, câu ngắn gọn, không dạy đời, không phán xét đạo đức.
   2. *Thuần Việt, đời thường:* Tuyệt đối tránh thuật ngữ hàn lâm, tiếng Anh pha tạp (quy đổi *Sandwich Generation / Bánh Mì Kẹp* $\rightarrow$ *Người con kẹt giữa hai đầu gánh nặng*; *Dual Burnout* $\rightarrow$ *Kiệt sức kép*; *Micro-care* $\rightarrow$ *Đỡ đần việc nhỏ mỗi ngày*; *Aging in place* $\rightarrow$ *Chăm sóc cha mẹ già tại nhà*).
   3. *Có căn cứ rõ ràng:* Kiến thức bệnh học tuổi già và chi phí đều có số liệu thực tế, thẩm định bởi chuyên gia.
-* **Mục tiêu SEO/GEO:** Tối ưu hóa cấu trúc để AI Search (Google AI Overviews, ChatGPT Search, Perplexity) trích xuất trực tiếp câu trả lời qua **BLUF (Bottom Line Up Front)**, dữ liệu cấu trúc Schema.org (`Article`, `FAQPage`, `BreadcrumbList`, `Organization`), và khối định danh **Author GEO (E-E-A-T)**.
+* **Mục tiêu SEO/GEO/Agentic:** Tối ưu hóa cấu trúc để AI Search (Google AI Overviews, ChatGPT Search, Perplexity) và AI Agents tự hành trích xuất trực tiếp thông tin qua **BLUF (Bottom Line Up Front)**, dữ liệu cấu trúc Schema.org (`Article`, `FAQPage`, `BreadcrumbList`, `Organization`), khối **Author GEO (E-E-A-T)**, cùng các chuẩn mới **`llms.txt`** và **`ai-catalog.json` (ARD)**.
 
 ### 1.2. Kiến trúc Sitemap 2 Cấp Độ
 ```text
@@ -28,7 +28,10 @@
 │   ├── /blog (Blog Archive Hub: Lọc 4 chủ đề thuần Việt, Tìm kiếm tức thì, Tags)
 │   └── /blog/[slug] (Chi tiết bài viết: Feature Photo 1200x630, Author GEO Box, Sticky TOC, GEO BLUF, FAQ Accordion, Sources)
 ├── /sitemap.xml (Native Dynamic XML Sitemap tự động cập nhật khi có bài mới)
-└── /robots.txt (Chỉ dẫn lập chỉ mục chuẩn Googlebot & Bingbot)
+├── /robots.txt (Chỉ dẫn lập chỉ mục chuẩn Googlebot & Bingbot)
+├── /llms.txt (Tệp cấu trúc tri thức cho LLMs theo chuẩn llmstxt.org)
+├── /.well-known/ai-catalog.json & /.well-known/ard.json (Đặc tả ARD cho Autonomous AI Agents)
+└── /_headers (Cấu hình MIME types & CORS cho Cloudflare Pages)
 ```
 
 ---
@@ -203,8 +206,9 @@ Hệ màu tự nhiên, ấm áp và đáng tin cậy:
 
 ---
 
-## 5. HIỆU NĂNG, SEO TỰ ĐỘNG & TRIỂN KHAI CLOUDFLARE PAGES
+## 5. HIỆU NĂNG, SEO TỰ ĐỘNG, AGENTIC DISCOVERY & QUY CHUẨN XUẤT BẢN
 
+### 5.1. Kiến Trúc Tĩnh & Hiệu Năng Vận Hành
 * **Kiến trúc SSG Không JavaScript Runtime:** HTML tĩnh sinh 100% tại thời điểm build (`output: 'static'`). Các tương tác nhỏ (Menu Drawer, Slider, Bộ lọc tìm kiếm, Accordion, Preloader) dùng script inline siêu nhẹ (~2KB).
 * **Quản lý CSS & Media Tách Biệt:** Toàn bộ kiểu dáng tập trung tại `src/styles/global.css`; toàn bộ ảnh tĩnh đặt tại `public/media/`.
 * **SEO Kỹ thuật & Tự Động Hóa Sitemap (Zero-Dependency):**
@@ -212,4 +216,34 @@ Hệ màu tự nhiên, ấm áp và đáng tin cậy:
   - **Tệp chỉ dẫn bọ tìm kiếm (`public/robots.txt`):** Khai báo chỉ dẫn `Sitemap: https://giupchame.info.vn/sitemap.xml` và `Allow: /` cho toàn bộ bot Google/Bing.
   - **Tên miền Canonical chuẩn:** Cố định `https://giupchame.info.vn` tại `astro.config.mjs` và Schema Metadata trong `Layout.astro`.
 * **Chỉ số Mục tiêu Core Web Vitals:** LCP < 0.8s, CLS = 0.00, INP < 30ms, điểm Google Lighthouse 98–100/100.
-* **Quy trình Xuất bản Khép Kín:** Biên dịch nội dung sang `KNOWLEDGE_VAULT/09_PublishContent/`, sau đó chạy `python pushtowebsite.py` để đồng bộ sang `src/content/blog/` và đẩy lên GitHub tự động kích hoạt Cloudflare Pages build.
+
+### 5.2. Chuẩn Agentic Web & AI-Ready Discovery
+Tối ưu hóa toàn diện cho các công cụ AI Search (Google AI Overviews, Perplexity, ChatGPT Search) và các AI Agent tự hành theo các đặc tả mở:
+* **Chuẩn `llms.txt` (`public/llms.txt`):**
+  - Tuân thủ tiêu chuẩn [llmstxt.org](https://llmstxt.org/) với định dạng Markdown bắt buộc gồm tiêu đề H1 `# Giúp Cha Mẹ`, phần tóm tắt khối trích dẫn `> Blockquote`, và danh sách liên kết markdown `[Tên](URL)` rõ ràng đến Trang chủ, Cẩm nang, Hub tri thức và các bài viết tiêu điểm.
+* **Chuẩn Agentic Resource Discovery - ARD (`public/.well-known/ai-catalog.json` & `public/.well-known/ard.json`):**
+  - Tuân thủ tiêu chuẩn [Agentic Resource Discovery (ARD)](https://agenticresourcediscovery.org/spec/) theo IETF RFC 5785.
+  - Cấu hình tệp Manifest JSON hợp lệ 100% với `"specVersion": "1.0"`, định danh `"host"`, mảng `"entries"` chứa các URN chuẩn (`urn:air:giupchame.info.vn:...`) khai báo MIME type và URL tài nguyên. Bổ sung bản dự phòng tại `public/ai-catalog.json`.
+* **Cấu hình Headers Cloudflare Pages (`public/_headers`):**
+  - Ép kiểu `Content-Type: application/json; charset=utf-8` và bật `Access-Control-Allow-Origin: *` cho toàn bộ thư mục `/.well-known/*` và các manifest, ngăn ngừa triệt để lỗi parse HTML 404 (`SyntaxError: Unexpected token '<'`).
+
+### 5.3. Quy Chuẩn Quản Trị & Biên Tập Nội Dung An Toàn (Safe Manual Editing Protocol)
+Quy tắc bắt buộc khi biên tập nội dung thủ công tại thư mục nguồn `KNOWLEDGE_VAULT/09_PublishContent/`:
+1. **Nguồn chân lý duy nhất (Single Source of Truth):**
+   - Mọi thay đổi nội dung bài viết bắt buộc thực hiện tại `KNOWLEDGE_VAULT/09_PublishContent/`. Script `pushtowebsite.py` sẽ tự động phát hiện thay đổi và đồng bộ sang `src/content/blog/` của website.
+2. **Quy tắc Bất biến của Tên tệp (Slug Invariance):**
+   - **Tuyệt đối không đổi tên file `.md` sau khi bài đã xuất bản.** Trong Astro, tên file chính là URL Slug (`/blog/[slug]`). Đổi tên file sẽ sinh ra 2 bài viết trùng lặp trên website và làm gãy liên kết (lỗi 404) trên Google Search. Nếu cần sửa tiêu đề, chỉ sửa trường `title` trong frontmatter.
+3. **Tuân thủ nghiêm ngặt Frontmatter Schema (`src/content/config.ts`):**
+   - Tiêu đề (`title`) và mô tả (`description`) nếu chứa ký tự đặc biệt (đặc biệt là dấu hai chấm `:`) bắt buộc phải bọc trong dấu ngoặc kép `""`.
+   - Danh mục (`quadrant`) chỉ nhận 1 trong 4 giá trị viết hoa chữ cái đầu: `'Educate'`, `'Inspire'`, `'Entertain'`, `'Convince'`.
+   - Nguồn tham khảo (`sources`) phải có cấu trúc danh sách đối tượng hợp lệ gồm đủ 2 trường `title` và `url`.
+4. **Cú pháp liên kết chuẩn Web (Quy tắc R18):**
+   - Không sử dụng cú pháp hai ngoặc vuông của Obsidian (`[[...]]` hay `![[...]]`). Bắt buộc dùng cú pháp Markdown web chuẩn: `[Tên bài](/blog/slug)` và ảnh tĩnh `/media/ten-anh.jpg`.
+5. **Quy trình Xuất bản 3 bước khép kín:**
+   ```powershell
+   # Bước 1: Xem trước danh sách file đồng bộ
+   python "c:\Work\Kinship AI\pushtowebsite.py" --dry-run
+   
+   # Bước 2: Cam kết và đẩy lên GitHub (tự động kích hoạt Cloudflare Pages build)
+   python "c:\Work\Kinship AI\pushtowebsite.py" -m "feat(blog): publish or update articles"
+   ```
