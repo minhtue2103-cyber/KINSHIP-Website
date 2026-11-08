@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schema/v1/ai-catalog.json",
+  "name": "Giúp Cha Mẹ",
+  "description": "Điểm tựa chăm sóc cha mẹ già tại nhà và sức khỏe tuổi trung niên cho người trưởng thành.",
+  "homepage": "https://giupchame.info.vn",
+  "version": "1.0.0",
+  "publisher": {
+    "name": "Giúp Cha Mẹ (Kinship AI)",
+    "url": "https://giupchame.info.vn"
+  },
+  "resources": [
+    {
+      "id": "sitemap",
+      "name": "XML Sitemap",
+      "type": "sitemap",
+      "url": "https://giupchame.info.vn/sitemap.xml",
+      "description": "Danh mục toàn bộ URL bài viết và trang nội dung được cập nhật tự động."
+    },
+    {
+      "id": "llms-txt",
+      "name": "LLMs Context File",
+      "type": "documentation",
+      "url": "https://giupchame.info.vn/llms.txt",
+      "description": "Tệp tóm tắt cấu trúc tri thức và liên kết markdown chuẩn cho Large Language Models."
+    },
+    {
+      "id": "lead-guide",
+      "name": "Cẩm Nang Chăm Sóc Cho Mẹ",
+      "type": "publication",
+      "url": "https://giupchame.info.vn/cam-nang-cham-soc",
+      "description": "Tài liệu thực hành và bảng tính chi phí hỗ trợ chăm sóc cha mẹ tại nhà."
+    }
+  ]
+}
+

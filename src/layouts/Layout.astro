@@ -141,6 +141,14 @@ const breadcrumbSchema =
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
+    <!-- GA code -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W3H2MHST"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+
     <!-- Structured Data JSON-LD (GEO / SEO) -->
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     {articleSchema && (

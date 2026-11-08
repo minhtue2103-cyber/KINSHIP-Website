@@ -1,0 +1,23 @@
+# Giúp Cha Mẹ
+
+> Điểm tựa thực tế cho người trưởng thành giữa hai đầu gánh nặng: giữ sức khỏe tinh thần cho mình và chăm sóc cha mẹ già tại nhà.
+
+Website cung cấp kiến thức tâm lý & y khoa dễ hiểu, bài toán tài chính thực tế và cẩm nang đồng hành giúp người con chăm sóc đấng sinh thành mà không kiệt sức. Nội dung được bảo chứng bởi Hội đồng Chuyên môn: Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD), Cố vấn tài chính Ông Minh và Đồng sáng lập Nhung Phạm.
+
+## Trang Chính & Cẩm Nang Thực Tế
+
+- [Trang Chủ](https://giupchame.info.vn/): Điểm tựa đồng hành, hội đồng chuyên môn E-E-A-T và tiêu điểm kinh nghiệm.
+- [Cẩm Nang Chăm Sóc Cho Mẹ](https://giupchame.info.vn/cam-nang-cham-soc): Bộ tài liệu thực hành PDF và bảng tính Excel dự toán chi phí chăm sóc cha mẹ tại nhà.
+- [Kho Tri Thức Cẩm Nang](https://giupchame.info.vn/blog): Toàn bộ bài viết hướng dẫn chuyên sâu chia theo 4 góc nhìn thực tế (Hiểu bệnh, Nỗi lòng, Chuyện nhà, Tại nhà).
+
+## Bài Viết Tiêu Điểm
+
+- [Dưỡng Lão Dưới 10 Triệu/Tháng: Lựa Chọn Thực Tế](https://giupchame.info.vn/blog/duong-lao-duoi-10-trieu-thang-lua-chon-thuc-te): So sánh phòng tập thể viện tư nhân, cơ sở công lập và dịch vụ đỡ đần việc nhỏ tại gia.
+- [Gen Z, Viện Dưỡng Lão Và Rào Cản Chữ Hiếu](https://giupchame.info.vn/blog/gen-z-vien-duong-lao-va-rao-can-chu-hieu): Giải mã hội chứng tê liệt đạo hiếu và cách đối thoại thẳng thắn với gia đình.
+- [Nỗi Sợ Lão Hóa Và Khủng Hoảng Vị Thế Tuổi Trung Niên](https://giupchame.info.vn/blog/noi-so-lao-hoa-va-khung-hoang-vi-the-gen-y): Phân tích tâm lý học và cách tìm lại sự an định tuổi trung niên.
+
+## Tài Nguyên Dữ Liệu
+
+- [XML Sitemap](https://giupchame.info.vn/sitemap.xml): Danh mục toàn bộ URL cập nhật tự động cho công cụ tìm kiếm.
+- [AI Catalog Manifest](https://giupchame.info.vn/ai-catalog.json): Bản đồ tài nguyên dữ liệu dành cho AI Agents.
+
