@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { MEDIA_ASSETS, SOCIAL_LINKS } from '../utils/media';
 import { QUADRANT_SETTINGS } from '../utils/taxonomy';
+import Preloader from '../components/Preloader.astro';
 
 interface BreadcrumbItem {
   name: string;
@@ -153,6 +154,7 @@ const breadcrumbSchema =
     )}
   </head>
   <body>
+    <Preloader />
     <header class="site-header">
       <div class="container header-inner">
         <a href="/" class="brand-logo" aria-label="Giúp Cha Mẹ Trang chủ">
