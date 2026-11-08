@@ -1,0 +1,7 @@
+# robots.txt for Giúp Cha Mẹ (https://giupchame.info.vn)
+User-agent: *
+Allow: /
+
+# Sitemap Index / XML
+Sitemap: https://giupchame.info.vn/sitemap.xml
+
