@@ -86,6 +86,8 @@ Nhiều gia đình đắn đo khi nghe báo giá dịch vụ chăm sóc ca đêm
 
 Để chăm sóc cha mẹ già dài hạn, gia đình không nhất thiết phải thuê dịch vụ trọn gói đắt đỏ suốt 30 ngày. Theo Viện Y tế Quốc gia Hoa Kỳ, mô hình nghỉ ngơi vi mô chỉ cần thuê người phụ đỡ đần từ 2 đến 3 đêm mỗi tuần đã giúp người chăm sóc hồi phục 80% năng lượng thần kinh và cân bằng lại chỉ số căng thẳng . Người phụ ca đêm sẽ túc trực dìu cha mẹ đi vệ sinh an toàn, nhắc uống thuốc và xoa bóp tay chân giúp cha mẹ ngủ ngon hơn. Gia đình có thể kết nối với [dịch vụ người phụ chăm sóc cha mẹ tại nhà](/blog/trao-quyen-giup-cha-me-gia-la-cho-dua-tinh-than) theo ca linh hoạt và tải ngay Cẩm nang Đánh giá Giấc ngủ Người cao tuổi để kiểm tra tình trạng sức khỏe cho cha mẹ một cách khoa học .
 
+Để cha mẹ không thấy tự ái hay có cảm giác bị con cái thuê người "canh giữ", bạn đừng vội đưa người lạ vào trực đêm ngay từ buổi đầu. Hãy giới thiệu đó là người bạn hoặc điều dưỡng quen tới phụ việc nhà cùng con, rồi sắp xếp 1 đến 2 buổi ban ngày để họ qua trò chuyện, pha trà và làm quen nhịp sinh hoạt với ông bà trước. Khi cha mẹ đã quen mặt và thấy quý mến sự có mặt của người phụ, việc chuyển sang nhờ họ ngủ lại đỡ đần ca đêm sẽ diễn ra nhẹ nhàng hơn rất nhiều.
+
 ---
 
 Tải ngay Cẩm nang Đánh giá Giấc ngủ Người cao tuổi và Bảng tính Chi phí Cơ hội Chăm sóc tại Nhà từ Giúp Cha Mẹ để tìm ra phương án đỡ đần giấc ngủ an toàn nhất cho gia đình bạn.

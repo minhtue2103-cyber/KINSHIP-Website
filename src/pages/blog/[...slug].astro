@@ -43,9 +43,23 @@ function formatDate(date: Date) {
 
 const faqEntities = post.data.faqSchema?.mainEntity || [];
 const displayDate = post.data.updatedDate || post.data.pubDate;
+const TECH_TAGS = new Set([
+  'content',
+  'UmbrexMatrix',
+  'Educate',
+  'Inspire',
+  'Entertain',
+  'Convince',
+  'Astro_Web_Article',
+  'TikTok_Reels_Short',
+  'YouTube_Longform',
+  'Instagram_Carousel',
+  'LinkedIn_Newsletter',
+  'Facebook_Community',
+]);
 const cleanTags = (post.data.tags || [])
   .map((t) => t.replace(/^kinship\//, ''))
-  .filter((t) => t !== 'content' && t !== 'UmbrexMatrix');
+  .filter((t) => !TECH_TAGS.has(t));
 
 const featurePhotoUrl = getArticleFeaturePhoto(
   post.data.featurePhoto,
@@ -201,7 +215,7 @@ const breadcrumbs = [
           </p>
           <a href="/cam-nang-cham-soc" class="btn btn--accent">
             <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
-            <span>Tải Cẩm Nang Chăm Sóc Cho Mẹ</span>
+            <span>Tải Cẩm Nang Chăm Sóc Cha Mẹ</span>
           </a>
         </div>
 

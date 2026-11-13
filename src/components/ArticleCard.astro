@@ -37,9 +37,23 @@ function formatDate(date: Date) {
   }).format(new Date(date));
 }
 
+const TECH_TAGS = new Set([
+  'content',
+  'UmbrexMatrix',
+  'Educate',
+  'Inspire',
+  'Entertain',
+  'Convince',
+  'Astro_Web_Article',
+  'TikTok_Reels_Short',
+  'YouTube_Longform',
+  'Instagram_Carousel',
+  'LinkedIn_Newsletter',
+  'Facebook_Community',
+]);
 const cleanTags = tags
   .map((t) => t.replace(/^kinship\//, ''))
-  .filter((t) => t !== 'content' && t !== 'UmbrexMatrix')
+  .filter((t) => !TECH_TAGS.has(t))
   .slice(0, 3);
 ---
 
