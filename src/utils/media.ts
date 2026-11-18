@@ -11,28 +11,28 @@ export const MEDIA_ASSETS = {
 
   // Homepage Hero Carousel (3 Slides - 800x600, 4:3)
   heroSlides: [
-    `${MEDIA_BASE_FOLDER}/giup-cha-me-2.jpg`,
-    `${MEDIA_BASE_FOLDER}/giup-cha-me-3.jpg`,
-    `${MEDIA_BASE_FOLDER}/giup-cha-me-4.jpg`,
+    `${MEDIA_BASE_FOLDER}/giup-cha-me-2.webp`,
+    `${MEDIA_BASE_FOLDER}/giup-cha-me-3.webp`,
+    `${MEDIA_BASE_FOLDER}/giup-cha-me-4.webp`,
   ],
 
-  heroFamilyImage: `${MEDIA_BASE_FOLDER}/giup-cha-me-2.jpg`,
+  heroFamilyImage: `${MEDIA_BASE_FOLDER}/giup-cha-me-2.webp`,
 
   // Article Feature Photo mặc định (1200x630, 1.91:1 chuẩn OG & Web)
-  defaultFeaturePhoto: `${MEDIA_BASE_FOLDER}/giup-cha-me-4.jpg`,
+  defaultFeaturePhoto: `${MEDIA_BASE_FOLDER}/giup-cha-me-4.webp`,
 
   // Article Card Thumbnail mặc định (600x338, 16:9)
-  defaultCardThumbnail: `${MEDIA_BASE_FOLDER}/giup-cha-me-4.jpg`,
+  defaultCardThumbnail: `${MEDIA_BASE_FOLDER}/giup-cha-me-4.webp`,
 
   // Author & E-E-A-T Reviewers Avatars (160x160, 1:1)
   avatars: {
-    nhungPham: `${MEDIA_BASE_FOLDER}/profile-2.jpg`,
-    drTam: `${MEDIA_BASE_FOLDER}/profile-1.jpg`,
-    mrMinh: `${MEDIA_BASE_FOLDER}/profile-3.jpg`,
+    nhungPham: `${MEDIA_BASE_FOLDER}/profile-2.webp`,
+    drTam: `${MEDIA_BASE_FOLDER}/profile-1.webp`,
+    mrMinh: `${MEDIA_BASE_FOLDER}/profile-3.webp`,
   },
 
   // Micro-care Banner Graphic (600x400, 3:2)
-  microCareGraphic: `${MEDIA_BASE_FOLDER}/giup-cha-me-1.jpg`,
+  microCareGraphic: `${MEDIA_BASE_FOLDER}/giup-cha-me-1.webp`,
 } as const;
 
 export const SOCIAL_LINKS = {

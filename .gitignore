@@ -11,3 +11,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Ignore raw raster images in media folder (only track .webp and .svg)
+public/media/*.jpg
+public/media/*.jpeg
+public/media/*.png
+public/media/**/*.jpg
+public/media/**/*.jpeg
+public/media/**/*.png

@@ -11,7 +11,7 @@ tags:
   - khunghoangtuoi40
   - chamsocchame
   - kietsuccamxuc
-featurePhoto: giup-cha-me-2.jpg
+featurePhoto: /media/giup-cha-me-2.webp
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org

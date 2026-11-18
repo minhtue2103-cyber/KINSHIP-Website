@@ -11,7 +11,7 @@ tags:
   - Intergenerational
   - Eldercare_Planning
   - GenZ_Caregivers
-featurePhoto: giup-cha-me-12.jpg
+featurePhoto: /media/giup-cha-me-12.webp
 featureCaption: "Ảnh minh họa: Kịch bản thu hẹp khoảng cách thế hệ trong bài toán dưỡng lão — Nguồn ảnh: Picsum Photos"
 faqSchema:
   "@context": https://schema.org

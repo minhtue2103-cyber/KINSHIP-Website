@@ -11,7 +11,7 @@ tags:
   - Educate
   - Astro_Web_Article
   - matngunguoigia
-featurePhoto: giup-cha-me-13.jpg
+featurePhoto: /media/giup-cha-me-13.webp
 featureCaption: "Ảnh minh họa: Thức trắng đêm chăm cha mẹ mất ngủ và cái giá của kiệt sức kép — Nguồn ảnh: Picsum Photos"
 faqSchema:
   "@context": https://schema.org

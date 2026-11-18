@@ -11,7 +11,7 @@ tags:
   - GenY
   - GenZ
   - AgingAnxiety
-featurePhoto: giup-cha-me-8.jpg
+featurePhoto: /media/giup-cha-me-8.webp
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org

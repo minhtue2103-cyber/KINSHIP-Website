@@ -11,7 +11,7 @@ tags:
   - NganSachDuoi10Trieu
   - VienDuongLaoGiaRe
   - MicroCare
-featurePhoto: giup-cha-me-6.jpg
+featurePhoto: /media/giup-cha-me-6.webp
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org
