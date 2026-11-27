@@ -11,17 +11,17 @@ tags:
   - Empowerment
   - Dignity_of_Aging
   - GenY_vs_GenZ
-featurePhoto: /media/giup-cha-me-9.webp
+featurePhoto: /media/giup-cha-me-9.jpg
 featureCaption: "Ảnh minh họa: cha mẹ già cảm thấy mình vẫn là chỗ dựa của con"
 faqSchema:
   "@context": https://schema.org
   "@type": FAQPage
   mainEntity:
     - "@type": Question
-      name: Làm thế nào để con cái Gen Y và Gen Z trao quyền (empower) giúp cha mẹ già cảm thấy mình vẫn là chỗ dựa tinh thần thay vì gánh nặng bị quản thúc?
+      name: Làm thế nào để con cái Gen Y và Gen Z trao quyền giúp cha mẹ già cảm thấy mình vẫn là chỗ dựa tinh thần thay vì gánh nặng bị quản thúc?
       acceptedAnswer:
         "@type": Answer
-        text: "Theo nghiên cứu của GS. Cheng (2009) trên The Journals of Gerontology, chìa khóa nằm ở việc thỏa mãn khát vọng truyền thừa (Generativity) thông qua sự tôn kính được cảm nhận. Con cái cần chuyển đổi phương pháp chăm sóc sang mô hình đồng hành trao quyền: (1) Thường xuyên tham vấn ý kiến cha mẹ về các quyết định quan trọng của gia đình để cha mẹ thấy kinh nghiệm của mình vẫn có giá trị; (2) Giao cho cha mẹ các sứ mệnh gia đình ý nghĩa như ghi chép gia phả, dạy dỗ cháu chắt, lưu giữ văn hóa dòng họ; (3) Sử dụng công nghệ âm thầm bảo vệ an toàn thay vì công khai giám sát phán xét, biến thiết bị số thành phương tiện kết nối cảm xúc và tôn vinh cuộc đời cha mẹ."
+        text: "Theo nghiên cứu của GS. Cheng (2009) trên The Journals of Gerontology, chìa khóa nằm ở việc thỏa mãn khát vọng truyền thừa (tính trao truyền cho thế hệ sau) thông qua sự tôn kính được cảm nhận. Con cái cần chuyển đổi phương pháp chăm sóc sang mô hình đồng hành trao quyền: (1) Thường xuyên tham vấn ý kiến cha mẹ về các quyết định quan trọng của gia đình để cha mẹ thấy kinh nghiệm của mình vẫn có giá trị; (2) Giao cho cha mẹ các sứ mệnh gia đình ý nghĩa như ghi chép gia phả, dạy dỗ cháu chắt, lưu giữ văn hóa dòng họ; (3) Sử dụng công nghệ âm thầm bảo vệ an toàn thay vì công khai giám sát phán xét, biến thiết bị số thành phương tiện kết nối cảm xúc và tôn vinh cuộc đời cha mẹ."
     - "@type": Question
       name: Gia đình Việt Nam cần chuẩn bị kịch bản gì để thu hẹp khoảng cách thế hệ giữa cha mẹ truyền thống và con cái Gen Z trong bài toán dưỡng lão?
       acceptedAnswer:

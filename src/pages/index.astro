@@ -23,9 +23,9 @@ const heroSlides = [
   {
     badgeIcon: 'bi bi-heart-pulse-fill',
     badgeText: 'Điểm tựa thực tế cho tuổi trung niên',
-    titlePrefix: 'Cảnh làm con kẹt giữa ',
-    titleHighlight: 'hai đầu gánh nặng:',
-    titleSuffix: ' giữ sức khỏe cho mình & chăm cha mẹ già tại nhà',
+    titlePrefix: 'Cảnh làm con: ',
+    titleHighlight: '',
+    titleSuffix: 'giữ sức khỏe cho mình & chăm cha mẹ già tại nhà',
     subtitle:
       'Nhìn thẳng vào áp lực tiền bạc, sự mệt mỏi thể xác và những va chạm thế hệ trong gia đình Việt. Không dạy đời, không phán xét đạo đức, không vẽ màu hồng.',
     primaryCtaText: 'Đọc Bài Viết Thực Tế',
@@ -41,8 +41,8 @@ const heroSlides = [
     badgeIcon: 'bi bi-heart-pulse-fill',
     badgeText: 'Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD)',
     titlePrefix: 'Thương cha mẹ ',
-    titleHighlight: 'đúng cách',
-    titleSuffix: ' mà không tự làm khổ bản thân',
+    titleHighlight: '',
+    titleSuffix: 'mà không tự làm khổ bản thân',
     subtitle:
       'Giải thích cặn kẽ bệnh tuổi già và tâm lý tuổi trung niên bằng ngôn ngữ đời thường, giúp bạn hiểu rõ cơ thể mình và chăm sóc cha mẹ nhẹ lòng hơn.',
     primaryCtaText: 'Xem Lời Khuyên Của Henry Tâm',
@@ -57,9 +57,9 @@ const heroSlides = [
   {
     badgeIcon: 'bi bi-calculator',
     badgeText: 'Cố vấn Tài chính Gia đình',
-    titlePrefix: 'Bài toán tiền nong: ',
-    titleHighlight: 'Tính đúng chi phí',
-    titleSuffix: ' để không sụp đổ kinh tế',
+    titlePrefix: 'Bài toán tiền nong ',
+    titleHighlight: '',
+    titleSuffix: 'để không sụp đổ kinh tế',
     subtitle:
       'Cùng Ông Minh cầm bút tính toán: thuê người phụ chăm sóc hết bao nhiêu, chuẩn bị quỹ dự phòng thế nào khi cha mẹ ốm đau dài ngày.',
     primaryCtaText: 'Tính Chi Phí Chăm Sóc Tại Nhà',
@@ -319,7 +319,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
         <span class="section-eyebrow">
           <i class="bi bi-compass-fill" aria-hidden="true"></i> Về Giúp Cha Mẹ
         </span>
-        <h2 class="section-title">Điểm tựa tinh thần cho GenY giữa hai giữa hai thế hệ cần chăm sóc</h2>
+        <h2 class="section-title">Điểm tựa tinh thần cho GenY giữa hai thế hệ cần chăm sóc</h2>
       </div>
       <p class="about-lead">
         Chúng tôi hiểu cảm giác vừa bước qua tuổi 40: cơ thể bắt đầu báo hiệu mệt mỏi, nhưng trên vai là cha mẹ già ngày một yếu đi và con cái đang tuổi lớn.
@@ -421,14 +421,6 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
             </h3>
 
             <p class="top4-main-card__desc">{mainFeaturedPost.description}</p>
-
-            {mainFeaturedPost.tags.length > 0 && (
-              <div class="article-card__tags">
-                {mainFeaturedPost.tags.slice(0, 4).map((tag) => (
-                  <span class="tag-pill">#{tag}</span>
-                ))}
-              </div>
-            )}
 
             <div class="top4-main-card__footer">
               <a href={mainFeaturedPost.url} class="btn btn--primary btn--sm">

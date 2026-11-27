@@ -11,7 +11,7 @@ tags:
   - GenZ_Caregivers
   - OffTime_Transition
   - Dao_Hieu_Hien_Dai
-featurePhoto: /media/giup-cha-me-11.webp
+featurePhoto: /media/giup-cha-me-11.jpg
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org

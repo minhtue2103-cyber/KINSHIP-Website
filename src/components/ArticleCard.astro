@@ -95,14 +95,6 @@ const cleanTags = tags
 
     <p class="article-card__desc">{description}</p>
 
-    {cleanTags.length > 0 && (
-      <div class="article-card__tags">
-        {cleanTags.map((tag) => (
-          <span class="tag-pill">#{tag}</span>
-        ))}
-      </div>
-    )}
-
     <div class="article-card__footer">
       <a href={`/blog/${slug}`} class="article-card__readmore">
         <span>Đọc bài viết</span>

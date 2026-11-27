@@ -11,7 +11,7 @@ tags:
   - Educate
   - Astro_Web_Article
   - matngunguoigia
-featurePhoto: /media/giup-cha-me-13.webp
+featurePhoto: /media/giup-cha-me-13.jpg
 featureCaption: "Ảnh minh họa: Thức trắng đêm chăm cha mẹ mất ngủ và cái giá của kiệt sức kép — Nguồn ảnh: Picsum Photos"
 faqSchema:
   "@context": https://schema.org
@@ -72,7 +72,7 @@ Cứ mỗi lần nghe tiếng dép lẹp kẹp ngoài hành lang lúc 2 giờ s�
 
 > [!SUMMARY] BLUF: Mặc cảm dằn vặt khi thèm một giấc ngủ là chiếc bẫy tâm lý tai hại, bởi hiếu thảo đích thực là bảo vệ sự chăm sóc an toàn bền vững chứ không phải sự hy sinh tự hủy hoại.
 
-Nỗi khổ lớn nhất của người con không chỉ là sự rã rời thể xác mà là cảm giác dằn vặt cào xé trong tâm can. Khảo sát xã hội học cho thấy 82% người con trung niên ngần ngại tìm kiếm sự giúp đỡ bên ngoài vì sợ họ hàng chê trách là bất hiếu . Khi quá mệt mỏi buột miệng thở dài với cha mẹ ban đêm, người con lại tự trách mình tàn nhẫn. TS. BS. Tâm nhấn mạnh: Lòng hiếu thảo không đo bằng số đêm bạn thức trắng để hủy hoại bản thân. Nếu bạn gục ngã vì đột quỵ hay suy nhược, cha mẹ già sẽ nương tựa vào ai? Cha mẹ không bao giờ muốn nhìn thấy con mình héo mòn vì chăm sóc mình. Thuê người đỡ đần ca đêm không phải là trốn tránh trách nhiệm, mà là hành động tỉnh táo để giữ cho gia đình một điểm tựa vững vàng .
+Nỗi khổ lớn nhất của người con không chỉ là sự rã rời thể xác mà là cảm giác dằn vặt cào xé trong tâm can. Khảo sát xã hội học cho thấy 82% người con trung niên ngần ngại tìm kiếm sự giúp đỡ bên ngoài vì sợ họ hàng chê trách là bất hiếu . Khi quá mệt mỏi buột miệng thở dài với cha mẹ ban đêm, người con lại tự trách mình tàn nhẫn. Nhà tâm lý trị liệu Henry Tâm nhấn mạnh: Lòng hiếu thảo không đo bằng số đêm bạn thức trắng để hủy hoại bản thân. Nếu bạn gục ngã vì đột quỵ hay suy nhược, cha mẹ già sẽ nương tựa vào ai? Cha mẹ không bao giờ muốn nhìn thấy con mình héo mòn vì chăm sóc mình. Thuê người đỡ đần ca đêm không phải là trốn tránh trách nhiệm, mà là hành động tỉnh táo để giữ cho gia đình một điểm tựa vững vàng .
 
 ## Cầm bút tính bài toán chi phí cơ hội giữa tiền thuê người phụ và sự nghiệp
 

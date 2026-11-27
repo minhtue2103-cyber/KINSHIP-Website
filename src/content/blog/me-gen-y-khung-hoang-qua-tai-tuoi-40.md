@@ -1,5 +1,5 @@
 ---
-title: "Mẹ Gen Y 40 Tuổi Quá Tải: 3 Bước Thoát Bẫy Kiệt Sức Sandwich"
+title: "Mẹ Gen Y 40 Tuổi Quá Tải: 3 Bước Thoát Bẫy Kiệt Sức Kép"
 description: "Hướng dẫn người mẹ Gen Y đối phó khủng hoảng quá tải tuổi 40: thiết lập ranh giới cảm xúc, từ bỏ ảo tưởng hoàn hảo và ủy quyền chăm sóc cha mẹ già."
 slug: me-gen-y-khung-hoang-qua-tai-tuoi-40
 pubDate: 2026-11-02
@@ -11,7 +11,7 @@ tags:
   - khunghoangtuoi40
   - chamsocchame
   - kietsuccamxuc
-featurePhoto: /media/giup-cha-me-2.webp
+featurePhoto: /media/giup-cha-me-2.jpg
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org

@@ -11,7 +11,7 @@ tags:
   - vienduonglao
   - chuhieu
   - tamlytuoigia
-featurePhoto: /media/giup-cha-me-4.webp
+featurePhoto: /media/giup-cha-me-4.jpg
 featureCaption: Ảnh minh họa
 faqSchema:
   "@context": https://schema.org

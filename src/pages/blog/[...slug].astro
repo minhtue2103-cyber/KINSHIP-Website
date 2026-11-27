@@ -127,14 +127,6 @@ const breadcrumbs = [
 
       <h1 class="article-header__title">{post.data.title}</h1>
       <p class="article-header__lead">{post.data.description}</p>
-
-      {cleanTags.length > 0 && (
-        <div class="article-header__tags">
-          {cleanTags.map((tag) => (
-            <span class="tag-pill">#{tag}</span>
-          ))}
-        </div>
-      )}
     </header>
 
     <!-- Khối Author Dành Riêng Cho GEO (Div Author & E-E-A-T Card) -->
