@@ -242,8 +242,8 @@ Quy tắc bắt buộc khi biên tập nội dung thủ công tại thư mục n
 5. **Quy trình Xuất bản 3 bước khép kín:**
    ```powershell
    # Bước 1: Xem trước danh sách file đồng bộ
-   python "c:\Work\MDA - Agent Team\Kinship AI\pushtowebsite.py" --dry-run
+   python "c:\Work\MDA - Agent Team\GIUPCHAME-ContentEngine\pushtowebsite.py" --dry-run
    
    # Bước 2: Cam kết và đẩy lên GitHub (tự động kích hoạt Cloudflare Pages build)
-   python "c:\Work\MDA - Agent Team\Kinship AI\pushtowebsite.py" -m "feat(blog): publish or update articles"
+   python "c:\Work\MDA - Agent Team\GIUPCHAME-ContentEngine\pushtowebsite.py" -m "feat(blog): publish or update articles"
    ```
