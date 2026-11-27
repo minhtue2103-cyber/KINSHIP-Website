@@ -106,7 +106,7 @@ Khi cha mẹ bước vào giai đoạn bệnh mạn tính phức tạp cần the
 
 ---
 
-Nếu bạn đang thấy bối rối giữa việc muốn cha mẹ an toàn và việc giữ hòa khí gia đình, hãy thử bắt đầu từ việc ngồi xuống hỏi xin ý kiến cha mẹ trong một việc nhỏ hôm nay. Tải ngay cẩm nang hướng dẫn trò chuyện và chăm sóc cha mẹ tại nhà của Kinship để cùng đấng sinh thành đi qua tuổi già nhẹ nhàng hơn.
+Nếu bạn đang thấy bối rối giữa việc muốn cha mẹ an toàn và việc giữ hòa khí gia đình, hãy thử bắt đầu từ việc ngồi xuống hỏi xin ý kiến cha mẹ trong một việc nhỏ hôm nay. Tải ngay cẩm nang hướng dẫn trò chuyện và chăm sóc cha mẹ tại nhà của Giúp Cha Mẹ để cùng đấng sinh thành đi qua tuổi già nhẹ nhàng hơn.
 
 ## Tài liệu & Nguồn tham khảo
 

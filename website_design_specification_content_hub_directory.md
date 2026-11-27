@@ -1,5 +1,5 @@
 # TÀI LIỆU ĐẶC TẢ THIẾT KẾ WEBSITE (WEBSITE DESIGN SPECIFICATION)
-**Thương hiệu:** Giúp Cha Mẹ (Hệ sinh thái Kinship AI)  
+**Thương hiệu:** Giúp Cha Mẹ (GIUPCHAME)  
 **Mô hình:** Cổng Thông Tin & Điểm Tựa Sức Khỏe Tuổi Trung Niên, Chăm Sóc Cha Mẹ Già Tại Nhà  
 **Tên miền chính thức:** `https://giupchame.info.vn` (Hosting: Cloudflare Pages)  
 **Nền tảng công nghệ:** Astro 4.x / 5.x (SSG) + TypeScript + Cloudflare Pages  
@@ -242,8 +242,8 @@ Quy tắc bắt buộc khi biên tập nội dung thủ công tại thư mục n
 5. **Quy trình Xuất bản 3 bước khép kín:**
    ```powershell
    # Bước 1: Xem trước danh sách file đồng bộ
-   python "c:\Work\Kinship AI\pushtowebsite.py" --dry-run
+   python "c:\Work\MDA - Agent Team\Kinship AI\pushtowebsite.py" --dry-run
    
    # Bước 2: Cam kết và đẩy lên GitHub (tự động kích hoạt Cloudflare Pages build)
-   python "c:\Work\Kinship AI\pushtowebsite.py" -m "feat(blog): publish or update articles"
+   python "c:\Work\MDA - Agent Team\Kinship AI\pushtowebsite.py" -m "feat(blog): publish or update articles"
    ```

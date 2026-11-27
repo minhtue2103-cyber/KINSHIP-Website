@@ -92,7 +92,7 @@ const realFeaturedItems: FeaturedItem[] = sortedPosts.map((p) => ({
   pubDate: p.data.pubDate,
   quadrant: p.data.quadrant || 'Educate',
   tags: (p.data.tags || [])
-    .map((t) => t.replace(/^kinship\//, ''))
+    .map((t) => t.replace(/^(?:kinship|giupchame)\//, ''))
     .filter((t) => t !== 'content' && t !== 'UmbrexMatrix'),
   readingTime: p.data.readingTime || 8,
   image: getArticleFeaturePhoto(p.data.featurePhoto, p.slug, p.data.quadrant),
@@ -133,7 +133,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
   description="Kiến thức tâm lý & y khoa dễ hiểu từ Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD), bài toán tài chính chăm sóc tại nhà từ Ông Minh và công cụ đồng hành giúp bạn chăm sóc cha mẹ mà không kiệt sức."
 >
   <!-- 1. HERO SECTION — USLIDER 3-SLIDE CAROUSEL WITH SOFT ANIMATION -->
-  <section class="hero-section" aria-label="Tiêu điểm Kinship AI">
+  <section class="hero-section" aria-label="Tiêu điểm Giúp Cha Mẹ">
     <div class="container">
       <div class="uslider" id="hero-uslider">
         <div class="uslider__track">
@@ -541,7 +541,7 @@ const sideFeaturedPosts = topFourPosts.slice(1, 4);
       <div class="micro-care-banner__visual">
         <img
           src={MEDIA_ASSETS.microCareGraphic}
-          alt="Cẩm nang chăm sóc vi mô Kinship AI"
+          alt="Cẩm nang chăm sóc vi mô Giúp Cha Mẹ"
           class="micro-care-banner__img"
           width="600"
           height="400"

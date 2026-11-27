@@ -103,7 +103,7 @@ sources:
 
 Mở mạng tìm hiểu về viện dưỡng lão, nhiều người con ở tuổi 30, 40 rất dễ rơi vào cảm giác chạnh lòng. Trên truyền thông phần lớn là hình ảnh các khu dưỡng lão sinh thái lung linh, phòng ốc tiện nghi như resort với mức phí 15 đến 25 triệu đồng mỗi tháng.
 
-Nhìn lại ví tiền gia đình, mức giá đó thực sự là một rào cản bất khả thi . Lương hưu của cha mẹ bình quân chỉ khoảng 6,2 triệu đồng, con cái cố gắng gom góp thêm 3–4 triệu mỗi tháng là đã phải thắt lưng buộc bụng. Nghiên cứu thực tế của Kinship AI và chia sẻ của Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) cho thấy một điểm nghẽn tâm lý rất đau lòng: nhiều người con tự dằn vặt, nghĩ mình bất tài nên không lo nổi cho cha mẹ một chỗ an dưỡng tươm tất.
+Nhìn lại ví tiền gia đình, mức giá đó thực sự là một rào cản bất khả thi . Lương hưu của cha mẹ bình quân chỉ khoảng 6,2 triệu đồng, con cái cố gắng gom góp thêm 3–4 triệu mỗi tháng là đã phải thắt lưng buộc bụng. Nghiên cứu thực tế của Giúp Cha Mẹ và chia sẻ của Nhà tâm lý trị liệu Henry Tâm (ông chú ADHD) cho thấy một điểm nghẽn tâm lý rất đau lòng: nhiều người con tự dằn vặt, nghĩ mình bất tài nên không lo nổi cho cha mẹ một chỗ an dưỡng tươm tất.
 
 Bảng khảo sát thực tế tại các đô thị lớn chỉ ra sự phân hóa chi phí rất rõ ràng , :
 

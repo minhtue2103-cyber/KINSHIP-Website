@@ -1,5 +1,5 @@
 /**
- * KINSHIP AI / GIÚP CHA MẸ — TAXONOMY & CONTENT SETTINGS
+ * GIÚP CHA MẸ (GIUPCHAME) — TAXONOMY & CONTENT SETTINGS
  * File cấu hình danh mục chủ đề theo góc nhìn (Umbrex Matrix Quadrants)
  * Dễ dàng tùy chỉnh nhãn hiển thị tiếng Việt, icon và mô tả.
  */

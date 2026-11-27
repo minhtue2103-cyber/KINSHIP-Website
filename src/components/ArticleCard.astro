@@ -52,7 +52,7 @@ const TECH_TAGS = new Set([
   'Facebook_Community',
 ]);
 const cleanTags = tags
-  .map((t) => t.replace(/^kinship\//, ''))
+  .map((t) => t.replace(/^(?:kinship|giupchame)\//, ''))
   .filter((t) => !TECH_TAGS.has(t))
   .slice(0, 3);
 ---

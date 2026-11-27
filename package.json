@@ -1,8 +1,8 @@
 {
-  "name": "kinship-website",
+  "name": "giupchame-website",
   "type": "module",
   "version": "1.0.0",
-  "description": "Kinship AI Official Website & Blog — Astro SSG",
+  "description": "Giúp Cha Mẹ Official Website & Blog — Astro SSG",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

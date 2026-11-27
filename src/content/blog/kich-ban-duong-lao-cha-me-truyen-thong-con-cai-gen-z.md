@@ -111,7 +111,7 @@ Nếu gia đình bạn đang trong quá trình tìm hiểu các môi trường c
 
 ---
 
-Chuẩn bị cho tuổi già của cha mẹ là một hành trình dài cần sự thấu hiểu và lộ trình tài chính rõ ràng. Hãy bắt đầu từ một cuộc trò chuyện chân thành vào bữa cơm cuối tuần này. Bạn cũng có thể tải cẩm nang kịch bản đối thoại dưỡng lão và bảng tính chi phí dự phòng của Kinship để cùng cha mẹ tìm ra lựa chọn vẹn tròn nhất.
+Chuẩn bị cho tuổi già của cha mẹ là một hành trình dài cần sự thấu hiểu và lộ trình tài chính rõ ràng. Hãy bắt đầu từ một cuộc trò chuyện chân thành vào bữa cơm cuối tuần này. Bạn cũng có thể tải cẩm nang kịch bản đối thoại dưỡng lão và bảng tính chi phí dự phòng của Giúp Cha Mẹ để cùng cha mẹ tìm ra lựa chọn vẹn tròn nhất.
 
 ## Tài liệu & Nguồn tham khảo
 

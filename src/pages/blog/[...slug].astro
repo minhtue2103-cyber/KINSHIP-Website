@@ -58,7 +58,7 @@ const TECH_TAGS = new Set([
   'Facebook_Community',
 ]);
 const cleanTags = (post.data.tags || [])
-  .map((t) => t.replace(/^kinship\//, ''))
+  .map((t) => t.replace(/^(?:kinship|giupchame)\//, ''))
   .filter((t) => !TECH_TAGS.has(t));
 
 const featurePhotoUrl = getArticleFeaturePhoto(
@@ -69,7 +69,7 @@ const featurePhotoUrl = getArticleFeaturePhoto(
 
 const featureCaption =
   post.data.featureCaption ||
-  `Ảnh minh họa: ${post.data.title} — Bản quyền nội dung thực chứng thuộc Kinship AI.`;
+  `Ảnh minh họa: ${post.data.title} — Bản quyền nội dung thực chứng thuộc Giúp Cha Mẹ.`;
 
 const quadrantName = post.data.quadrant ? getQuadrantConfig(post.data.quadrant).label : '';
 
