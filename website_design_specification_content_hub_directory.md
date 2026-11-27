@@ -228,9 +228,9 @@ Tối ưu hóa toàn diện cho các công cụ AI Search (Google AI Overviews, 
   - Ép kiểu `Content-Type: application/json; charset=utf-8` và bật `Access-Control-Allow-Origin: *` cho toàn bộ thư mục `/.well-known/*` và các manifest, ngăn ngừa triệt để lỗi parse HTML 404 (`SyntaxError: Unexpected token '<'`).
 
 ### 5.3. Quy Chuẩn Quản Trị & Biên Tập Nội Dung An Toàn (Safe Manual Editing Protocol)
-Quy tắc bắt buộc khi biên tập nội dung thủ công tại thư mục nguồn `KNOWLEDGE_VAULT/09_PublishContent/`:
+Quy tắc bắt buộc khi biên tập nội dung thủ công tại thư mục nguồn `GIUPCHAME_KNOWLEDGE_VAULT/09_PublishContent/`:
 1. **Nguồn chân lý duy nhất (Single Source of Truth):**
-   - Mọi thay đổi nội dung bài viết bắt buộc thực hiện tại `KNOWLEDGE_VAULT/09_PublishContent/`. Script `pushtowebsite.py` sẽ tự động phát hiện thay đổi và đồng bộ sang `src/content/blog/` của website.
+   - Mọi thay đổi nội dung bài viết bắt buộc thực hiện tại `GIUPCHAME_KNOWLEDGE_VAULT/09_PublishContent/`. Script `pushtowebsite.py` sẽ tự động phát hiện thay đổi và đồng bộ sang `src/content/blog/` của website.
 2. **Quy tắc Bất biến của Tên tệp (Slug Invariance):**
    - **Tuyệt đối không đổi tên file `.md` sau khi bài đã xuất bản.** Trong Astro, tên file chính là URL Slug (`/blog/[slug]`). Đổi tên file sẽ sinh ra 2 bài viết trùng lặp trên website và làm gãy liên kết (lỗi 404) trên Google Search. Nếu cần sửa tiêu đề, chỉ sửa trường `title` trong frontmatter.
 3. **Tuân thủ nghiêm ngặt Frontmatter Schema (`src/content/config.ts`):**
